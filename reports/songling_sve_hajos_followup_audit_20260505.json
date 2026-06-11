@@ -1,0 +1,1057 @@
+{
+  "request": "Songling 2026-05-05 asks whether the 22 raw S-v-e critical witness graphs can also be obtained through ordinary Hajos join.",
+  "source_csv": ".hermes/reports/songling_snark_critical_subgraph_audit.csv",
+  "summary": {
+    "raw_sve_target_count": 22,
+    "raw_sve_targets_with_ordinary_hajos_witness": 22,
+    "all_22_raw_sve_targets_have_ordinary_hajos_witness": true,
+    "unique_census_target_count": 7,
+    "unique_census_targets_with_ordinary_hajos_witness": 7,
+    "all_unique_census_targets_have_ordinary_hajos_witness": true,
+    "unique_targets_by_order": {
+      "17": [
+        195,
+        196
+      ],
+      "19": [
+        1910,
+        1911,
+        1913,
+        1917,
+        3026
+      ]
+    },
+    "raw_targets_by_order": {
+      "17": 10,
+      "19": 12
+    },
+    "ordinary_hajos_formalization": "Delete one edge from each smaller Delta=3 critical survivor, identify one endpoint from each deleted edge, and add an edge between the two non-identified endpoints; all endpoint orientations are tested.",
+    "candidate_count": 828,
+    "exact_iso_checks": 3816
+  },
+  "source_pair_summaries": [
+    {
+      "target_order": 17,
+      "left_order": 5,
+      "right_order": 13,
+      "left_source_count": 0,
+      "right_source_count": 14,
+      "candidate_count": 0,
+      "exact_iso_checks": 0,
+      "unique_target_classes_hit": []
+    },
+    {
+      "target_order": 17,
+      "left_order": 7,
+      "right_order": 11,
+      "left_source_count": 0,
+      "right_source_count": 2,
+      "candidate_count": 0,
+      "exact_iso_checks": 0,
+      "unique_target_classes_hit": []
+    },
+    {
+      "target_order": 17,
+      "left_order": 9,
+      "right_order": 9,
+      "left_source_count": 1,
+      "right_source_count": 1,
+      "candidate_count": 252,
+      "exact_iso_checks": 2520,
+      "unique_target_classes_hit": [
+        [
+          17,
+          195
+        ],
+        [
+          17,
+          196
+        ]
+      ]
+    },
+    {
+      "target_order": 19,
+      "left_order": 5,
+      "right_order": 15,
+      "left_source_count": 0,
+      "right_source_count": 94,
+      "candidate_count": 0,
+      "exact_iso_checks": 0,
+      "unique_target_classes_hit": []
+    },
+    {
+      "target_order": 19,
+      "left_order": 7,
+      "right_order": 13,
+      "left_source_count": 0,
+      "right_source_count": 14,
+      "candidate_count": 0,
+      "exact_iso_checks": 0,
+      "unique_target_classes_hit": []
+    },
+    {
+      "target_order": 19,
+      "left_order": 9,
+      "right_order": 11,
+      "left_source_count": 1,
+      "right_source_count": 2,
+      "candidate_count": 576,
+      "exact_iso_checks": 1296,
+      "unique_target_classes_hit": [
+        [
+          19,
+          1910
+        ],
+        [
+          19,
+          1911
+        ],
+        [
+          19,
+          1913
+        ],
+        [
+          19,
+          1917
+        ],
+        [
+          19,
+          3026
+        ]
+      ]
+    }
+  ],
+  "unique_census_targets": [
+    {
+      "target_order": 17,
+      "target_index": 195,
+      "raw_panel_count": 2,
+      "raw_panels": [
+        7,
+        10
+      ],
+      "hajos_witness_count_total_across_raw_rows": 216,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 7,
+        "target_order": 17,
+        "target_index": 195,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          0,
+          3
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "target_order": 17,
+      "target_index": 196,
+      "raw_panel_count": 8,
+      "raw_panels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "hajos_witness_count_total_across_raw_rows": 1152,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 1,
+        "target_order": 17,
+        "target_index": 196,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          1,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "target_order": 19,
+      "target_index": 1910,
+      "raw_panel_count": 1,
+      "raw_panels": [
+        21
+      ],
+      "hajos_witness_count_total_across_raw_rows": 12,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 21,
+        "target_order": 19,
+        "target_index": 1910,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 1,
+        "right_edge": [
+          2,
+          9
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "target_order": 19,
+      "target_index": 1911,
+      "raw_panel_count": 1,
+      "raw_panels": [
+        15
+      ],
+      "hajos_witness_count_total_across_raw_rows": 36,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 15,
+        "target_order": 19,
+        "target_index": 1911,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 1,
+        "right_edge": [
+          2,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "target_order": 19,
+      "target_index": 1913,
+      "raw_panel_count": 3,
+      "raw_panels": [
+        13,
+        18,
+        19
+      ],
+      "hajos_witness_count_total_across_raw_rows": 72,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 13,
+        "target_order": 19,
+        "target_index": 1913,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          1,
+          6
+        ],
+        "right_order": 11,
+        "right_index": 1,
+        "right_edge": [
+          2,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 1
+      }
+    },
+    {
+      "target_order": 19,
+      "target_index": 1917,
+      "raw_panel_count": 3,
+      "raw_panels": [
+        12,
+        20,
+        22
+      ],
+      "hajos_witness_count_total_across_raw_rows": 36,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 12,
+        "target_order": 19,
+        "target_index": 1917,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 2,
+        "right_edge": [
+          6,
+          10
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "target_order": 19,
+      "target_index": 3026,
+      "raw_panel_count": 4,
+      "raw_panels": [
+        11,
+        14,
+        16,
+        17
+      ],
+      "hajos_witness_count_total_across_raw_rows": 96,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 11,
+        "target_order": 19,
+        "target_index": 3026,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 2,
+        "right_edge": [
+          2,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    }
+  ],
+  "raw_rows": [
+    {
+      "raw_panel": 1,
+      "target_order": 17,
+      "target_index": 196,
+      "target_graph6": "P??CA?_CC`E_P?BO?WAS?gC?",
+      "snark_order": 18,
+      "snark_class_index": 1,
+      "deleted_vertex": 3,
+      "deleted_edge_after_vertex_deletion": "[5, 10]",
+      "hajos_witness_count": 144,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 1,
+        "target_order": 17,
+        "target_index": 196,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          1,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 2,
+      "target_order": 17,
+      "target_index": 196,
+      "target_graph6": "P??CA?_ACPD_T?@OAWAC?gC?",
+      "snark_order": 18,
+      "snark_class_index": 1,
+      "deleted_vertex": 5,
+      "deleted_edge_after_vertex_deletion": "[3, 9]",
+      "hajos_witness_count": 144,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 2,
+        "target_order": 17,
+        "target_index": 196,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          1,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 3,
+      "target_order": 17,
+      "target_index": 196,
+      "target_graph6": "P???A?oBCPD?S?@OAWAK?gC?",
+      "snark_order": 18,
+      "snark_class_index": 1,
+      "deleted_vertex": 6,
+      "deleted_edge_after_vertex_deletion": "[0, 7]",
+      "hajos_witness_count": 144,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 3,
+        "target_order": 17,
+        "target_index": 196,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          1,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 4,
+      "target_order": 17,
+      "target_index": 196,
+      "target_graph6": "P???A?oBCPD?S_@oAGAG?gC?",
+      "snark_order": 18,
+      "snark_class_index": 1,
+      "deleted_vertex": 7,
+      "deleted_edge_after_vertex_deletion": "[6, 12]",
+      "hajos_witness_count": 144,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 4,
+        "target_order": 17,
+        "target_index": 196,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          1,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 5,
+      "target_order": 17,
+      "target_index": 196,
+      "target_graph6": "P??CA?_CCoIOI?BGCg?B?oC?",
+      "snark_order": 18,
+      "snark_class_index": 2,
+      "deleted_vertex": 0,
+      "deleted_edge_after_vertex_deletion": "[7, 13]",
+      "hajos_witness_count": 144,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 5,
+        "target_order": 17,
+        "target_index": 196,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          1,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 6,
+      "target_order": 17,
+      "target_index": 196,
+      "target_graph6": "P?AA??_cAoAOI_@GCgCB?OC?",
+      "snark_order": 18,
+      "snark_class_index": 2,
+      "deleted_vertex": 2,
+      "deleted_edge_after_vertex_deletion": "[5, 14]",
+      "hajos_witness_count": 144,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 6,
+        "target_order": 17,
+        "target_index": 196,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          1,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 7,
+      "target_order": 17,
+      "target_index": 195,
+      "target_graph6": "P?AA??OaAODOC_@GAgCB?WC?",
+      "snark_order": 18,
+      "snark_class_index": 2,
+      "deleted_vertex": 5,
+      "deleted_edge_after_vertex_deletion": "[2, 8]",
+      "hajos_witness_count": 108,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 7,
+        "target_order": 17,
+        "target_index": 195,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          0,
+          3
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 8,
+      "target_order": 17,
+      "target_index": 196,
+      "target_graph6": "P??CA?OaAODGDO@gAOC@?WC?",
+      "snark_order": 18,
+      "snark_class_index": 2,
+      "deleted_vertex": 8,
+      "deleted_edge_after_vertex_deletion": "[5, 11]",
+      "hajos_witness_count": 144,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 8,
+        "target_order": 17,
+        "target_index": 196,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          1,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 9,
+      "target_order": 17,
+      "target_index": 196,
+      "target_graph6": "P??CA?_CAWDG@O@cASC@_W??",
+      "snark_order": 18,
+      "snark_class_index": 2,
+      "deleted_vertex": 10,
+      "deleted_edge_after_vertex_deletion": "[3, 13]",
+      "hajos_witness_count": 144,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 9,
+        "target_order": 17,
+        "target_index": 196,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          1,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 10,
+      "target_order": 17,
+      "target_index": 195,
+      "target_graph6": "P??CA?_C?OH_IO@cASC@_WA?",
+      "snark_order": 18,
+      "snark_class_index": 2,
+      "deleted_vertex": 13,
+      "deleted_edge_after_vertex_deletion": "[0, 10]",
+      "hajos_witness_count": 108,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 10,
+        "target_order": 17,
+        "target_index": 195,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 9,
+        "right_index": 1,
+        "right_edge": [
+          0,
+          3
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 11,
+      "target_order": 19,
+      "target_index": 3026,
+      "target_graph6": "R????A?WA_BAHAK?OO?[??wAH??H??",
+      "snark_order": 20,
+      "snark_class_index": 1,
+      "deleted_vertex": 0,
+      "deleted_edge_after_vertex_deletion": "[2, 15]",
+      "hajos_witness_count": 24,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 11,
+        "target_order": 19,
+        "target_index": 3026,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 2,
+        "right_edge": [
+          2,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 12,
+      "target_order": 19,
+      "target_index": 1917,
+      "target_graph6": "R????A?O@_D?BAC`B??M??[@C_CC_?",
+      "snark_order": 20,
+      "snark_class_index": 1,
+      "deleted_vertex": 15,
+      "deleted_edge_after_vertex_deletion": "[0, 14]",
+      "hajos_witness_count": 12,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 12,
+        "target_order": 19,
+        "target_index": 1917,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 2,
+        "right_edge": [
+          6,
+          10
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 13,
+      "target_order": 19,
+      "target_index": 1913,
+      "target_graph6": "R??CA??GC_X?T?E_@@@H??[?`??G_?",
+      "snark_order": 20,
+      "snark_class_index": 2,
+      "deleted_vertex": 2,
+      "deleted_edge_after_vertex_deletion": "[7, 18]",
+      "hajos_witness_count": 24,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 13,
+        "target_order": 19,
+        "target_index": 1913,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          1,
+          6
+        ],
+        "right_order": 11,
+        "right_index": 1,
+        "right_edge": [
+          2,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 1
+      }
+    },
+    {
+      "raw_panel": 14,
+      "target_order": 19,
+      "target_index": 3026,
+      "target_graph6": "R???C@?G?_P?p?Q_@g?c_?M?@_@CO?",
+      "snark_order": 20,
+      "snark_class_index": 2,
+      "deleted_vertex": 15,
+      "deleted_edge_after_vertex_deletion": "[3, 18]",
+      "hajos_witness_count": 24,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 14,
+        "target_order": 19,
+        "target_index": 3026,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 2,
+        "right_edge": [
+          2,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 15,
+      "target_order": 19,
+      "target_index": 1911,
+      "target_graph6": "R???C@?G?_P?p?Q_@g?GGCc??w@CO?",
+      "snark_order": 20,
+      "snark_class_index": 2,
+      "deleted_vertex": 18,
+      "deleted_edge_after_vertex_deletion": "[2, 15]",
+      "hajos_witness_count": 36,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 15,
+        "target_order": 19,
+        "target_index": 1911,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 1,
+        "right_edge": [
+          2,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 16,
+      "target_order": 19,
+      "target_index": 3026,
+      "target_graph6": "R???C@?G?wQ?Coa_?gBO?@K?__A?_?",
+      "snark_order": 20,
+      "snark_class_index": 3,
+      "deleted_vertex": 6,
+      "deleted_edge_after_vertex_deletion": "[7, 19]",
+      "hajos_witness_count": 24,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 16,
+        "target_order": 19,
+        "target_index": 3026,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 2,
+        "right_edge": [
+          2,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 17,
+      "target_order": 19,
+      "target_index": 3026,
+      "target_graph6": "R???C@?G?wQOCOa??wBO?@K?__A?_?",
+      "snark_order": 20,
+      "snark_class_index": 3,
+      "deleted_vertex": 7,
+      "deleted_edge_after_vertex_deletion": "[6, 18]",
+      "hajos_witness_count": 24,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 17,
+        "target_order": 19,
+        "target_index": 3026,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 2,
+        "right_edge": [
+          2,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 18,
+      "target_order": 19,
+      "target_index": 1913,
+      "target_graph6": "R???C@?C?WW?WOi??K?g?@c?Go?cO?",
+      "snark_order": 20,
+      "snark_class_index": 4,
+      "deleted_vertex": 9,
+      "deleted_edge_after_vertex_deletion": "[6, 12]",
+      "hajos_witness_count": 24,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 18,
+        "target_order": 19,
+        "target_index": 1913,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          1,
+          6
+        ],
+        "right_order": 11,
+        "right_index": 1,
+        "right_edge": [
+          2,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 1
+      }
+    },
+    {
+      "raw_panel": 19,
+      "target_order": 19,
+      "target_index": 1913,
+      "target_graph6": "R???C@?G?_@_WOi??M?g?@a?Gg?cG?",
+      "snark_order": 20,
+      "snark_class_index": 4,
+      "deleted_vertex": 12,
+      "deleted_edge_after_vertex_deletion": "[9, 16]",
+      "hajos_witness_count": 24,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 19,
+        "target_order": 19,
+        "target_index": 1913,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          1,
+          6
+        ],
+        "right_order": 11,
+        "right_index": 1,
+        "right_edge": [
+          2,
+          6
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 1
+      }
+    },
+    {
+      "raw_panel": 20,
+      "target_order": 19,
+      "target_index": 1917,
+      "target_graph6": "R???C@?G?_BAHAK_@oEO?@W@@?C@??",
+      "snark_order": 20,
+      "snark_class_index": 5,
+      "deleted_vertex": 2,
+      "deleted_edge_after_vertex_deletion": "[7, 19]",
+      "hajos_witness_count": 12,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 20,
+        "target_order": 19,
+        "target_index": 1917,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 2,
+        "right_edge": [
+          6,
+          10
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 21,
+      "target_order": 19,
+      "target_index": 1910,
+      "target_graph6": "R???C@?K@O@aCaE??oEG??w@@?C@??",
+      "snark_order": 20,
+      "snark_class_index": 5,
+      "deleted_vertex": 7,
+      "deleted_edge_after_vertex_deletion": "[2, 18]",
+      "hajos_witness_count": 12,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 21,
+        "target_order": 19,
+        "target_index": 1910,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 1,
+        "right_edge": [
+          2,
+          9
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    },
+    {
+      "raw_panel": 22,
+      "target_order": 19,
+      "target_index": 1917,
+      "target_graph6": "R????A?O@_D?BAC`B??M?p??AoCA_?",
+      "snark_order": 20,
+      "snark_class_index": 5,
+      "deleted_vertex": 18,
+      "deleted_edge_after_vertex_deletion": "[7, 14]",
+      "hajos_witness_count": 12,
+      "has_ordinary_hajos_witness": true,
+      "example_witness": {
+        "raw_panel": 22,
+        "target_order": 19,
+        "target_index": 1917,
+        "op": "ordinary_hajos",
+        "left_order": 9,
+        "left_index": 1,
+        "left_edge": [
+          0,
+          3
+        ],
+        "right_order": 11,
+        "right_index": 2,
+        "right_edge": [
+          6,
+          10
+        ],
+        "identify_left_endpoint": 0,
+        "identify_right_endpoint": 0
+      }
+    }
+  ]
+}

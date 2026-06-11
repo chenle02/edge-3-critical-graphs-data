@@ -1,0 +1,18 @@
+{
+  "order": 12,
+  "delta_max": 3,
+  "min_degree_bound": 2,
+  "generated_biconnected": 3421,
+  "processed_graphs": 3421,
+  "pruned_by_filters": 264,
+  "class1_or_noncritical": 3156,
+  "total_critical": 0,
+  "overfull_count": 0,
+  "survivor_count": 0,
+  "survivors": [],
+  "runtime_seconds": 0.854,
+  "interrupted": false,
+  "interruption_reason": null,
+  "resume_safe": true,
+  "resume_prefix_fingerprint": "7004098e020adb4e569778dcc17b4cdd7aa095a27d386d2454238835279a3dd6"
+}

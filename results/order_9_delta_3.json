@@ -1,0 +1,89 @@
+{
+  "order": 9,
+  "delta_max": 3,
+  "min_degree_bound": 2,
+  "generated_biconnected": 115,
+  "processed_graphs": 115,
+  "pruned_by_filters": 8,
+  "class1_or_noncritical": 88,
+  "total_critical": 18,
+  "overfull_count": 17,
+  "survivor_count": 1,
+  "survivors": [
+    {
+      "status": "survivor",
+      "graph6": "HCOf@pS",
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "degree_sequence": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "delta_max": 3,
+      "delta_min": 2,
+      "alpha": 4,
+      "alpha_ratio": 0.4444444444444444,
+      "overfull_subsets": []
+    }
+  ],
+  "runtime_seconds": 0.042,
+  "interrupted": false,
+  "interruption_reason": null,
+  "resume_safe": true,
+  "resume_prefix_fingerprint": "5b788d9508c88033978b658f72cb01703e75f6e28da8732c5015444c179eb842"
+}

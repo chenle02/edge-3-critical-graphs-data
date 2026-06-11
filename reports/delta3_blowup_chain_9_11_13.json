@@ -1,0 +1,1142 @@
+{
+  "known_seed_family_sizes": {
+    "9": 1,
+    "11": 2,
+    "13": 14
+  },
+  "orders": [
+    {
+      "order": 9,
+      "max_depth": 0,
+      "survivors": [
+        {
+          "index": 1,
+          "graph6": "HCOf@pS",
+          "triangle_count": 0,
+          "triangles": [],
+          "contractible_triangles": [],
+          "min_hit_depth": null,
+          "target_orders_hit": [],
+          "hits": []
+        }
+      ],
+      "summary": {
+        "survivor_count": 1,
+        "by_triangle_count": {
+          "0": 1
+        },
+        "with_contractible_triangle": 0,
+        "with_hit_to_smaller_survivor": 0,
+        "minimum_hit_depth_counts": {},
+        "target_order_counts": {}
+      }
+    },
+    {
+      "order": 11,
+      "max_depth": 1,
+      "survivors": [
+        {
+          "index": 1,
+          "graph6": "J?`@E_[KbO?",
+          "triangle_count": 1,
+          "triangles": [
+            [
+              2,
+              6,
+              9
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                2,
+                6,
+                9
+              ],
+              "profile": [
+                1,
+                1,
+                0
+              ],
+              "external_neighbors": [
+                10,
+                3
+              ],
+              "contracted_graph6": "HCR`q_`",
+              "contracted_order": 9
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "graph6": "J?`D@bOF@K?",
+          "triangle_count": 1,
+          "triangles": [
+            [
+              2,
+              6,
+              10
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                2,
+                6,
+                10
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                7,
+                0,
+                5
+              ],
+              "contracted_graph6": "HCOf@qK",
+              "contracted_order": 9
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "survivor_count": 2,
+        "by_triangle_count": {
+          "1": 2
+        },
+        "with_contractible_triangle": 2,
+        "with_hit_to_smaller_survivor": 2,
+        "minimum_hit_depth_counts": {
+          "1": 2
+        },
+        "target_order_counts": {
+          "9": 2
+        }
+      }
+    },
+    {
+      "order": 13,
+      "max_depth": 2,
+      "survivors": [
+        {
+          "index": 1,
+          "graph6": "L??ED?WS`gH_IO",
+          "triangle_count": 2,
+          "triangles": [
+            [
+              1,
+              6,
+              9
+            ],
+            [
+              2,
+              7,
+              12
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                1,
+                6,
+                9
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                11,
+                0,
+                3
+              ],
+              "contracted_graph6": "J?B@bOWTD@?",
+              "contracted_order": 11
+            },
+            {
+              "triangle": [
+                2,
+                7,
+                12
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                10,
+                0,
+                4
+              ],
+              "contracted_graph6": "J?B@bGgUC`?",
+              "contracted_order": 11
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9,
+            11
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`D@bOF@K?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            }
+          ],
+          "alpha": 6
+        },
+        {
+          "index": 2,
+          "graph6": "L?AA@AWw@KBGE_",
+          "triangle_count": 0,
+          "triangles": [],
+          "contractible_triangles": [],
+          "min_hit_depth": null,
+          "target_orders_hit": [],
+          "hits": [],
+          "alpha": 6
+        },
+        {
+          "index": 3,
+          "graph6": "L?AA@AWeBG?wK_",
+          "triangle_count": 0,
+          "triangles": [],
+          "contractible_triangles": [],
+          "min_hit_depth": null,
+          "target_orders_hit": [],
+          "hits": [],
+          "alpha": 6
+        },
+        {
+          "index": 4,
+          "graph6": "L?AA@ASq?sDG[?",
+          "triangle_count": 2,
+          "triangles": [
+            [
+              0,
+              5,
+              8
+            ],
+            [
+              2,
+              7,
+              11
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                0,
+                5,
+                8
+              ],
+              "profile": [
+                1,
+                1,
+                0
+              ],
+              "external_neighbors": [
+                9,
+                3
+              ],
+              "contracted_graph6": "J?`C`pSw@C?",
+              "contracted_order": 11
+            },
+            {
+              "triangle": [
+                2,
+                7,
+                11
+              ],
+              "profile": [
+                1,
+                1,
+                0
+              ],
+              "external_neighbors": [
+                12,
+                4
+              ],
+              "contracted_graph6": "J?`DU_sW?__",
+              "contracted_order": 11
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9,
+            11
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`@E_[KbO?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ],
+          "alpha": 5
+        },
+        {
+          "index": 5,
+          "graph6": "L?AA@ASeBO@WK_",
+          "triangle_count": 1,
+          "triangles": [
+            [
+              0,
+              5,
+              8
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                0,
+                5,
+                8
+              ],
+              "profile": [
+                1,
+                1,
+                0
+              ],
+              "external_neighbors": [
+                9,
+                3
+              ],
+              "contracted_graph6": "J?`@e_[Y@C?",
+              "contracted_order": 11
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9,
+            11
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`@E_[KbO?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ],
+          "alpha": 5
+        },
+        {
+          "index": 6,
+          "graph6": "L?AAD?op?w@WCg",
+          "triangle_count": 2,
+          "triangles": [
+            [
+              0,
+              5,
+              9
+            ],
+            [
+              3,
+              8,
+              12
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                0,
+                5,
+                9
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                7,
+                10,
+                1
+              ],
+              "contracted_graph6": "J?`B@_[IcI?",
+              "contracted_order": 11
+            },
+            {
+              "triangle": [
+                3,
+                8,
+                12
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                10,
+                2,
+                6
+              ],
+              "contracted_graph6": "J?`DEOWD`H?",
+              "contracted_order": 11
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9,
+            11
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`D@bOF@K?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            }
+          ],
+          "alpha": 6
+        },
+        {
+          "index": 7,
+          "graph6": "L?AAD?Ws?kDGI_",
+          "triangle_count": 1,
+          "triangles": [
+            [
+              2,
+              7,
+              11
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                2,
+                7,
+                11
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                12,
+                0,
+                4
+              ],
+              "contracted_graph6": "J?`@f?kDC__",
+              "contracted_order": 11
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9,
+            11
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`D@bOF@K?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            }
+          ],
+          "alpha": 6
+        },
+        {
+          "index": 8,
+          "graph6": "L?AAD?WKIg@oGo",
+          "triangle_count": 2,
+          "triangles": [
+            [
+              2,
+              7,
+              12
+            ],
+            [
+              3,
+              8,
+              9
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                2,
+                7,
+                12
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                9,
+                0,
+                6
+              ],
+              "contracted_graph6": "J?`@`DgFCI?",
+              "contracted_order": 11
+            },
+            {
+              "triangle": [
+                3,
+                8,
+                9
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                10,
+                4,
+                2
+              ],
+              "contracted_graph6": "J?`DAO[H`a?",
+              "contracted_order": 11
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9,
+            11
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`D@bOF@K?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            }
+          ],
+          "alpha": 5
+        },
+        {
+          "index": 9,
+          "graph6": "L?AA@_ghECB_QO",
+          "triangle_count": 2,
+          "triangles": [
+            [
+              0,
+              5,
+              9
+            ],
+            [
+              1,
+              6,
+              10
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                0,
+                5,
+                9
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                10,
+                11,
+                2
+              ],
+              "contracted_graph6": "J?`acOodAB?",
+              "contracted_order": 11
+            },
+            {
+              "triangle": [
+                1,
+                6,
+                10
+              ],
+              "profile": [
+                1,
+                1,
+                0
+              ],
+              "external_neighbors": [
+                12,
+                0
+              ],
+              "contracted_graph6": "J?`aeOwDC?_",
+              "contracted_order": 11
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9,
+            11
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`@E_[KbO?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`D@bOF@K?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ],
+          "alpha": 5
+        },
+        {
+          "index": 10,
+          "graph6": "L?AA@_ggQcB_q?",
+          "triangle_count": 2,
+          "triangles": [
+            [
+              1,
+              6,
+              10
+            ],
+            [
+              2,
+              7,
+              9
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                1,
+                6,
+                10
+              ],
+              "profile": [
+                1,
+                1,
+                0
+              ],
+              "external_neighbors": [
+                12,
+                3
+              ],
+              "contracted_graph6": "J?`aeGwc@?_",
+              "contracted_order": 11
+            },
+            {
+              "triangle": [
+                2,
+                7,
+                9
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                8,
+                3,
+                0
+              ],
+              "contracted_graph6": "J?`?bGwsDC?",
+              "contracted_order": 11
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9,
+            11
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`@E_[KbO?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`D@bOF@K?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ],
+          "alpha": 6
+        },
+        {
+          "index": 11,
+          "graph6": "L?AA@_gcQH@oK_",
+          "triangle_count": 1,
+          "triangles": [
+            [
+              3,
+              7,
+              9
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                3,
+                7,
+                9
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                12,
+                2,
+                0
+              ],
+              "contracted_graph6": "J?`@aS[HD?_",
+              "contracted_order": 11
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9,
+            11
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`D@bOF@K?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            }
+          ],
+          "alpha": 6
+        },
+        {
+          "index": 12,
+          "graph6": "L?AA@_gaOwKOP_",
+          "triangle_count": 2,
+          "triangles": [
+            [
+              1,
+              6,
+              11
+            ],
+            [
+              1,
+              6,
+              12
+            ]
+          ],
+          "contractible_triangles": [],
+          "min_hit_depth": null,
+          "target_orders_hit": [],
+          "hits": [],
+          "alpha": 6
+        },
+        {
+          "index": 13,
+          "graph6": "L?AA@_gIU_AoR?",
+          "triangle_count": 1,
+          "triangles": [
+            [
+              2,
+              7,
+              9
+            ]
+          ],
+          "contractible_triangles": [
+            {
+              "triangle": [
+                2,
+                7,
+                9
+              ],
+              "profile": [
+                1,
+                1,
+                1
+              ],
+              "external_neighbors": [
+                8,
+                3,
+                4
+              ],
+              "contracted_graph6": "J?`?f?kU@c?",
+              "contracted_order": 11
+            }
+          ],
+          "min_hit_depth": 1,
+          "target_orders_hit": [
+            9,
+            11
+          ],
+          "hits": [
+            {
+              "depth": 1,
+              "target_order": 11,
+              "target_graph6": "J?`@E_[KbO?",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "depth": 2,
+              "target_order": 9,
+              "target_graph6": "HCOf@pS",
+              "path_profiles": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ],
+          "alpha": 6
+        },
+        {
+          "index": 14,
+          "graph6": "L?`@?aGq@g?wCg",
+          "triangle_count": 2,
+          "triangles": [
+            [
+              0,
+              4,
+              8
+            ],
+            [
+              0,
+              4,
+              9
+            ]
+          ],
+          "contractible_triangles": [],
+          "min_hit_depth": null,
+          "target_orders_hit": [],
+          "hits": [],
+          "alpha": 5
+        }
+      ],
+      "summary": {
+        "survivor_count": 14,
+        "by_triangle_count": {
+          "0": 2,
+          "1": 4,
+          "2": 8
+        },
+        "with_contractible_triangle": 10,
+        "with_hit_to_smaller_survivor": 10,
+        "minimum_hit_depth_counts": {
+          "1": 10
+        },
+        "target_order_counts": {
+          "9": 10,
+          "11": 10
+        }
+      }
+    }
+  ]
+}

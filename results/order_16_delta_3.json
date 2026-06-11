@@ -1,0 +1,13 @@
+{
+  "order": 16,
+  "delta_max": 3,
+  "min_degree_bound": 2,
+  "generated_biconnected": 666854,
+  "pruned_by_filters": 13341,
+  "class1_or_noncritical": 653512,
+  "total_critical": 0,
+  "overfull_count": 0,
+  "survivor_count": 0,
+  "survivors": [],
+  "runtime_seconds": 36.171
+}

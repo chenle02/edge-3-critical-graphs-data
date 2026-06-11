@@ -1,0 +1,783 @@
+{
+  "15": {
+    "remaining_count": 3,
+    "summary": {
+      "triangle_free": 3,
+      "no_induced_K23": 3,
+      "has_4cycle": 3,
+      "has_2_or_3_edge_cut": 3,
+      "fails_songling_reduction_hypotheses": 3
+    },
+    "rows": [
+      {
+        "index": 9,
+        "graph6": "N??CA?_FCoI_W_?w@c?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 4,
+        "count_4cycles": 3,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 57,
+        "graph6": "N?AA@?OaEOD_K_?w?e?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 4,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 58,
+        "graph6": "N?AA@?OaEOD_SO?w?e?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 4,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      }
+    ]
+  },
+  "17": {
+    "remaining_count": 33,
+    "summary": {
+      "triangle_free": 33,
+      "no_induced_K23": 33,
+      "no_4cycle": 8,
+      "has_2_or_3_edge_cut": 33,
+      "fails_songling_reduction_hypotheses": 33,
+      "has_4cycle": 25
+    },
+    "rows": [
+      {
+        "index": 108,
+        "graph6": "P???C@?K?WPAI_S_?s?b?PO?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 5,
+        "diameter": 5,
+        "count_4cycles": 0,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 149,
+        "graph6": "P???C@?K?WDOw?QOQC?k?@W?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 5,
+        "diameter": 4,
+        "count_4cycles": 0,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          4
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 201,
+        "graph6": "P???C@?K?WDOM?_cW_?J?Cg?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 203,
+        "graph6": "P???C@?K?WDOK_c_W_?J?AK?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 3,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 204,
+        "graph6": "P???C@?K?WDOK_c_GH?J?AK?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 3,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 205,
+        "graph6": "P???C@?K?WDOK__cW_?J?EG?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 206,
+        "graph6": "P???C@?K?WDOK__cGH?J?EG?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 227,
+        "graph6": "P???C@?GCoOoDOAoM??D_IG?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 5,
+        "diameter": 5,
+        "count_4cycles": 0,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          4,
+          4
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 254,
+        "graph6": "P???C@?G?wBOd?P_KG?B_Ac?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 3,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 255,
+        "graph6": "P???C@?G?wBOd?P_SC?B_Ac?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 4,
+        "count_4cycles": 3,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 278,
+        "graph6": "P??CA?_CCOP_R?H_EG?B_?e?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 3,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 279,
+        "graph6": "P??CA?_CCOP_R?H_IC?B_?e?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 3,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 280,
+        "graph6": "P??CA?_CCOP_Q_H_EG?B_@E?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 1,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 281,
+        "graph6": "P??CA?_CCOP_Q_H_IC?B_@E?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 4,
+        "count_4cycles": 1,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 302,
+        "graph6": "P??CA?_CCOH_Y?@QEO?D_@S?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 303,
+        "graph6": "P??CA?_CCOH_Y?@QQC?D_@S?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 305,
+        "graph6": "P??CA?_CCOH_IODO?q?d?_K?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 5,
+        "diameter": 5,
+        "count_4cycles": 0,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 306,
+        "graph6": "P??CA?_CCOH_BOX?EO?D_?U?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 324,
+        "graph6": "P??CA?_CCOW_W_B_BC?B_@E?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 5,
+        "diameter": 4,
+        "count_4cycles": 0,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 325,
+        "graph6": "P??CA?_CCOW_W_@oF??P_@S?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 5,
+        "diameter": 4,
+        "count_4cycles": 1,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 326,
+        "graph6": "P??CA?_CCOW_W_@oB_?P_CW?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 5,
+        "diameter": 5,
+        "count_4cycles": 0,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          4
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 327,
+        "graph6": "P??CA?_CCOW_W_@oB_?P_GS?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 5,
+        "diameter": 4,
+        "count_4cycles": 0,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 329,
+        "graph6": "P??CA?_CCOW_Q_@oF??H_CW?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 5,
+        "diameter": 4,
+        "count_4cycles": 0,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          4
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 417,
+        "graph6": "P??CA?_C?WX?w?AoE_?H_?s?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 418,
+        "graph6": "P??CA?_C?WX?w?AoAD?H_?s?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 4,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 457,
+        "graph6": "P??CA?_CCO@oQ_h?EG?B_@E?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 1,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 528,
+        "graph6": "P??CA?_C?WP_Q_H_EG?B__E?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 1,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 585,
+        "graph6": "P???C@?K?W@QM?g_W_?J?Cg?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 5,
+        "diameter": 4,
+        "count_4cycles": 1,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 587,
+        "graph6": "P???C@?K?W@QK_g_W_?J?EG?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 588,
+        "graph6": "P???C@?K?W@QK_g_GH?J?EG?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 590,
+        "graph6": "P???C@?K?W@QI_c_W_?J?KG?",
+        "alpha": 7,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 616,
+        "graph6": "P??CA?_C?WW@i?B_EG?B_@c?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 5,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      },
+      {
+        "index": 617,
+        "graph6": "P??CA?_C?WW@i?B_IC?B_@c?",
+        "alpha": 8,
+        "triangle_count": 0,
+        "triangle_rule_violation": false,
+        "girth": 4,
+        "diameter": 5,
+        "count_4cycles": 2,
+        "has_induced_K23": false,
+        "small_edge_cuts_present": [
+          2,
+          3
+        ],
+        "degree2_distances": [
+          3,
+          3,
+          3
+        ],
+        "passes_songling_reduction_hypotheses": false
+      }
+    ]
+  }
+}

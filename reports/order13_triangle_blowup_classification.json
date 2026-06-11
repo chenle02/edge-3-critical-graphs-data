@@ -1,0 +1,959 @@
+[
+  {
+    "index": 1,
+    "graph6": "L??ED?WS`gH_IO",
+    "triangle_count": 2,
+    "triangles": [
+      [
+        1,
+        6,
+        9
+      ],
+      [
+        2,
+        7,
+        12
+      ]
+    ],
+    "contractible_triangles": [
+      {
+        "triangle": [
+          1,
+          6,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "external_neighbors": [
+          11,
+          0,
+          3
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      },
+      {
+        "triangle": [
+          2,
+          7,
+          12
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "external_neighbors": [
+          10,
+          0,
+          4
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "one_step_hits": [
+      {
+        "triangle": [
+          1,
+          6,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      },
+      {
+        "triangle": [
+          2,
+          7,
+          12
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "two_step_hits": [
+      {
+        "first_triangle": [
+          1,
+          6,
+          9
+        ],
+        "first_profile": [
+          1,
+          1,
+          1
+        ],
+        "second_triangle_in_contracted_graph": [
+          1,
+          5,
+          9
+        ],
+        "second_profile": [
+          1,
+          1,
+          1
+        ],
+        "target": "order9-survivor"
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "graph6": "L?AA@AWw@KBGE_",
+    "triangle_count": 0,
+    "triangles": [],
+    "contractible_triangles": [],
+    "one_step_hits": [],
+    "two_step_hits": []
+  },
+  {
+    "index": 3,
+    "graph6": "L?AA@AWeBG?wK_",
+    "triangle_count": 0,
+    "triangles": [],
+    "contractible_triangles": [],
+    "one_step_hits": [],
+    "two_step_hits": []
+  },
+  {
+    "index": 4,
+    "graph6": "L?AA@ASq?sDG[?",
+    "triangle_count": 2,
+    "triangles": [
+      [
+        0,
+        5,
+        8
+      ],
+      [
+        2,
+        7,
+        11
+      ]
+    ],
+    "contractible_triangles": [
+      {
+        "triangle": [
+          0,
+          5,
+          8
+        ],
+        "profile": [
+          1,
+          1,
+          0
+        ],
+        "external_neighbors": [
+          9,
+          3
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      },
+      {
+        "triangle": [
+          2,
+          7,
+          11
+        ],
+        "profile": [
+          1,
+          1,
+          0
+        ],
+        "external_neighbors": [
+          12,
+          4
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      }
+    ],
+    "one_step_hits": [
+      {
+        "triangle": [
+          0,
+          5,
+          8
+        ],
+        "profile": [
+          1,
+          1,
+          0
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      },
+      {
+        "triangle": [
+          2,
+          7,
+          11
+        ],
+        "profile": [
+          1,
+          1,
+          0
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      }
+    ],
+    "two_step_hits": [
+      {
+        "first_triangle": [
+          0,
+          5,
+          8
+        ],
+        "first_profile": [
+          1,
+          1,
+          0
+        ],
+        "second_triangle_in_contracted_graph": [
+          1,
+          5,
+          8
+        ],
+        "second_profile": [
+          1,
+          1,
+          0
+        ],
+        "target": "order9-survivor"
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "graph6": "L?AA@ASeBO@WK_",
+    "triangle_count": 1,
+    "triangles": [
+      [
+        0,
+        5,
+        8
+      ]
+    ],
+    "contractible_triangles": [
+      {
+        "triangle": [
+          0,
+          5,
+          8
+        ],
+        "profile": [
+          1,
+          1,
+          0
+        ],
+        "external_neighbors": [
+          9,
+          3
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      }
+    ],
+    "one_step_hits": [
+      {
+        "triangle": [
+          0,
+          5,
+          8
+        ],
+        "profile": [
+          1,
+          1,
+          0
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      }
+    ],
+    "two_step_hits": []
+  },
+  {
+    "index": 6,
+    "graph6": "L?AAD?op?w@WCg",
+    "triangle_count": 2,
+    "triangles": [
+      [
+        0,
+        5,
+        9
+      ],
+      [
+        3,
+        8,
+        12
+      ]
+    ],
+    "contractible_triangles": [
+      {
+        "triangle": [
+          0,
+          5,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "external_neighbors": [
+          7,
+          10,
+          1
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      },
+      {
+        "triangle": [
+          3,
+          8,
+          12
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "external_neighbors": [
+          10,
+          2,
+          6
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "one_step_hits": [
+      {
+        "triangle": [
+          0,
+          5,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      },
+      {
+        "triangle": [
+          3,
+          8,
+          12
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "two_step_hits": [
+      {
+        "first_triangle": [
+          0,
+          5,
+          9
+        ],
+        "first_profile": [
+          1,
+          1,
+          1
+        ],
+        "second_triangle_in_contracted_graph": [
+          2,
+          6,
+          9
+        ],
+        "second_profile": [
+          1,
+          1,
+          1
+        ],
+        "target": "order9-survivor"
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "graph6": "L?AAD?Ws?kDGI_",
+    "triangle_count": 1,
+    "triangles": [
+      [
+        2,
+        7,
+        11
+      ]
+    ],
+    "contractible_triangles": [
+      {
+        "triangle": [
+          2,
+          7,
+          11
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "external_neighbors": [
+          12,
+          0,
+          4
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "one_step_hits": [
+      {
+        "triangle": [
+          2,
+          7,
+          11
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "two_step_hits": []
+  },
+  {
+    "index": 8,
+    "graph6": "L?AAD?WKIg@oGo",
+    "triangle_count": 2,
+    "triangles": [
+      [
+        2,
+        7,
+        12
+      ],
+      [
+        3,
+        8,
+        9
+      ]
+    ],
+    "contractible_triangles": [
+      {
+        "triangle": [
+          2,
+          7,
+          12
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "external_neighbors": [
+          9,
+          0,
+          6
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      },
+      {
+        "triangle": [
+          3,
+          8,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "external_neighbors": [
+          10,
+          4,
+          2
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "one_step_hits": [
+      {
+        "triangle": [
+          2,
+          7,
+          12
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      },
+      {
+        "triangle": [
+          3,
+          8,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "two_step_hits": [
+      {
+        "first_triangle": [
+          2,
+          7,
+          12
+        ],
+        "first_profile": [
+          1,
+          1,
+          1
+        ],
+        "second_triangle_in_contracted_graph": [
+          2,
+          6,
+          7
+        ],
+        "second_profile": [
+          1,
+          1,
+          1
+        ],
+        "target": "order9-survivor"
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "graph6": "L?AA@_ghECB_QO",
+    "triangle_count": 2,
+    "triangles": [
+      [
+        0,
+        5,
+        9
+      ],
+      [
+        1,
+        6,
+        10
+      ]
+    ],
+    "contractible_triangles": [
+      {
+        "triangle": [
+          0,
+          5,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "external_neighbors": [
+          10,
+          11,
+          2
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      },
+      {
+        "triangle": [
+          1,
+          6,
+          10
+        ],
+        "profile": [
+          1,
+          1,
+          0
+        ],
+        "external_neighbors": [
+          12,
+          0
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "one_step_hits": [
+      {
+        "triangle": [
+          0,
+          5,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      },
+      {
+        "triangle": [
+          1,
+          6,
+          10
+        ],
+        "profile": [
+          1,
+          1,
+          0
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "two_step_hits": [
+      {
+        "first_triangle": [
+          0,
+          5,
+          9
+        ],
+        "first_profile": [
+          1,
+          1,
+          1
+        ],
+        "second_triangle_in_contracted_graph": [
+          0,
+          4,
+          7
+        ],
+        "second_profile": [
+          1,
+          1,
+          0
+        ],
+        "target": "order9-survivor"
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "graph6": "L?AA@_ggQcB_q?",
+    "triangle_count": 2,
+    "triangles": [
+      [
+        1,
+        6,
+        10
+      ],
+      [
+        2,
+        7,
+        9
+      ]
+    ],
+    "contractible_triangles": [
+      {
+        "triangle": [
+          1,
+          6,
+          10
+        ],
+        "profile": [
+          1,
+          1,
+          0
+        ],
+        "external_neighbors": [
+          12,
+          3
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      },
+      {
+        "triangle": [
+          2,
+          7,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "external_neighbors": [
+          8,
+          3,
+          0
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      }
+    ],
+    "one_step_hits": [
+      {
+        "triangle": [
+          1,
+          6,
+          10
+        ],
+        "profile": [
+          1,
+          1,
+          0
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      },
+      {
+        "triangle": [
+          2,
+          7,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      }
+    ],
+    "two_step_hits": [
+      {
+        "first_triangle": [
+          1,
+          6,
+          10
+        ],
+        "first_profile": [
+          1,
+          1,
+          0
+        ],
+        "second_triangle_in_contracted_graph": [
+          1,
+          5,
+          7
+        ],
+        "second_profile": [
+          1,
+          1,
+          1
+        ],
+        "target": "order9-survivor"
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "graph6": "L?AA@_gcQH@oK_",
+    "triangle_count": 1,
+    "triangles": [
+      [
+        3,
+        7,
+        9
+      ]
+    ],
+    "contractible_triangles": [
+      {
+        "triangle": [
+          3,
+          7,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "external_neighbors": [
+          12,
+          2,
+          0
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "one_step_hits": [
+      {
+        "triangle": [
+          3,
+          7,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "hits": [
+          "order11-survivor-2"
+        ]
+      }
+    ],
+    "two_step_hits": []
+  },
+  {
+    "index": 12,
+    "graph6": "L?AA@_gaOwKOP_",
+    "triangle_count": 2,
+    "triangles": [
+      [
+        1,
+        6,
+        11
+      ],
+      [
+        1,
+        6,
+        12
+      ]
+    ],
+    "contractible_triangles": [],
+    "one_step_hits": [],
+    "two_step_hits": []
+  },
+  {
+    "index": 13,
+    "graph6": "L?AA@_gIU_AoR?",
+    "triangle_count": 1,
+    "triangles": [
+      [
+        2,
+        7,
+        9
+      ]
+    ],
+    "contractible_triangles": [
+      {
+        "triangle": [
+          2,
+          7,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "external_neighbors": [
+          8,
+          3,
+          4
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      }
+    ],
+    "one_step_hits": [
+      {
+        "triangle": [
+          2,
+          7,
+          9
+        ],
+        "profile": [
+          1,
+          1,
+          1
+        ],
+        "hits": [
+          "order11-survivor-1"
+        ]
+      }
+    ],
+    "two_step_hits": []
+  },
+  {
+    "index": 14,
+    "graph6": "L?`@?aGq@g?wCg",
+    "triangle_count": 2,
+    "triangles": [
+      [
+        0,
+        4,
+        8
+      ],
+      [
+        0,
+        4,
+        9
+      ]
+    ],
+    "contractible_triangles": [],
+    "one_step_hits": [],
+    "two_step_hits": []
+  }
+]

@@ -1,0 +1,187 @@
+{
+  "order": 11,
+  "delta_max": 3,
+  "min_degree_bound": 2,
+  "generated_biconnected": 1011,
+  "processed_graphs": 1011,
+  "pruned_by_filters": 44,
+  "class1_or_noncritical": 864,
+  "total_critical": 102,
+  "overfull_count": 100,
+  "survivor_count": 2,
+  "survivors": [
+    {
+      "status": "survivor",
+      "graph6": "J?`@E_[KbO?",
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          9
+        ]
+      ],
+      "degree_sequence": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "delta_max": 3,
+      "delta_min": 2,
+      "alpha": 5,
+      "alpha_ratio": 0.45454545454545453,
+      "overfull_subsets": []
+    },
+    {
+      "status": "survivor",
+      "graph6": "J?`D@bOF@K?",
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          6,
+          10
+        ]
+      ],
+      "degree_sequence": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "delta_max": 3,
+      "delta_min": 2,
+      "alpha": 5,
+      "alpha_ratio": 0.45454545454545453,
+      "overfull_subsets": []
+    }
+  ],
+  "runtime_seconds": 0.463,
+  "interrupted": false,
+  "interruption_reason": null,
+  "resume_safe": true,
+  "resume_prefix_fingerprint": "fe8934d2bd83806f2c58b0b739759b9abfe5c2a1618962e16d526806549ff73f"
+}

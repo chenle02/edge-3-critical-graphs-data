@@ -1,0 +1,29 @@
+{
+  "order15": {
+    "direct_triangle_inflation_hits": 76,
+    "triangle_rule_violations": 6,
+    "meredith_total_hits": 12,
+    "overlap_triangle_and_meredith": 8,
+    "meredith_only": 4,
+    "remaining_unexplained_after_triangle_and_meredith": 14,
+    "hajos_hits": 0
+  },
+  "order17": {
+    "direct_triangle_inflation_hits": 639,
+    "triangle_rule_violations": 44,
+    "meredith_total_hits": 112,
+    "overlap_triangle_and_meredith": 77,
+    "meredith_only": 35,
+    "hajos_9_plus_9_hits": [
+      195,
+      196
+    ],
+    "hajos_9_plus_9_hit_count": 2,
+    "remaining_unexplained_after_triangle_meredith_hajos": 98
+  },
+  "interpretation": [
+    "The first-pass union counts for order 15 are confirmed exactly.",
+    "For order 17, the first-pass direct triangle-inflation counts are confirmed, and the Meredith generator actually hits 112 survivors total, not just the 35 Meredith-only residue survivors.",
+    "A second-pass Hajos search using the unique order-9 survivor with itself explains two additional order-17 survivors, indices 195 and 196."
+  ]
+}

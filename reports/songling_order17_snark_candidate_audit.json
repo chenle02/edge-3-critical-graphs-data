@@ -1,0 +1,2110 @@
+{
+  "exact_claim": {
+    "original_text": "For some order 17 residues that have girth 4, and are cyclically 4-connected, are they come from the two order 18 snarks by deleting a vertex?",
+    "literal_paraphrase": "Among the current order-17 residue graphs, look only at those with girth 4 and cyclically 4-connected structure, then ask whether they come from deleting one vertex from one of the two order-18 snarks.",
+    "mathematical_interpretation": "First isolate the current order-17 residue graphs with girth 4 and no cyclic edge-cut of size 1, 2, or 3; only that filtered subfamily should be tested against order-18 snark vertex deletions."
+  },
+  "summary": {
+    "order17_graph_count": 33,
+    "recomputed_girth4_count": 25,
+    "recomputed_positive_4cycle_count": 25,
+    "graphs_with_some_cyclic_small_cut": 27,
+    "candidate_count": 0,
+    "dossier_mismatch_count": 3
+  },
+  "candidate_indices": [],
+  "dossier_mismatches": [
+    {
+      "index": 325,
+      "graph6": "P??CA?_CCOW_W_@oF??P_@S?",
+      "dossier_girth": 5,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 1,
+      "recomputed_count_4cycles": 1,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              2,
+              12
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              10
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 585,
+      "graph6": "P???C@?K?W@QM?g_W_?J?Cg?",
+      "dossier_girth": 5,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 1,
+      "recomputed_count_4cycles": 1,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 616,
+      "graph6": "P??CA?_C?WW@i?B_EG?B_@c?",
+      "dossier_girth": 5,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    }
+  ],
+  "graphs": [
+    {
+      "index": 108,
+      "graph6": "P???C@?K?WPAI_S_?s?b?PO?",
+      "dossier_girth": 5,
+      "recomputed_girth": 5,
+      "dossier_count_4cycles": 0,
+      "recomputed_count_4cycles": 0,
+      "cyclic_small_cut_count": 0,
+      "sample_cyclic_small_cuts": []
+    },
+    {
+      "index": 149,
+      "graph6": "P???C@?K?WDOw?QOQC?k?@W?",
+      "dossier_girth": 5,
+      "recomputed_girth": 5,
+      "dossier_count_4cycles": 0,
+      "recomputed_count_4cycles": 0,
+      "cyclic_small_cut_count": 0,
+      "sample_cyclic_small_cuts": []
+    },
+    {
+      "index": 201,
+      "graph6": "P???C@?K?WDOM?_cW_?J?Cg?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 203,
+      "graph6": "P???C@?K?WDOK_c_W_?J?AK?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 3,
+      "recomputed_count_4cycles": 3,
+      "cyclic_small_cut_count": 3,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            3,
+            3
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 204,
+      "graph6": "P???C@?K?WDOK_c_GH?J?AK?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 3,
+      "recomputed_count_4cycles": 3,
+      "cyclic_small_cut_count": 4,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              7
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            3,
+            3
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              7
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            3,
+            3
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 205,
+      "graph6": "P???C@?K?WDOK__cW_?J?EG?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 3,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              3,
+              16
+            ],
+            [
+              4,
+              11
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            3,
+            3
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 206,
+      "graph6": "P???C@?K?WDOK__cGH?J?EG?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 4,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              7
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              3,
+              16
+            ],
+            [
+              4,
+              11
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            3,
+            3
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              7
+            ],
+            [
+              3,
+              16
+            ],
+            [
+              4,
+              11
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            3,
+            3
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 227,
+      "graph6": "P???C@?GCoOoDOAoM??D_IG?",
+      "dossier_girth": 5,
+      "recomputed_girth": 5,
+      "dossier_count_4cycles": 0,
+      "recomputed_count_4cycles": 0,
+      "cyclic_small_cut_count": 1,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              3,
+              14
+            ],
+            [
+              4,
+              16
+            ],
+            [
+              6,
+              15
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 254,
+      "graph6": "P???C@?G?wBOd?P_KG?B_Ac?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 3,
+      "recomputed_count_4cycles": 3,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              7
+            ],
+            [
+              1,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              12
+            ],
+            [
+              1,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 255,
+      "graph6": "P???C@?G?wBOd?P_SC?B_Ac?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 3,
+      "recomputed_count_4cycles": 3,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              12
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              12
+            ],
+            [
+              1,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 278,
+      "graph6": "P??CA?_CCOP_R?H_EG?B_?e?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 3,
+      "recomputed_count_4cycles": 3,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 279,
+      "graph6": "P??CA?_CCOP_R?H_IC?B_?e?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 3,
+      "recomputed_count_4cycles": 3,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 280,
+      "graph6": "P??CA?_CCOP_Q_H_EG?B_@E?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 1,
+      "recomputed_count_4cycles": 1,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 281,
+      "graph6": "P??CA?_CCOP_Q_H_IC?B_@E?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 1,
+      "recomputed_count_4cycles": 1,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 302,
+      "graph6": "P??CA?_CCOH_Y?@QEO?D_@S?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              6
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              10
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 303,
+      "graph6": "P??CA?_CCOH_Y?@QQC?D_@S?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              10
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              10
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 305,
+      "graph6": "P??CA?_CCOH_IODO?q?d?_K?",
+      "dossier_girth": 5,
+      "recomputed_girth": 5,
+      "dossier_count_4cycles": 0,
+      "recomputed_count_4cycles": 0,
+      "cyclic_small_cut_count": 0,
+      "sample_cyclic_small_cuts": []
+    },
+    {
+      "index": 306,
+      "graph6": "P??CA?_CCOH_BOX?EO?D_?U?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 3,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              6
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              2,
+              13
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              7,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            3,
+            3
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              10
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 324,
+      "graph6": "P??CA?_CCOW_W_B_BC?B_@E?",
+      "dossier_girth": 5,
+      "recomputed_girth": 5,
+      "dossier_count_4cycles": 0,
+      "recomputed_count_4cycles": 0,
+      "cyclic_small_cut_count": 0,
+      "sample_cyclic_small_cuts": []
+    },
+    {
+      "index": 325,
+      "graph6": "P??CA?_CCOW_W_@oF??P_@S?",
+      "dossier_girth": 5,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 1,
+      "recomputed_count_4cycles": 1,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              2,
+              12
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              10
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 326,
+      "graph6": "P??CA?_CCOW_W_@oB_?P_CW?",
+      "dossier_girth": 5,
+      "recomputed_girth": 5,
+      "dossier_count_4cycles": 0,
+      "recomputed_count_4cycles": 0,
+      "cyclic_small_cut_count": 0,
+      "sample_cyclic_small_cuts": []
+    },
+    {
+      "index": 327,
+      "graph6": "P??CA?_CCOW_W_@oB_?P_GS?",
+      "dossier_girth": 5,
+      "recomputed_girth": 5,
+      "dossier_count_4cycles": 0,
+      "recomputed_count_4cycles": 0,
+      "cyclic_small_cut_count": 0,
+      "sample_cyclic_small_cuts": []
+    },
+    {
+      "index": 329,
+      "graph6": "P??CA?_CCOW_Q_@oF??H_CW?",
+      "dossier_girth": 5,
+      "recomputed_girth": 5,
+      "dossier_count_4cycles": 0,
+      "recomputed_count_4cycles": 0,
+      "cyclic_small_cut_count": 1,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              4,
+              14
+            ],
+            [
+              5,
+              15
+            ],
+            [
+              7,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 417,
+      "graph6": "P??CA?_C?WX?w?AoE_?H_?s?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              2,
+              12
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              2,
+              12
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 418,
+      "graph6": "P??CA?_C?WX?w?AoAD?H_?s?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              2,
+              8
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              2,
+              12
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 457,
+      "graph6": "P??CA?_CCO@oQ_h?EG?B_@E?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 1,
+      "recomputed_count_4cycles": 1,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 528,
+      "graph6": "P??CA?_C?WP_Q_H_EG?B__E?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 1,
+      "recomputed_count_4cycles": 1,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 585,
+      "graph6": "P???C@?K?W@QM?g_W_?J?Cg?",
+      "dossier_girth": 5,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 1,
+      "recomputed_count_4cycles": 1,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 587,
+      "graph6": "P???C@?K?W@QK_g_W_?J?EG?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 3,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              3,
+              16
+            ],
+            [
+              4,
+              11
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            3,
+            3
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 588,
+      "graph6": "P???C@?K?W@QK_g_GH?J?EG?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 4,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              7
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              3,
+              16
+            ],
+            [
+              4,
+              11
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            3,
+            3
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              7
+            ],
+            [
+              3,
+              16
+            ],
+            [
+              4,
+              11
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            3,
+            3
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 590,
+      "graph6": "P???C@?K?W@QI_c_W_?J?KG?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              0,
+              13
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 616,
+      "graph6": "P??CA?_C?WW@i?B_EG?B_@c?",
+      "dossier_girth": 5,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 617,
+      "graph6": "P??CA?_C?WW@i?B_IC?B_@c?",
+      "dossier_girth": 4,
+      "recomputed_girth": 4,
+      "dossier_count_4cycles": 2,
+      "recomputed_count_4cycles": 2,
+      "cyclic_small_cut_count": 2,
+      "sample_cyclic_small_cuts": [
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            7,
+            10
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        },
+        {
+          "cut_size": 3,
+          "cut_edges": [
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              9,
+              16
+            ]
+          ],
+          "component_sizes": [
+            8,
+            9
+          ],
+          "side_cycle_ranks": [
+            2,
+            4
+          ]
+        }
+      ]
+    }
+  ]
+}
