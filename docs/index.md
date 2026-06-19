@@ -18,9 +18,9 @@ The table records the number of nontrivial survivors for each order in the publi
 | 6 | 0 | determined |
 | 7 | 0 | determined |
 | 8 | 0 | determined |
-| 9 | 0 | determined |
+| 9 | 1 | determined |
 | 10 | 0 | determined |
-| 11 | 0 | determined |
+| 11 | 2 | determined |
 | 12 | 0 | determined |
 | 13 | 14 | determined here |
 | 14 | 0 | determined |
@@ -34,7 +34,7 @@ The table records the number of nontrivial survivors for each order in the publi
 | 22 | 1 | Brinkmann--Steffen survivor reproduced |
 | 23 | pending | computation pending |
 
-Even orders below 22 have no nontrivial survivors. Odd orders 13 through 21 are determined by the census reported here. The order-22 survivor reproduces the Brinkmann--Steffen example.
+Even orders below 22 have no nontrivial survivors. The nontrivial-survivor counts for all odd orders through 21 are recorded in the census reported here. The order-22 survivor reproduces the Brinkmann--Steffen example.
 
 ## Repository contents
 

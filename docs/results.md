@@ -6,7 +6,7 @@ The [Interactive explorer](explorer.md) provides a browser-based entry point for
 
 ## Order 9
 
-- Nontrivial survivors: **0**
+- Nontrivial survivors: **1**
 - Census file: [`order_9_delta_3.json`](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/results/order_9_delta_3.json)
 - Explorer: [Interactive explorer](explorer.md)
 
@@ -14,7 +14,7 @@ The [Interactive explorer](explorer.md) provides a browser-based entry point for
 
 ## Order 11
 
-- Nontrivial survivors: **0**
+- Nontrivial survivors: **2**
 - Census file: [`order_11_delta_3.json`](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/results/order_11_delta_3.json)
 - Explorer: [Interactive explorer](explorer.md)
 

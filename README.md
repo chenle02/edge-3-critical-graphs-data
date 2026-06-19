@@ -19,8 +19,8 @@ search/audit code referenced in the paper
 A graph with maximum degree 3 is (edge-chromatic) **3-critical** if it is
 connected, has chromatic index 4, and deleting any edge lowers the chromatic
 index to 3.  A 3-critical graph is **nontrivial** if it contains no
-3-overfull subgraph.  The paper determines the exact numbers of nontrivial
-3-critical graphs of orders 13, 15, and 17, records complete computer
+3-overfull subgraph.  The paper lists the numbers of nontrivial
+3-critical graphs for all orders through 22, records complete computer
 censuses at orders 19 and 21, reproduces the known order-22 count, gives a
 finite construction ledger for the audited census, and proves two structural
 results delimiting the cyclic 3-edge-cut method (an all-order one-sided
