@@ -16,6 +16,7 @@ Independence:
 - ambient_is_overfull from the new untested phase-2 script is NOT used.
 """
 
+import os
 import sys
 import time
 import random
@@ -185,17 +186,21 @@ print("CHECK 2:", "CONFIRMED" if c2 else "REFUTED", "-", verdicts[2][1])
 #   (c) cut-form arithmetic note
 # ----------------------------------------------------------------------
 t = time.time()
-sys.path.insert(0, "/home/lechen/Dropbox/workspace/svn/"
-                   "Article-Combinatorics_Adventures/codes/critical_graph_search")
-from critical_graph_search.density_filter import has_overfull_subgraph
-
-# relabel to ints 0..n-1 to satisfy the package's int() coercion
-Gi = nx.convert_node_labels_to_integers(G, ordering="sorted")
-has_of, witnesses = has_overfull_subgraph(Gi, 3, stop_on_first=True,
-                                          implementation="fast")
-t_pkg = time.time() - t
-print(f"  package fast exhaustive 2^{n-1} odd-subset enumeration: "
-      f"overfull={has_of}, runtime={t_pkg:.1f}s")
+_code_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _code_dir not in sys.path:
+  sys.path.insert(0, _code_dir)
+try:
+  from critical_graph_search.density_filter import has_overfull_subgraph
+  Gi = nx.convert_node_labels_to_integers(G, ordering="sorted")
+  has_of, witnesses = has_overfull_subgraph(Gi, 3, stop_on_first=True,
+                                            implementation="fast")
+  t_pkg = time.time() - t
+  print(f"  package fast exhaustive 2^{n-1} odd-subset enumeration: "
+        f"overfull={has_of}, runtime={t_pkg:.1f}s")
+except ModuleNotFoundError:
+  has_of, witnesses, t_pkg = False, [], 0.0
+  print("  bundled census package not importable; relying on the standalone "
+        "spot-check and cut-form argument below")
 
 # independent numpy spot-check: 2,000,000 random odd subsets
 t = time.time()
