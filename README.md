@@ -1,5 +1,15 @@
 # Data and code for "Exploring the world of edge-chromatic 3-critical graphs"
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub release](https://img.shields.io/github/v/release/chenle02/edge-3-critical-graphs-data)](https://github.com/chenle02/edge-3-critical-graphs-data/releases)
+[![verify](https://github.com/chenle02/edge-3-critical-graphs-data/actions/workflows/verify.yml/badge.svg)](https://github.com/chenle02/edge-3-critical-graphs-data/actions/workflows/verify.yml)
+[![website](https://img.shields.io/badge/website-online-blue)](https://chenle02.github.io/edge-3-critical-graphs-data/)
+<!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.TODO.svg)](https://doi.org/10.5281/zenodo.TODO) -->
+
+![A sample of nontrivial edge-chromatic 3-critical graphs (orange = degree-2 vertices)](assets/hero.png)
+
+**Website & interactive graph explorer:** <https://chenle02.github.io/edge-3-critical-graphs-data/>
+
 This repository archives the census data, machine-readable audit reports, and
 search/audit code referenced in the paper
 
@@ -17,6 +27,23 @@ results delimiting the cyclic 3-edge-cut method (an all-order one-sided
 triangle-cap reduction, and an impossibility theorem for the
 boundary-completion reconstruction, with explicit witnesses of orders 25
 and 27).
+
+## Quickstart
+
+```python
+import json, gzip, networkx as nx
+
+# load a census file (.json, or gzip.open(..., "rt") for .json.gz)
+data = json.load(open("results/order_13_delta_3.json"))
+print(data["survivor_count"], "nontrivial survivors at order", data["order"])
+
+# rebuild any survivor as a networkx graph from its edge list
+G = nx.Graph(); G.add_edges_from(data["survivors"][0]["edges"])
+print("example survivor:", G)
+```
+
+Browse every order interactively (live graph rendering) on the
+[website](https://chenle02.github.io/edge-3-critical-graphs-data/).
 
 ## Layout
 

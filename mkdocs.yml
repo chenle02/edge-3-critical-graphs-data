@@ -1,0 +1,43 @@
+site_name: Edge-chromatic 3-critical graphs — census data
+site_description: Public census data, verification code, and audit reports for edge-chromatic 3-critical graphs.
+site_url: https://chenle02.github.io/edge-3-critical-graphs-data/
+repo_url: https://github.com/chenle02/edge-3-critical-graphs-data
+repo_name: chenle02/edge-3-critical-graphs-data
+edit_uri: edit/master/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: teal
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.share
+    - toc.follow
+
+nav:
+  - Home: index.md
+  - Methodology: methodology.md
+  - Data: data.md
+  - Results: results.md
+  - Explorer: explorer.md
+  - Verify: verify.md
+  - Cite: cite.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+
+strict: true
