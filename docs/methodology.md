@@ -12,7 +12,7 @@ geng -Cq -d2 -D3 n
 
 The flags mean:
 
-- `-C` — generate connected graphs with stronger connectivity constraints used here for 2-connected candidates.
+- `-C` — restrict generation to 2-connected (biconnected) graphs.
 - `-q` — quiet output, suitable for pipeline processing.
 - `-d2` — minimum degree at least 2.
 - `-D3` — maximum degree at most 3.

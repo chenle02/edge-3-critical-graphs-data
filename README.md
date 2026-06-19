@@ -109,19 +109,23 @@ exactly the one refuted by the impossibility theorem of the paper.
   exhaustive tight-side-shape enumeration (orders 7-17).
 - `code/scripts/lemma_e_phase2_ambient_embedding_hunt_20260610.py`:
   the bounded gluing search producing the 92 witnesses.
-- `code/scripts/independent_verify_order25_witness.py`: a standalone,
-  from-scratch verifier (own backtracking solver, exhaustive odd-subset
-  overfull check, exhaustive small-cut scans) for the order-25 witness of
-  the impossibility theorem.  It depends only on `networkx` and `numpy`.
+- `code/scripts/independent_verify_order25_witness.py`: an independent
+  verifier for the order-25 witness of the impossibility theorem.  Its
+  3-edge-coloring solver and small-cut scans are written from scratch; the
+  overfull test cross-checks the census-validated exhaustive enumerator
+  `critical_graph_search.density_filter.has_overfull_subgraph` against an
+  independent 2,000,000-sample random odd-subset spot-check and a cut-form
+  arithmetic argument.  It requires `networkx` and `numpy` plus the bundled
+  `critical_graph_search` package shipped in `code/`.
 
 The audit scripts are archived as run; some refer to paths in the private
-research repository where they were executed.  The independent verifier is
-standalone and reproduces, in under a minute, every property of the
-order-25 witness claimed in the paper.
+research repository where they were executed.  The independent verifier
+runs against this repository alone and reproduces, in under a minute, every
+property of the order-25 witness claimed in the paper.
 
-Requirements: Python 3.10+, `networkx` (and `numpy` for the independent
-verifier); graph generation additionally requires `geng` from the nauty
-suite.
+Requirements: Python 3.10+, `networkx`, and `numpy` (the verifier also
+imports the bundled `critical_graph_search` package shipped in `code/`);
+graph generation additionally requires `geng` from the nauty suite.
 
 ## The order-25 witness
 

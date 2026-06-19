@@ -1,8 +1,8 @@
 # Results
 
-Each section below gives the nontrivial-survivor count, links to the corresponding census file in the public repository, and reserves a figure slot for the gallery image. The image files under `docs/assets/figures/` are placeholders in this install package and can be overwritten with the final figures.
+Each section below gives the nontrivial-survivor count, links to the corresponding census file in the public repository, and the gallery image rendered from that file. For orders with many survivors the gallery shows a representative sample; the panel title records how many of the total are displayed.
 
-The [Interactive explorer](explorer.md) provides a browser-based entry point for browsing the same census once `explorer.html` is added.
+The [Interactive explorer](explorer.md) provides a browser-based entry point for browsing the same census.
 
 ## Order 9
 
