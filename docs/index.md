@@ -29,7 +29,7 @@ The table records the number of nontrivial survivors for each order in the publi
 | 17 | 774 | determined here |
 | 18 | 0 | determined |
 | 19 | 6,984 | determined here |
-| 20 | pending | computation pending |
+| 20 | 0 | determined |
 | 21 | 70,530 | determined here |
 | 22 | 1 | Brinkmann--Steffen survivor reproduced |
 | 23 | pending | computation pending |

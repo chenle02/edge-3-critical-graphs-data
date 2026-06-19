@@ -67,10 +67,11 @@ headline counts:
 | `order_15_delta_3.json` | 94 | `c5c391d32a4019a6765e236ac9bfbd292572722073fbb72312d4ecbf91293162` |
 | `order_17_delta_3.json` | 774 | `c7447e9626f53cdb8a381376ec76eb95a58368bab85dd16dd02ba6d4f7b9a269` |
 | `order_19_delta_3.json` | 6,984 | `9f4eff7e13636fce3bcd3fc69cd2a3dfb36f1ad80e01656509fc6b9927f92b1e` |
+| `order_20_delta_3.json.gz` | 0 | `08e25a09ecdedd06b8904342203307ad71728aa609f5469d160ac9ce32ac8ed0` |
 | `order_21_delta_3.json.gz` | 70,530 | `2f9c3e46d744dc0b62a95631e050af657806ec76ae03a286f7e845c69cff24db` |
 | `order_22_delta_3.json.gz` | 1 | `57dbfccd9cb352564f5422530c9a0b7e269148c9789bf040f0dfd7ab96ed553e` |
 
-The hashes for `order_21` and `order_22` are of the compressed files, as
+The hashes for `order_20`, `order_21`, and `order_22` are of the compressed files, as
 archived here and as recorded during the original runs.
 
 ## Audit reports (`reports/`)
