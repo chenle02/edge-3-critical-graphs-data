@@ -138,6 +138,10 @@ X???C@?K@OOae?DOGP@D?QO?C????G??G??A?G?G??A_??P?_?@
 Run `python3 code/scripts/independent_verify_order25_witness.py` to check
 all of its claimed properties end to end.
 
+## Acknowledgment
+
+This work was completed in part with resources provided by the Auburn University Easley Cluster.
+
 ## License
 
 MIT (see LICENSE).
