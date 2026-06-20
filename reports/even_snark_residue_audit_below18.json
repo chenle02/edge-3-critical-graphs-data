@@ -1,0 +1,34 @@
+{
+  "lemma": "For every snark S of order < 22, no graph obtained from S by deleting edges is a nontrivial 3-critical graph of even order.",
+  "method": "A snark is cubic (even order); edge deletion preserves the vertex set, so a residue S-F has the same even order as S. F=empty gives the cubic graph itself (regular, excluded by the census F2 filter); |F|=1 leaves exactly two degree-2 vertices (excluded by Jakobsen's theorem); the only residues keeping min-degree >= 2 delete a matching. Each residue is tested for: connected, Delta=3, no bridge, non-regular, class 2, edge-critical, and non-overfull.",
+  "direct_audit_orders_10_12_14": {
+    "10": {
+      "order": 10,
+      "cubic_class2_graphs": 2,
+      "edge_deletion_residues_tested": 640,
+      "even_order_nontrivial_3critical_residues": 0,
+      "counterexamples": [],
+      "seconds": 0.1
+    },
+    "12": {
+      "order": 12,
+      "cubic_class2_graphs": 5,
+      "edge_deletion_residues_tested": 5143,
+      "even_order_nontrivial_3critical_residues": 0,
+      "counterexamples": [],
+      "seconds": 1.0
+    },
+    "14": {
+      "order": 14,
+      "cubic_class2_graphs": 34,
+      "edge_deletion_residues_tested": 112376,
+      "even_order_nontrivial_3critical_residues": 0,
+      "counterexamples": [],
+      "seconds": 22.3
+    }
+  },
+  "orders_18_20": "See reports/songling_snark_critical_subgraph_audit.json: over all 1614 cubic class-2 graphs of order 18 and 14059 of order 20, every edge-3-critical subgraph is a vertex deletion (odd order); zero edge-deletion even-order 3-critical residues.",
+  "order_16_and_all_even": "Covered by the exhaustive even-order census (results/order_N_delta_3.json): survivor_count = 0 at every even order 4..20. Snark edge-deletion residues are a subset of those graphs, hence 0.",
+  "total_even_order_nontrivial_3critical_residues_10_12_14": 0,
+  "verdict": "LEMMA HOLDS"
+}
