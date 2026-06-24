@@ -4,7 +4,10 @@ All notable changes to this repository are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/), and this project
 adheres to [Semantic Versioning](https://semver.org/).
 
-## [v1.1.0] - 2026-06-23
+## [v1.1.0] - 2026-06-24
+
+Archived on Zenodo: concept DOI [10.5281/zenodo.20821990](https://doi.org/10.5281/zenodo.20821990)
+(always latest); version DOI [10.5281/zenodo.20821991](https://doi.org/10.5281/zenodo.20821991).
 
 Reproducibility and submission-readiness hardening accompanying the submission
 of the paper to the *SIAM Journal on Discrete Mathematics*, in compliance with

@@ -4,7 +4,7 @@
 [![GitHub release](https://img.shields.io/github/v/release/chenle02/edge-3-critical-graphs-data)](https://github.com/chenle02/edge-3-critical-graphs-data/releases)
 [![verify](https://github.com/chenle02/edge-3-critical-graphs-data/actions/workflows/verify.yml/badge.svg)](https://github.com/chenle02/edge-3-critical-graphs-data/actions/workflows/verify.yml)
 [![website](https://img.shields.io/badge/website-online-blue)](https://chenle02.github.io/edge-3-critical-graphs-data/)
-<!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.TODO.svg)](https://doi.org/10.5281/zenodo.TODO) -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20821990.svg)](https://doi.org/10.5281/zenodo.20821990)
 
 ![A sample of nontrivial edge-chromatic 3-critical graphs (orange = degree-2 vertices)](assets/hero.png)
 
