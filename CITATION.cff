@@ -5,11 +5,23 @@ type: dataset
 authors:
   - family-names: Chen
     given-names: Le
+    affiliation: "Department of Mathematics and Statistics, Auburn University"
   - family-names: Shan
     given-names: Songling
+    affiliation: "Department of Mathematics and Statistics, Auburn University"
+license: MIT
 repository-code: "https://github.com/chenle02/edge-3-critical-graphs-data"
-version: "v1.0.0"
-date-released: "2026"
+url: "https://chenle02.github.io/edge-3-critical-graphs-data/"
+version: "v1.1.0"
+date-released: "2026-06-23"
+keywords:
+  - edge coloring
+  - chromatic index
+  - critical graphs
+  - class two graphs
+  - overfull subgraph
+  - computational combinatorics
+  - nauty
 preferred-citation:
   type: article
   title: "Exploring the world of edge-chromatic 3-critical graphs"

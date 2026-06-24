@@ -19,14 +19,15 @@ search/audit code referenced in the paper
 A graph with maximum degree 3 is (edge-chromatic) **3-critical** if it is
 connected, has chromatic index 4, and deleting any edge lowers the chromatic
 index to 3.  A 3-critical graph is **nontrivial** if it contains no
-3-overfull subgraph.  The paper lists the numbers of nontrivial
-3-critical graphs for all orders through 22, records complete computer
-censuses at orders 19 and 21, reproduces the known order-22 count, gives a
-finite construction ledger for the audited census, and proves two structural
-results delimiting the cyclic 3-edge-cut method (an all-order one-sided
-triangle-cap reduction, and an impossibility theorem for the
-boundary-completion reconstruction, with explicit witnesses of orders 25
-and 27).
+3-overfull subgraph.  The paper determines the numbers of nontrivial
+3-critical graphs for all orders through 22 — in particular the odd orders
+15 through 21 — records complete computer censuses at orders 19 and 21, and
+reproduces the known order-22 count of Brinkmann and Steffen.  Beyond
+enumeration, the paper proves a **characterization theorem** for all
+nontrivial 3-critical graphs in terms of three operations (vertex-blowup,
+Haj\u00f3s-join, Meredith-type extension, and snark-completion), and this
+repository's classification script reproduces the resulting categorization
+of every survivor.
 
 ## Quickstart
 
@@ -78,55 +79,85 @@ archived here and as recorded during the original runs.
 
 Reports are archived exactly as produced by the audit runs (provenance
 copies; JSON is the canonical record, Markdown siblings are human-readable
-summaries).  The reports cited in the paper:
+summaries).  The reports supporting the paper:
 
 | Paper reference | File(s) |
 |---|---|
-| Finite boundary-completion audit, orders 13-19 | `lemma24_boundary_completion_census_audit_20260601_190638.json.gz` |
-| Finite boundary-completion audit, order 21 | `lemma24_boundary_completion_census_audit_20260601_212852.json.gz` |
-| Exhaustive tight-side enumeration, orders 7-13 | `lemma_e_stress_test_hereditary_failing_sides_20260610_045602.json` |
-| Exhaustive tight-side enumeration, orders 15-17 | `lemma_e_stress_test_hereditary_failing_sides_20260610_081126.json` |
-| Gluing search and witness list (92 witnesses, orders 25/27) | `lemma_e_phase2_ambient_embedding_hunt_20260610_120153.json` |
+| Census categorization by characterization clauses (Table in the paper) | `census_characterization_classification.json`, `census_characterization_classification.md` |
 | Order-13 construction classification | `order13_triangle_blowup_classification.json`, `delta3_blowup_chain_9_11_13.json` |
 | Order-15/17 construction passes | `songling_order15_order17_generation_verification.json`, `..._second_pass.json`, `..._third_pass_hajos.json` |
 | Residual records | `songling_remaining_residue_dossier.json` |
+| Even-order snark-residue audit (orders < 18) | `even_snark_residue_audit_below18.json` |
 | Snark-deletion comparisons | `songling_snark_critical_subgraph_audit.json`, `songling_order17_snark_candidate_audit.json`, `songling_sve_hajos_followup_audit_20260505.*` |
 | Cyclic 3-cut side characterization ledger | `songling_h_characterization_ledger_20260602_ledger.json` |
-
-Note on terminology: some artifacts use the internal working name
-"Lemma E" for the all-order boundary-completion property; that property is
-exactly the one refuted by the impossibility theorem of the paper.
 
 ## Code (`code/`)
 
 - `code/critical_graph_search/` and `code/main.py`: the census pipeline
   (graph generation via `geng` from the nauty suite, pruning filters,
   bitmask backtracking edge-coloring, criticality and overfull tests).
-- `code/scripts/audit_lemma24_boundary_completion_repair.py`: the
-  boundary-completion audit behind the finite audit proposition.
-- `code/scripts/audit_songling_cyclic3_kempe_chain_request.py`: shared
-  cyclic 3-cut side-enumeration helpers.
-- `code/scripts/lemma_e_stress_test_hereditary_failing_sides_20260610.py`:
-  exhaustive tight-side-shape enumeration (orders 7-17).
-- `code/scripts/lemma_e_phase2_ambient_embedding_hunt_20260610.py`:
-  the bounded gluing search producing the 92 witnesses.
-- `code/scripts/independent_verify_order25_witness.py`: an independent
-  verifier for the order-25 witness of the impossibility theorem.  Its
-  3-edge-coloring solver and small-cut scans are written from scratch; the
-  overfull test cross-checks the census-validated exhaustive enumerator
-  `critical_graph_search.density_filter.has_overfull_subgraph` against an
-  independent 2,000,000-sample random odd-subset spot-check and a cut-form
-  arithmetic argument.  It requires `networkx` and `numpy` plus the bundled
-  `critical_graph_search` package shipped in `code/`.
+- `code/scripts/classify_census_characterization.py`: the deterministic
+  census post-processor that classifies every nontrivial survivor by the
+  first applicable clause (a) vertex-blowup, (b) Haj\u00f3s-join, (c)
+  Meredith-type, (d)/(e) snark-completion of the characterization theorem,
+  and asserts that the five categories partition each order exactly. It
+  reproduces the categorization table in the paper:
+  ```bash
+  python3 code/scripts/classify_census_characterization.py --orders 13 15 17 19 21 22
+  ```
+- `code/scripts/audit_songling_snark_critical_subgraphs.py`,
+  `code/scripts/audit_songling_even_snark_residue_below18.py`,
+  `code/scripts/audit_songling_cyclic3_kempe_chain_request.py`: snark- and
+  cyclic-3-cut audits supporting the snark-completion clauses.
+- `code/scripts/check_hashes.py`: recompute and verify the census SHA-256
+  hashes recorded above.
+- `code/scripts/export_explorer_data.py`, `code/scripts/render_graphs.py`:
+  data export for the website explorer and figure rendering.
 
 The audit scripts are archived as run; some refer to paths in the private
-research repository where they were executed.  The independent verifier
-runs against this repository alone and reproduces, in under a minute, every
-property of the order-25 witness claimed in the paper.
+research repository where they were executed. The census pipeline, the
+classification script, and the hash check run against this repository alone.
 
-Requirements: Python 3.10+, `networkx`, and `numpy` (the verifier also
-imports the bundled `critical_graph_search` package shipped in `code/`);
-graph generation additionally requires `geng` from the nauty suite.
+## Reproducibility and environment
+
+Tested toolchain:
+
+- **Python** 3.10-3.12 (continuous integration runs on 3.11).
+- **Python packages** (see [`code/requirements.txt`](code/requirements.txt)):
+  `networkx>=3.0`, `numpy>=1.24`; `matplotlib>=3.7` (figures) and
+  `pytest>=7.0` (tests) are optional.
+- **External tool:** graph generation calls **`geng` from nauty 2.8.9**
+  (install via `apt install nauty`, `brew install nauty`, or from
+  <https://pallini.di.uniroma1.it/>). The verifier and hash checks do not
+  need nauty.
+
+Set up and verify the paper's census claims:
+
+```bash
+python3 -m pip install -r code/requirements.txt
+# Confirm the archived census files match the recorded SHA-256 hashes:
+python3 code/scripts/check_hashes.py --readme README.md --results-dir results
+```
+
+Census generation at order `n` uses the exact invocation
+`geng -Cq -d2 -D3 n` (2-connected, minimum degree >= 2, maximum degree <= 3);
+the driver is `code/main.py`. The per-order JSON files under `results/` are the
+manuscript-facing records, and their SHA-256 hashes (above) are the source of
+truth tying each file to the counts reported in the paper.
+
+## Use of AI tools
+
+In the spirit of the [SIAM Editorial Policy on Artificial
+Intelligence](https://epubs.siam.org/artificial-intelligence) and for full
+transparency, we record that AI-based tools (large language models and AI
+coding assistants) were used to help develop, debug, and document the search
+and audit code in this repository, and to assist with drafting the manuscript.
+The candidate graphs were generated by `geng` from the nauty suite, and the
+census, criticality, and overfull results were produced by the code archived
+here. The authors reviewed, tested, and verified all AI-assisted code; the
+SHA-256 hash check above lets any reader confirm the census files behind the
+paper's counts directly from this repository. The authors assume responsibility
+for all content.
 
 ## The order-25 witness
 

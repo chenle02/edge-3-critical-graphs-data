@@ -7,11 +7,18 @@ The repository includes independent verification scripts and GitHub Actions chec
 ```bash
 git clone https://github.com/chenle02/edge-3-critical-graphs-data.git
 cd edge-3-critical-graphs-data
-pip install networkx numpy
-python code/scripts/independent_verify_order25_witness.py
+pip install -r code/requirements.txt
+# verify the census files against the recorded SHA-256 hashes:
+python code/scripts/check_hashes.py --readme README.md --results-dir results
+# reproduce the paper's census categorization by characterization clauses:
+python code/scripts/classify_census_characterization.py --orders 13 15 17 19 21 22
 ```
 
-The script checks the order-25 witness logic used by the audit pipeline. The full repository also contains census outputs in `results/` and audit reports in `reports/` for independent inspection.
+The classification script asserts that the clauses (a)-(e) of the
+characterization theorem partition each order's survivor set exactly, and
+reproduces the categorization table in the paper. The full repository also
+contains census outputs in `results/` and audit reports in `reports/` for
+independent inspection.
 
 ## Hash verification
 

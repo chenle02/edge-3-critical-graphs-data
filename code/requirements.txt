@@ -1,3 +1,16 @@
-networkx
-matplotlib
-pytest
+# Python dependencies for the edge-chromatic 3-critical-graphs census
+# pipeline, audit scripts, and the independent order-25 witness verifier.
+#
+# Tested with Python 3.10-3.12 (continuous integration runs on 3.11).
+#
+# EXTERNAL (non-pip) DEPENDENCY: graph generation calls `geng` from the
+# nauty suite (tested with nauty 2.8.9). Install nauty separately, e.g.
+#   Debian/Ubuntu:  sudo apt install nauty
+#   macOS Homebrew: brew install nauty
+#   source:         https://pallini.di.uniroma1.it/
+# The census pipeline locates `geng` on PATH (or via --geng-path).
+
+networkx>=3.0      # graph data structures, used throughout
+numpy>=1.24        # required by the independent order-25 witness verifier
+matplotlib>=3.7    # only for code/scripts/render_graphs.py (figure rendering)
+pytest>=7.0        # only to run the test suite

@@ -40,7 +40,7 @@ Even orders below 22 have no nontrivial survivors. The nontrivial-survivor count
 
 - `results/` — per-order survivor census files named `order_N_delta_3.json` or `order_N_delta_3.json.gz`.
 - `reports/` — audit JSON files recording independent checks and pipeline summaries.
-- `code/` — generation, filtering, verification, and audit scripts, including `code/scripts/independent_verify_order25_witness.py`.
+- `code/` — the census pipeline plus classification and audit scripts, including `code/scripts/classify_census_characterization.py` (reproduces the paper's categorization table) and `code/scripts/check_hashes.py` (verifies the census SHA-256 hashes).
 - `README.md` — canonical census-file SHA-256 table and repository overview.
 
 ## Quick links

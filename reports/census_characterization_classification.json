@@ -1,0 +1,777 @@
+{
+  "categories": [
+    "a_vertex_blowup",
+    "b_hajos",
+    "c_meredith",
+    "d_snark",
+    "e_snark"
+  ],
+  "orders": {
+    "13": {
+      "a_vertex_blowup": 10,
+      "b_hajos": 3,
+      "c_meredith": 1,
+      "d_snark": 0,
+      "e_snark": 0,
+      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_13_delta_3.json",
+      "samples": {
+        "a_vertex_blowup": [
+          {
+            "graph6": "L??ED?WS`gH_IO",
+            "index": 1,
+            "witness": {
+              "independent_triangle_count": 2,
+              "triangle_count": 2,
+              "witness_triangle": [
+                1,
+                6,
+                9
+              ]
+            }
+          },
+          {
+            "graph6": "L?AA@ASq?sDG[?",
+            "index": 4,
+            "witness": {
+              "independent_triangle_count": 2,
+              "triangle_count": 2,
+              "witness_triangle": [
+                0,
+                5,
+                8
+              ]
+            }
+          },
+          {
+            "graph6": "L?AA@ASeBO@WK_",
+            "index": 5,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 1,
+              "witness_triangle": [
+                0,
+                5,
+                8
+              ]
+            }
+          }
+        ],
+        "b_hajos": [
+          {
+            "graph6": "L?AA@AWeBG?wK_",
+            "index": 3,
+            "witness": {
+              "independent_triangle_count": 0,
+              "reason": "cyclic_2_edge_cut",
+              "triangle_count": 0
+            }
+          },
+          {
+            "graph6": "L?AA@_gaOwKOP_",
+            "index": 12,
+            "witness": {
+              "independent_triangle_count": 0,
+              "triangle_count": 2,
+              "witness_triangle": [
+                1,
+                6,
+                11
+              ]
+            }
+          },
+          {
+            "graph6": "L?`@?aGq@g?wCg",
+            "index": 14,
+            "witness": {
+              "independent_triangle_count": 0,
+              "triangle_count": 2,
+              "witness_triangle": [
+                0,
+                4,
+                8
+              ]
+            }
+          }
+        ],
+        "c_meredith": [
+          {
+            "graph6": "L?AA@AWw@KBGE_",
+            "index": 2,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 1,
+              "triangle_count": 0,
+              "witness_side": [
+                3,
+                4,
+                8,
+                11,
+                12
+              ]
+            }
+          }
+        ],
+        "d_snark": [],
+        "e_snark": []
+      },
+      "sum_check": true,
+      "survivor_count": 14,
+      "total_classified": 14
+    },
+    "15": {
+      "a_vertex_blowup": 76,
+      "b_hajos": 13,
+      "c_meredith": 5,
+      "d_snark": 0,
+      "e_snark": 0,
+      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_15_delta_3.json",
+      "samples": {
+        "a_vertex_blowup": [
+          {
+            "graph6": "N???E?oBDAX?E_P_Ac?",
+            "index": 1,
+            "witness": {
+              "independent_triangle_count": 2,
+              "triangle_count": 2,
+              "witness_triangle": [
+                0,
+                7,
+                10
+              ]
+            }
+          },
+          {
+            "graph6": "N???E?oBF?X?E_@oAc?",
+            "index": 2,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 1,
+              "witness_triangle": [
+                3,
+                8,
+                14
+              ]
+            }
+          },
+          {
+            "graph6": "N??CA?_eCoI_@oHGKO?",
+            "index": 3,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 1,
+              "witness_triangle": [
+                2,
+                8,
+                13
+              ]
+            }
+          }
+        ],
+        "b_hajos": [
+          {
+            "graph6": "N??CA?_eCoAoX?@WCW?",
+            "index": 4,
+            "witness": {
+              "independent_triangle_count": 0,
+              "reason": "cyclic_2_edge_cut",
+              "triangle_count": 0
+            }
+          },
+          {
+            "graph6": "N??CA?oBDCPOPGDODG?",
+            "index": 22,
+            "witness": {
+              "independent_triangle_count": 0,
+              "triangle_count": 2,
+              "witness_triangle": [
+                0,
+                6,
+                10
+              ]
+            }
+          },
+          {
+            "graph6": "N??CA?oB@`T?p?@oBG?",
+            "index": 32,
+            "witness": {
+              "independent_triangle_count": 0,
+              "triangle_count": 2,
+              "witness_triangle": [
+                2,
+                8,
+                10
+              ]
+            }
+          }
+        ],
+        "c_meredith": [
+          {
+            "graph6": "N??CA?oB@oU?p?@o@K?",
+            "index": 25,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                2,
+                3,
+                8,
+                10,
+                11
+              ]
+            }
+          },
+          {
+            "graph6": "N??CA?oB@oU?Oc@o@K?",
+            "index": 26,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                2,
+                3,
+                8,
+                10,
+                11
+              ]
+            }
+          },
+          {
+            "graph6": "N?AA@?OaEOD_K_?w?e?",
+            "index": 37,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                0,
+                4,
+                5,
+                9,
+                10,
+                11,
+                14
+              ]
+            }
+          }
+        ],
+        "d_snark": [],
+        "e_snark": []
+      },
+      "sum_check": true,
+      "survivor_count": 94,
+      "total_classified": 94
+    },
+    "17": {
+      "a_vertex_blowup": 639,
+      "b_hajos": 91,
+      "c_meredith": 18,
+      "d_snark": 26,
+      "e_snark": 0,
+      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_17_delta_3.json",
+      "samples": {
+        "a_vertex_blowup": [
+          {
+            "graph6": "P????B?K?WWOw?AgBG?M?DC?",
+            "index": 1,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 1,
+              "witness_triangle": [
+                3,
+                9,
+                16
+              ]
+            }
+          },
+          {
+            "graph6": "P????B?K?WSOo_Q_BG?J?DC?",
+            "index": 2,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 1,
+              "witness_triangle": [
+                3,
+                9,
+                16
+              ]
+            }
+          },
+          {
+            "graph6": "P???C@?gA_D_J?F??U?e?OW?",
+            "index": 3,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 1,
+              "witness_triangle": [
+                1,
+                8,
+                16
+              ]
+            }
+          }
+        ],
+        "b_hajos": [
+          {
+            "graph6": "P???C@?g?oCoH_D_X??R?CK?",
+            "index": 11,
+            "witness": {
+              "independent_triangle_count": 0,
+              "reason": "cyclic_2_edge_cut",
+              "triangle_count": 0
+            }
+          },
+          {
+            "graph6": "P???C@?GCoR?DO@oKO?D_HG?",
+            "index": 38,
+            "witness": {
+              "independent_triangle_count": 0,
+              "reason": "cyclic_2_edge_cut",
+              "triangle_count": 0
+            }
+          },
+          {
+            "graph6": "P???C@?GCoR?@o@oM??P_HG?",
+            "index": 39,
+            "witness": {
+              "independent_triangle_count": 0,
+              "reason": "cyclic_2_edge_cut",
+              "triangle_count": 0
+            }
+          }
+        ],
+        "c_meredith": [
+          {
+            "graph6": "P???C@?GCoR?[?P_@E?M?@c?",
+            "index": 35,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                0,
+                3,
+                4,
+                10,
+                11
+              ]
+            }
+          },
+          {
+            "graph6": "P???C@?GCoR?D_Y?CK?K_@g?",
+            "index": 36,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                0,
+                3,
+                4,
+                10,
+                11
+              ]
+            }
+          },
+          {
+            "graph6": "P???C@?GCoJ?M?`_CK?K_@g?",
+            "index": 40,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                3,
+                4,
+                10,
+                11,
+                12
+              ]
+            }
+          }
+        ],
+        "d_snark": [
+          {
+            "graph6": "P???C@?K?WPAI_S_?s?b?PO?",
+            "index": 108,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 0,
+              "triangle_count": 0
+            }
+          },
+          {
+            "graph6": "P???C@?K?WDOw?QOQC?k?@W?",
+            "index": 149,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 0,
+              "triangle_count": 0
+            }
+          },
+          {
+            "graph6": "P???C@?K?WDOM?_cW_?J?Cg?",
+            "index": 201,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 1,
+              "triangle_count": 0
+            }
+          }
+        ],
+        "e_snark": []
+      },
+      "sum_check": true,
+      "survivor_count": 774,
+      "total_classified": 774
+    },
+    "19": {
+      "a_vertex_blowup": 5928,
+      "b_hajos": 712,
+      "c_meredith": 140,
+      "d_snark": 204,
+      "e_snark": 0,
+      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_19_delta_3.json",
+      "samples": {
+        "a_vertex_blowup": [
+          {
+            "graph6": "R??????oD?B?P_PO?Y?k?KG?H_@OO?",
+            "index": 3,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 1,
+              "witness_triangle": [
+                2,
+                10,
+                18
+              ]
+            }
+          },
+          {
+            "graph6": "R??????oD?B?P_PO?Y?e?KG?K_@OO?",
+            "index": 4,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 1,
+              "witness_triangle": [
+                2,
+                10,
+                18
+              ]
+            }
+          },
+          {
+            "graph6": "R??????oD?B?@o@oGoA__KG?H_@OO?",
+            "index": 5,
+            "witness": {
+              "independent_triangle_count": 2,
+              "triangle_count": 2,
+              "witness_triangle": [
+                1,
+                9,
+                15
+              ]
+            }
+          }
+        ],
+        "b_hajos": [
+          {
+            "graph6": "R??????o@_@__o_oE@?T?Y??S_?I_?",
+            "index": 26,
+            "witness": {
+              "independent_triangle_count": 0,
+              "triangle_count": 2,
+              "witness_triangle": [
+                2,
+                10,
+                14
+              ]
+            }
+          },
+          {
+            "graph6": "R????A?O@?R?e?T??w?M?IC??w?EO?",
+            "index": 47,
+            "witness": {
+              "independent_triangle_count": 0,
+              "reason": "cyclic_2_edge_cut",
+              "triangle_count": 0
+            }
+          },
+          {
+            "graph6": "R????A?O@?R?e?D_?w?M?WG??w@A_?",
+            "index": 54,
+            "witness": {
+              "independent_triangle_count": 0,
+              "reason": "cyclic_2_edge_cut",
+              "triangle_count": 0
+            }
+          }
+        ],
+        "c_meredith": [
+          {
+            "graph6": "R??????o@_@_w?q?CW?DG@g?PO?h??",
+            "index": 7,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                0,
+                1,
+                9,
+                12,
+                13
+              ]
+            }
+          },
+          {
+            "graph6": "R??????o@_@_o_oOEO@o?AW?Cg?I_?",
+            "index": 9,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                0,
+                1,
+                9,
+                12,
+                13
+              ]
+            }
+          },
+          {
+            "graph6": "R????A?O@?R?e?[?Go?M?@W?GW?EO?",
+            "index": 46,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                0,
+                3,
+                4,
+                11,
+                12
+              ]
+            }
+          }
+        ],
+        "d_snark": [
+          {
+            "graph6": "R??????oD?B?P_WOCc?i?Cg?Go?SO?",
+            "index": 1,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 0,
+              "triangle_count": 0
+            }
+          },
+          {
+            "graph6": "R??????oD?B?P_WOCc?i?Cg?GoCAG?",
+            "index": 2,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 0,
+              "triangle_count": 0
+            }
+          },
+          {
+            "graph6": "R????A?O@?B_c_SODO?QO@W?EOD?_?",
+            "index": 191,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 0,
+              "triangle_count": 0
+            }
+          }
+        ],
+        "e_snark": []
+      },
+      "sum_check": true,
+      "survivor_count": 6984,
+      "total_classified": 6984
+    },
+    "21": {
+      "a_vertex_blowup": 60479,
+      "b_hajos": 6693,
+      "c_meredith": 1001,
+      "d_snark": 2357,
+      "e_snark": 0,
+      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_21_delta_3.json.gz",
+      "samples": {
+        "a_vertex_blowup": [
+          {
+            "graph6": "T???????E?E?B?oAOWBC??w?H_?o_?H_?SC?",
+            "index": 1,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 3,
+              "witness_triangle": [
+                3,
+                11,
+                20
+              ]
+            }
+          },
+          {
+            "graph6": "T???????E?E?B?oAOW?D_?k?g_?q?AI??cC?",
+            "index": 2,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 3,
+              "witness_triangle": [
+                2,
+                11,
+                20
+              ]
+            }
+          },
+          {
+            "graph6": "T???????E?E?B?oAOW@@GK_?POA@_?[??KO?",
+            "index": 3,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 3,
+              "witness_triangle": [
+                2,
+                11,
+                15
+              ]
+            }
+          }
+        ],
+        "b_hajos": [
+          {
+            "graph6": "T??????_A?E?B?K@T?Ao?@o?E_?F???s@@O?",
+            "index": 23,
+            "witness": {
+              "independent_triangle_count": 0,
+              "triangle_count": 2,
+              "witness_triangle": [
+                2,
+                11,
+                13
+              ]
+            }
+          },
+          {
+            "graph6": "T??????_A?E?B?K@T?Ao??w?B_?E_CGO??i?",
+            "index": 24,
+            "witness": {
+              "independent_triangle_count": 0,
+              "triangle_count": 2,
+              "witness_triangle": [
+                2,
+                11,
+                13
+              ]
+            }
+          },
+          {
+            "graph6": "T??????_A?E?B?K@T?Ao??s?Ao?F?CGO@D??",
+            "index": 27,
+            "witness": {
+              "independent_triangle_count": 0,
+              "triangle_count": 2,
+              "witness_triangle": [
+                2,
+                11,
+                13
+              ]
+            }
+          }
+        ],
+        "c_meredith": [
+          {
+            "graph6": "T????A?O@?A?B?__p_AW??w?b?@__??w?@c?",
+            "index": 1100,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                4,
+                5,
+                12,
+                14,
+                15
+              ]
+            }
+          },
+          {
+            "graph6": "T????A?O@?A?B?__p_?Y?Oo?a_A_O??w?@c?",
+            "index": 1156,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                4,
+                5,
+                12,
+                14,
+                15
+              ]
+            }
+          },
+          {
+            "graph6": "T????A?O@?A?B?__p_?Y?Oo?`_@__??w?Ac?",
+            "index": 1157,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                4,
+                5,
+                12,
+                14,
+                15
+              ]
+            }
+          }
+        ],
+        "d_snark": [
+          {
+            "graph6": "T????A?O@?A?B?__x?@W?@o?B_@__??w?@c?",
+            "index": 737,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 1,
+              "triangle_count": 0
+            }
+          },
+          {
+            "graph6": "T????A?O@?A?B?__x?@W?@o?B_A_O??w?@c?",
+            "index": 738,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 1,
+              "triangle_count": 0
+            }
+          },
+          {
+            "graph6": "T????A?O@?A?B?__x?@W?@W?B_@__??w?BC?",
+            "index": 739,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 1,
+              "triangle_count": 0
+            }
+          }
+        ],
+        "e_snark": []
+      },
+      "sum_check": true,
+      "survivor_count": 70530,
+      "total_classified": 70530
+    },
+    "22": {
+      "a_vertex_blowup": 0,
+      "b_hajos": 0,
+      "c_meredith": 0,
+      "d_snark": 0,
+      "e_snark": 1,
+      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_22_delta_3.json.gz",
+      "samples": {
+        "a_vertex_blowup": [],
+        "b_hajos": [],
+        "c_meredith": [],
+        "d_snark": [],
+        "e_snark": [
+          {
+            "graph6": "U???C@?G?_@?@??_[?Aa?aG?GW?_g?M???b?G__?",
+            "index": 1,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0
+            }
+          }
+        ]
+      },
+      "sum_check": true,
+      "survivor_count": 1,
+      "total_classified": 1
+    }
+  }
+}
