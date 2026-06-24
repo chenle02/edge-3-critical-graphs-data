@@ -266,7 +266,7 @@ def classify_order(order: int, sample_limit: int = 3) -> dict[str, Any]:
   survivor_count = int(payload["survivor_count"])
   total_classified = sum(counts[category] for category in CATEGORIES)
   row = {
-    "input_path": str(path),
+    "input_path": (str(path.relative_to(REPO_ROOT)) if str(path).startswith(str(REPO_ROOT)) else path.name),
     "survivor_count": survivor_count,
     **{category: int(counts[category]) for category in CATEGORIES},
     "total_classified": int(total_classified),

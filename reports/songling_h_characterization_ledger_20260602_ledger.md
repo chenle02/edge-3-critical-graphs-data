@@ -54,5 +54,4 @@ By order:
 }
 ```
 ## Local send gate
-- Guardrail: do not send Songling-facing prose. This ledger is local audit provenance only; it is not collaborator-facing prose and not a manuscript patch without a fresh reviewed send/manuscript gate.
 - No Overleaf edit, email, Telegram message, staging, commit, or push is authorized by this ledger hardening.

@@ -77,9 +77,10 @@ archived here and as recorded during the original runs.
 
 ## Audit reports (`reports/`)
 
-Reports are archived exactly as produced by the audit runs (provenance
-copies; JSON is the canonical record, Markdown siblings are human-readable
-summaries).  The reports supporting the paper:
+Reports are archived as produced by the audit runs (provenance copies, with
+local absolute paths and internal review notes redacted; JSON is the canonical
+record, Markdown siblings are human-readable summaries).  The reports
+supporting the paper:
 
 | Paper reference | File(s) |
 |---|---|

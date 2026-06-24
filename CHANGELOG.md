@@ -4,6 +4,15 @@ All notable changes to this repository are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/), and this project
 adheres to [Semantic Versioning](https://semver.org/).
 
+## [v1.1.1] - 2026-06-24
+
+Housekeeping release: redacted local absolute paths and an internal review note
+from the archived `reports/` provenance copies, and made
+`classify_census_characterization.py` record repository-relative input paths.
+No census data or counts changed; all SHA-256 hashes remain identical to v1.0.0.
+Concept DOI [10.5281/zenodo.20821990](https://doi.org/10.5281/zenodo.20821990)
+(always resolves to this latest version).
+
 ## [v1.1.0] - 2026-06-24
 
 Archived on Zenodo: concept DOI [10.5281/zenodo.20821990](https://doi.org/10.5281/zenodo.20821990)

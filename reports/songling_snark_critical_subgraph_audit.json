@@ -1,15 +1,15 @@
 {
   "request": "Songling 2026-05-05: verify edge-chromatic 3-critical subgraphs of each order-18/order-20 snark, list all possible subgraphs found, and state how each is obtained.",
   "scope": {
-    "snark_source": "/home/lechen/Dropbox/workspace/svn/Article-Combinatorics_Adventures/.hermes/reports/songling_followup_snark_deletion_audit.json",
+    "snark_source": "songling_followup_snark_deletion_audit.json",
     "snark_convention": "strict/common classes from the prior audit: weak snark, girth >= 5, no cyclic edge-cut of size 1, 2, or 3",
     "subgraph_search": "all pure one-vertex deletions and all one-vertex-plus-one-edge deletions; dual edge-coloring checks for every positive 3-critical witness",
     "limitation": "not a brute-force enumeration of every smaller arbitrary edge subset; nevertheless, vertex-plus-edge positives already refute the literal non-induced statement"
   },
   "outputs": {
-    "json": "/home/lechen/Dropbox/workspace/svn/Article-Combinatorics_Adventures/.hermes/reports/songling_snark_critical_subgraph_audit.json",
-    "markdown": "/home/lechen/Dropbox/workspace/svn/Article-Combinatorics_Adventures/.hermes/reports/songling_snark_critical_subgraph_audit.md",
-    "csv": "/home/lechen/Dropbox/workspace/svn/Article-Combinatorics_Adventures/.hermes/reports/songling_snark_critical_subgraph_audit.csv"
+    "json": "songling_snark_critical_subgraph_audit.json",
+    "markdown": "songling_snark_critical_subgraph_audit.md",
+    "csv": "songling_snark_critical_subgraph_audit.csv"
   },
   "summary": {
     "snark_class_count": 8,

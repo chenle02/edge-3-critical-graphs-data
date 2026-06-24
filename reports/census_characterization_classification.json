@@ -13,7 +13,7 @@
       "c_meredith": 1,
       "d_snark": 0,
       "e_snark": 0,
-      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_13_delta_3.json",
+      "input_path": "results/order_13_delta_3.json",
       "samples": {
         "a_vertex_blowup": [
           {
@@ -123,7 +123,7 @@
       "c_meredith": 5,
       "d_snark": 0,
       "e_snark": 0,
-      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_15_delta_3.json",
+      "input_path": "results/order_15_delta_3.json",
       "samples": {
         "a_vertex_blowup": [
           {
@@ -265,7 +265,7 @@
       "c_meredith": 18,
       "d_snark": 26,
       "e_snark": 0,
-      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_17_delta_3.json",
+      "input_path": "results/order_17_delta_3.json",
       "samples": {
         "a_vertex_blowup": [
           {
@@ -422,7 +422,7 @@
       "c_meredith": 140,
       "d_snark": 204,
       "e_snark": 0,
-      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_19_delta_3.json",
+      "input_path": "results/order_19_delta_3.json",
       "samples": {
         "a_vertex_blowup": [
           {
@@ -583,7 +583,7 @@
       "c_meredith": 1001,
       "d_snark": 2357,
       "e_snark": 0,
-      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_21_delta_3.json.gz",
+      "input_path": "results/order_21_delta_3.json.gz",
       "samples": {
         "a_vertex_blowup": [
           {
@@ -752,7 +752,7 @@
       "c_meredith": 0,
       "d_snark": 0,
       "e_snark": 1,
-      "input_path": "/home/lzc0090/Dropbox/workspace/svn/edge-3-critical-graphs-data/results/order_22_delta_3.json.gz",
+      "input_path": "results/order_22_delta_3.json.gz",
       "samples": {
         "a_vertex_blowup": [],
         "b_hajos": [],
