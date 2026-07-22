@@ -24,14 +24,17 @@ jobs:
       - name: Test computational-effort reporter
         run: python -m pytest code/tests/test_report_computational_effort.py
 
-      - name: Re-render computational-effort snapshot
+      - name: Re-render computational-effort snapshots
         run: |
-          python code/scripts/report_computational_effort.py render \
-            --snapshot reports/order23_computational_effort_20260722.json \
-            --output-prefix /tmp/order23_computational_effort_20260722
-          cmp reports/order23_computational_effort_20260722.json /tmp/order23_computational_effort_20260722.json
-          cmp reports/order23_computational_effort_20260722.tsv /tmp/order23_computational_effort_20260722.tsv
-          cmp docs/computational-effort.md /tmp/order23_computational_effort_20260722.md
+          for order in 21 22 23; do
+            prefix="order${order}_computational_effort_20260722"
+            python code/scripts/report_computational_effort.py render \
+              --snapshot "reports/${prefix}.json" \
+              --output-prefix "/tmp/${prefix}"
+            cmp "reports/${prefix}.json" "/tmp/${prefix}.json"
+            cmp "reports/${prefix}.tsv" "/tmp/${prefix}.tsv"
+            cmp "reports/${prefix}.md" "/tmp/${prefix}.md"
+          done
 
       - name: Check README census hashes
         run: python code/scripts/check_hashes.py --readme README.md --results-dir results

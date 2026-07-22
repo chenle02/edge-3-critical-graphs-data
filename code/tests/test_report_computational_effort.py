@@ -220,6 +220,17 @@ def test_log_discovery_skips_mixed_partition_campaigns(tmp_path: Path) -> None:
     assert report.discover_job_parts(logs, 23, 64) == {"600001_0": 0}
 
 
+def test_log_discovery_supports_legacy_n_header(tmp_path: Path) -> None:
+    logs = tmp_path / "logs"
+    logs.mkdir()
+    (logs / "cga21arr-4683600_0.out").write_text(
+        "job=4683600_0\n--geng-mod 0/16\nScanning n=21, delta=3, part 0/16\n",
+        encoding="utf-8",
+    )
+
+    assert report.discover_job_parts(logs, 21, 16) == {"4683600_0": 0}
+
+
 def test_result_flags_and_small_modular_identity_fail_closed(tmp_path: Path) -> None:
     incomplete = _result(
         tmp_path / "order_23_delta_3_part0of1.json", parts=1, part=0,

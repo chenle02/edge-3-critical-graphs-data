@@ -75,7 +75,16 @@ headline counts:
 The hashes for `order_20`, `order_21`, and `order_22` are of the compressed files, as
 archived here and as recorded during the original runs.
 
-## Computational effort: ongoing Order-23 extension
+## Computational effort
+
+Exact Easley Slurm accounting is archived for the completed Order-21 and
+Order-22 censuses. Order 21 used **8,964.720 core-hours** to process
+1,068,435,908 graphs; Order 22 used **1,983.053 core-hours** to process
+5,022,269,988 graphs. Both campaigns consisted of 16 successful 48-CPU tasks
+with no retries recorded. Their calendar spans were 23:52:47 and 5:20:59,
+respectively.
+
+### Ongoing Order-23 extension
 
 The sanitized snapshot generated **2026-07-22T14:19:51Z** records the ongoing
 64-slice Order-23 extension. The campaign began **2026-05-29T22:16:47**
@@ -86,8 +95,9 @@ slices complete**. Its provisional counters are 24,084,134,378 processed,
 attempts represent a cumulative **938d 08:15:58** of wall time and
 **722,192.439 core-hours** of allocated compute.
 
-See the [detailed computational-effort report](docs/computational-effort.md),
-the canonical [JSON snapshot](reports/order23_computational_effort_20260722.json),
+See the [computational-effort overview](docs/computational-effort.md), including
+links to the detailed per-slice reports and machine-readable telemetry. For
+Order 23, see the canonical [JSON snapshot](reports/order23_computational_effort_20260722.json)
 and the [TSV telemetry](reports/order23_computational_effort_20260722.tsv).
 These provisional statistics are beyond the archived v1.1.1 release and are
 **not a completed census result**; Order 23 remains pending.
