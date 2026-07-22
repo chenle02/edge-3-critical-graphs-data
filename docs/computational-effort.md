@@ -1,115 +1,53 @@
-# Order 23 computational effort
+# Computational effort
 
-**Status: PROVISIONAL / INCOMPLETE.** Snapshot generated 2026-07-22T14:19:51Z.
+This page records the computational cost of the completed Order 21 and Order
+22 censuses and the ongoing Order 23 extension. The figures come from sanitized
+result metadata and top-level Slurm accounting retained on the Auburn University
+Easley Cluster.
 
-## Run interval
+## Campaign summary
 
-- Campaign start: 2026-05-29T22:16:47 (America/Chicago)
-- Campaign end: running at snapshot 2026-07-22T14:19:51Z
-- Slurm timestamp timezone: `America/Chicago`
-- Completed slices: 63/64
+| Order | Status | Slices | Processed graphs | Survivors | Slurm attempts | Cumulative Slurm wall | Allocated compute | Calendar span |
+|---:|:---|---:|---:|---:|---:|---:|---:|---:|
+| 21 | Complete | 16/16 | 1,068,435,908 | 70,530 | 16 | 7d 18:45:54 | **8,964.720 core-hours** | 23:52:47 |
+| 22 | Complete | 16/16 | 5,022,269,988 | 1 | 16 | 1d 17:18:49 | **1,983.053 core-hours** | 5:20:59 |
+| 23 | Provisional / incomplete | 63/64 | 24,084,134,378 | 777,157 | 106 | 938d 08:15:58 | **722,192.439 core-hours** | Still running at the 2026-07-22 snapshot |
 
-## Per-slice statistics
+Order 21 ran from 2026-05-07 20:37:06 to 2026-05-08 20:29:53, and
+Order 22 ran from 2026-05-08 21:43:03 to 2026-05-09 03:04:02. These Slurm
+timestamps use `America/Chicago`. Both completed campaigns used 16 successful
+48-CPU tasks, with no retries recorded.
 
-| Part | Result | Processed | Pruned | Noncritical | Critical | Overfull | Survivors | Unclassified | Attempts / states | Start (America/Chicago) | End (America/Chicago) | Slurm wall | Core-hours |
-|---:|:---|---:|---:|---:|---:|---:|---:|---:|:---|:---|:---|---:|---:|
-| 0 | final | 183,067,933 | 148,365 | 178,918,775 | 4,000,793 | 3,990,710 | 10,083 | 0 | 1 / COMPLETED:1 | 2026-05-29T22:16:54 | 2026-06-07T00:15:02 | 8d 01:58:08 | 9,310.507 |
-| 1 | final | 207,757,931 | 174,257 | 204,004,758 | 3,578,916 | 3,574,632 | 4,284 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-06-26T22:31:51 | 16d 15:27:37 | 12,767.818 |
-| 2 | final | 175,568,296 | 110,129 | 170,750,687 | 4,707,480 | 4,688,676 | 18,804 | 0 | 3 / COMPLETED:1, FAILED:1, TIMEOUT:1 | 2026-05-29T22:17:48 | 2026-07-12T01:33:16 | 19d 21:17:40 | 16,504.340 |
-| 3 | final | 214,393,505 | 118,834 | 211,215,126 | 3,059,545 | 3,043,150 | 16,395 | 0 | 1 / COMPLETED:1 | 2026-06-08T14:46:36 | 2026-06-27T09:40:27 | 18d 18:53:51 | 9,017.950 |
-| 4 | final | 130,863,293 | 130,464 | 126,451,944 | 4,280,885 | 4,277,477 | 3,408 | 0 | 1 / COMPLETED:1 | 2026-05-29T22:16:54 | 2026-06-07T03:15:20 | 8d 04:58:26 | 9,454.747 |
-| 5 | final | 287,830,869 | 217,176 | 284,696,099 | 2,917,594 | 2,889,739 | 27,855 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-06-27T05:16:19 | 16d 22:12:23 | 13,091.468 |
-| 6 | final | 292,426,842 | 391,503 | 288,378,051 | 3,657,288 | 3,643,268 | 14,020 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:17:48 | 2026-06-27T21:06:38 | 17d 14:01:28 | 13,851.279 |
-| 7 | final | 163,602,075 | 176,740 | 160,279,525 | 3,145,810 | 3,133,141 | 12,669 | 0 | 1 / COMPLETED:1 | 2026-06-19T19:52:05 | 2026-06-26T17:06:37 | 6d 21:14:32 | 7,931.627 |
-| 8 | final | 261,498,616 | 272,550 | 258,137,833 | 3,088,233 | 3,078,611 | 9,622 | 0 | 1 / COMPLETED:1 | 2026-05-29T22:16:54 | 2026-06-05T06:16:59 | 6d 08:00:05 | 7,296.067 |
-| 9 | final | 285,510,694 | 330,752 | 282,591,475 | 2,588,467 | 2,572,052 | 16,415 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-06-25T20:09:08 | 15d 13:04:54 | 11,501.590 |
-| 10 | final | 278,203,103 | 422,904 | 273,529,881 | 4,250,318 | 4,237,371 | 12,947 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:17:48 | 2026-06-28T17:00:05 | 18d 09:55:25 | 14,806.206 |
-| 11 | final | 129,653,669 | 196,611 | 125,706,347 | 3,750,711 | 3,738,334 | 12,377 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:36 | 2026-07-12T20:03:38 | 20d 18:30:26 | 10,488.308 |
-| 12 | final | 555,379,551 | 936,522 | 551,363,794 | 3,079,235 | 3,069,090 | 10,145 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:54 | 2026-06-12T14:15:29 | 6d 17:51:12 | 7,768.960 |
-| 13 | final | 398,511,882 | 417,228 | 394,700,785 | 3,393,869 | 3,386,597 | 7,272 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-06-26T13:50:03 | 16d 06:45:37 | 12,350.202 |
-| 14 | final | 235,149,126 | 545,582 | 232,893,503 | 1,710,041 | 1,702,733 | 7,308 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:17:48 | 2026-06-26T18:37:42 | 13d 06:57:11 | 8,903.922 |
-| 15 | final | 187,206,000 | 546,020 | 183,099,992 | 3,559,987 | 3,548,141 | 11,846 | 1 | 1 / COMPLETED:1 | 2026-06-23T00:27:17 | 2026-06-30T12:52:20 | 7d 12:25:03 | 8,660.040 |
-| 16 | final | 142,805,143 | 193,675 | 137,909,907 | 4,701,561 | 4,694,066 | 7,495 | 0 | 1 / COMPLETED:1 | 2026-05-29T22:17:17 | 2026-06-08T08:39:31 | 9d 10:22:14 | 10,865.787 |
-| 17 | final | 395,778,117 | 596,324 | 390,683,711 | 4,498,082 | 4,479,878 | 18,204 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-05T15:17:30 | 19d 07:57:03 | 15,862.906 |
-| 18 | final | 196,064,757 | 254,028 | 192,546,052 | 3,264,677 | 3,252,138 | 12,539 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:17:54 | 2026-07-03T09:45:17 | 16d 08:41:53 | 12,443.729 |
-| 19 | final | 443,624,391 | 1,040,292 | 438,502,259 | 4,081,840 | 4,063,716 | 18,124 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:38 | 2026-07-14T12:25:40 | 21d 21:02:07 | 11,761.670 |
-| 20 | final | 693,252,936 | 1,494,616 | 687,848,424 | 3,909,896 | 3,896,860 | 13,036 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:17:47 | 2026-06-14T19:53:28 | 8d 04:36:40 | 9,437.333 |
-| 21 | final | 1,080,995,013 | 2,044,993 | 1,074,852,229 | 4,097,791 | 4,093,414 | 4,377 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-05T01:07:55 | 17d 20:49:04 | 14,176.954 |
-| 22 | final | 463,988,338 | 960,993 | 458,466,074 | 4,561,271 | 4,556,189 | 5,082 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:33 | 2026-07-14T18:32:09 | 21d 22:28:39 | 11,830.858 |
-| 23 | final | 333,824,409 | 1,017,287 | 328,190,176 | 4,616,946 | 4,608,689 | 8,257 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:38 | 2026-07-15T02:21:50 | 22d 04:09:29 | 12,103.563 |
-| 24 | final | 407,475,452 | 1,307,633 | 401,607,009 | 4,560,810 | 4,556,602 | 4,208 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:17:47 | 2026-06-11T09:00:40 | 9d 01:21:00 | 10,432.800 |
-| 25 | final | 1,250,036,540 | 1,691,898 | 1,244,581,555 | 3,763,087 | 3,753,784 | 9,303 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-04T15:55:19 | 17d 10:05:21 | 13,661.997 |
-| 26 | final | 349,976,498 | 352,055 | 346,648,858 | 2,975,585 | 2,968,118 | 7,467 | 0 | 1 / COMPLETED:1 | 2026-06-26T22:31:53 | 2026-07-03T03:04:31 | 6d 04:32:38 | 7,130.107 |
-| 27 | final | 607,582,872 | 707,112 | 601,769,009 | 5,106,751 | 5,094,455 | 12,296 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:38 | 2026-07-16T21:29:23 | 23d 12:09:34 | 13,639.630 |
-| 28 | final | 327,656,609 | 408,172 | 323,266,654 | 3,981,783 | 3,974,973 | 6,810 | 0 | 1 / COMPLETED:1 | 2026-05-29T22:17:47 | 2026-06-06T17:08:19 | 7d 18:50:32 | 8,968.427 |
-| 29 | final | 229,783,270 | 538,182 | 225,417,750 | 3,827,338 | 3,815,153 | 12,185 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-05T07:18:20 | 17d 14:49:49 | 13,889.539 |
-| 30 | final | 758,670,157 | 1,950,386 | 753,748,019 | 2,971,752 | 2,961,751 | 10,001 | 0 | 1 / COMPLETED:1 | 2026-06-08T14:46:33 | 2026-06-26T03:06:06 | 17d 12:19:33 | 8,406.517 |
-| 31 | final | 529,529,406 | 1,087,664 | 524,994,239 | 3,447,503 | 3,429,497 | 18,006 | 0 | 1 / COMPLETED:1 | 2026-06-27T21:06:40 | 2026-07-05T20:39:39 | 7d 23:32:59 | 9,194.387 |
-| 32 | final | 981,986,089 | 1,778,353 | 974,566,702 | 5,641,034 | 5,626,657 | 14,377 | 0 | 3 / COMPLETED:1, TIMEOUT:2 | 2026-05-29T22:17:54 | 2026-07-15T00:15:13 | 23d 07:38:57 | 25,270.293 |
-| 33 | final | 355,919,147 | 532,623 | 351,447,865 | 3,938,659 | 3,919,707 | 18,952 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-08T15:46:01 | 18d 08:41:25 | 14,746.842 |
-| 34 | final | 338,854,578 | 418,207 | 335,692,468 | 2,743,903 | 2,729,976 | 13,927 | 0 | 1 / COMPLETED:1 | 2026-06-30T12:52:21 | 2026-07-06T16:21:40 | 6d 03:29:19 | 7,079.453 |
-| 35 | final | 276,155,527 | 593,913 | 272,040,903 | 3,520,711 | 3,513,306 | 7,405 | 0 | 1 / COMPLETED:1 | 2026-06-08T14:46:38 | 2026-06-28T06:27:48 | 19d 15:41:10 | 9,433.722 |
-| 36 | final | 269,987,954 | 299,217 | 265,702,735 | 3,986,002 | 3,973,760 | 12,242 | 0 | 1 / COMPLETED:1 | 2026-05-29T22:17:54 | 2026-06-07T08:09:41 | 8d 09:51:47 | 9,689.427 |
-| 37 | final | 415,038,703 | 284,872 | 410,928,190 | 3,825,641 | 3,809,691 | 15,950 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-11T11:56:36 | 17d 21:39:50 | 14,217.583 |
-| 38 | final | 273,993,934 | 236,659 | 270,652,978 | 3,104,297 | 3,099,171 | 5,126 | 0 | 1 / COMPLETED:1 | 2026-07-03T09:45:18 | 2026-07-09T10:56:49 | 6d 01:11:31 | 6,969.213 |
-| 39 | final | 268,029,994 | 509,156 | 264,217,970 | 3,302,868 | 3,291,053 | 11,815 | 0 | 1 / COMPLETED:1 | 2026-06-08T14:46:38 | 2026-06-27T21:42:11 | 19d 06:55:33 | 9,258.517 |
-| 40 | final | 242,518,009 | 497,497 | 238,867,117 | 3,153,395 | 3,139,955 | 13,440 | 0 | 1 / COMPLETED:1 | 2026-05-29T22:18:18 | 2026-06-05T22:02:47 | 6d 23:44:29 | 8,051.587 |
-| 41 | final | 435,155,631 | 1,229,160 | 430,861,063 | 3,065,408 | 3,055,071 | 10,337 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-11T04:15:49 | 16d 01:08:21 | 12,080.350 |
-| 42 | final | 375,164,676 | 271,009 | 370,619,047 | 4,274,620 | 4,258,485 | 16,135 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:33 | 2026-07-16T15:29:35 | 22d 03:04:03 | 12,051.178 |
-| 43 | final | 197,452,609 | 177,548 | 193,859,919 | 3,415,142 | 3,402,018 | 13,124 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:42 | 2026-07-15T00:40:06 | 20d 06:08:26 | 9,894.521 |
-| 44 | final | 269,023,760 | 205,400 | 263,978,583 | 4,839,777 | 4,821,095 | 18,682 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-05-29T22:31:24 | 2026-07-05T18:49:43 | 10d 17:41:54 | 12,369.520 |
-| 45 | final | 681,199,593 | 1,321,553 | 676,883,480 | 2,994,560 | 2,967,356 | 27,204 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-12T22:12:23 | 17d 03:41:53 | 13,355.184 |
-| 46 | final | 223,816,520 | 410,227 | 220,631,153 | 2,775,140 | 2,766,151 | 8,989 | 0 | 1 / COMPLETED:1 | 2026-06-08T14:46:33 | 2026-06-24T16:54:39 | 16d 02:08:06 | 7,722.700 |
-| 47 | final | 289,956,580 | 568,975 | 285,269,081 | 4,118,524 | 4,103,630 | 14,894 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:42 | 2026-07-16T13:41:00 | 21d 17:17:05 | 11,581.441 |
-| 48 | final | 692,514,354 | 1,664,763 | 687,230,838 | 3,618,753 | 3,604,585 | 14,168 | 0 | 2 / COMPLETED:1, OUT_OF_MEMORY:1 | 2026-05-29T23:55:33 | 2026-06-10T08:51:14 | 8d 06:42:46 | 9,538.213 |
-| 49 | final | 222,219,252 | 253,923 | 218,497,302 | 3,468,027 | 3,450,515 | 17,512 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-13T09:19:51 | 17d 06:50:07 | 13,505.802 |
-| 50 | final | 262,978,826 | 532,066 | 259,026,844 | 3,419,916 | 3,416,390 | 3,526 | 0 | 1 / COMPLETED:1 | 2026-07-05T18:49:43 | 2026-07-12T15:23:35 | 6d 20:33:52 | 7,899.093 |
-| 51 | final | 627,423,094 | 909,771 | 622,549,047 | 3,964,276 | 3,953,585 | 10,691 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:45 | 2026-07-16T04:33:05 | 21d 03:53:25 | 10,938.531 |
-| 52 | final | 696,264,466 | 1,038,123 | 692,735,874 | 2,490,469 | 2,472,297 | 18,172 | 0 | 2 / COMPLETED:1, OUT_OF_MEMORY:1 | 2026-05-30T00:09:42 | 2026-06-10T23:17:38 | 6d 21:31:21 | 7,945.080 |
-| 53 | final | 156,873,457 | 209,768 | 152,421,240 | 4,242,449 | 4,230,919 | 11,530 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-14T20:24:23 | 18d 12:32:30 | 14,931.701 |
-| 54 | final | 713,117,076 | 1,476,334 | 707,725,936 | 3,914,806 | 3,900,712 | 14,094 | 0 | 1 / COMPLETED:1 | 2026-07-06T16:21:41 | 2026-07-15T03:02:44 | 8d 10:41:03 | 9,728.840 |
-| 55 | final | 162,593,802 | 279,954 | 158,669,580 | 3,644,268 | 3,635,939 | 8,329 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:45 | 2026-07-15T09:10:04 | 20d 06:48:39 | 9,926.718 |
-| 56 | final | 179,776,591 | 276,190 | 175,825,264 | 3,675,137 | 3,662,314 | 12,823 | 0 | 1 / COMPLETED:1 | 2026-05-30T00:26:58 | 2026-06-06T19:46:08 | 7d 19:19:10 | 8,991.333 |
-| 57 | final | 256,805,729 | 402,121 | 252,087,946 | 4,315,662 | 4,299,196 | 16,466 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-17T23:27:35 | 18d 20:29:20 | 15,313.176 |
-| 58 | final | 333,090,914 | 233,860 | 328,847,077 | 4,009,977 | 3,997,404 | 12,573 | 0 | 1 / COMPLETED:1 | 2026-07-08T17:00:23 | 2026-07-17T04:53:46 | 8d 11:53:23 | 9,786.707 |
-| 59 | final | 364,838,246 | 444,028 | 360,557,075 | 3,837,143 | 3,825,052 | 12,091 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:45 | 2026-07-19T01:13:26 | 23d 22:11:08 | 14,120.704 |
-| 60 | final | 287,686,767 | 209,805 | 283,145,288 | 4,331,674 | 4,322,478 | 9,196 | 0 | 1 / COMPLETED:1 | 2026-05-30T07:36:15 | 2026-06-08T04:56:57 | 8d 21:20:42 | 10,240.560 |
-| 61 | final | 294,124,392 | 385,700 | 289,822,890 | 3,915,802 | 3,909,409 | 6,393 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-17T01:36:42 | 17d 03:27:41 | 13,343.832 |
-| 62 | partial (running) | 493,600,000 | 615,874 | 487,655,840 | 5,328,286 | 5,313,411 | 14,875 | 0 | 1 / RUNNING:1 | 2026-07-11T04:15:50 | running / unknown | 11d 05:04:01 | 12,915.213 |
-| 63 | final | 248,306,815 | 182,390 | 243,678,624 | 4,445,801 | 4,436,522 | 9,279 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:45 | 2026-07-17T06:40:07 | 21d 21:30:28 | 11,784.171 |
+The exact Order 21 accounting supersedes the earlier planning estimate of
+approximately 18,400 core-hours. That estimate assumed all 16 allocations ran
+for the entire approximately 24-hour calendar span. Slurm accounting instead
+sums the actual allocation durations and gives 8,964.720 core-hours.
 
-## Totals
+## Detailed reports and machine-readable telemetry
 
-- Processed graphs: 24,084,134,378
-- Pruned: 39,229,986
-- Class-1/noncritical: 23,804,446,419
-- Critical: 240,457,972
-- Overfull: 239,680,815
-- Survivors: 777,157
-- Unclassified remainder: 1
-- Slurm attempts: 106
-- Cumulative Slurm wall time: 938d 08:15:58
-- Allocated compute: 722,192.439 core-hours
+| Order | Detailed report | Canonical snapshot | Flat telemetry |
+|---:|:---|:---|:---|
+| 21 | [Markdown](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order21_computational_effort_20260722.md) | [JSON](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order21_computational_effort_20260722.json) | [TSV](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order21_computational_effort_20260722.tsv) |
+| 22 | [Markdown](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order22_computational_effort_20260722.md) | [JSON](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order22_computational_effort_20260722.json) | [TSV](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order22_computational_effort_20260722.tsv) |
+| 23 | [Markdown](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order23_computational_effort_20260722.md) | [JSON](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order23_computational_effort_20260722.json) | [TSV](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order23_computational_effort_20260722.tsv) |
 
-## Rankings and outliers
-
-- **Processed graphs:** part 25 (1,250,036,540); part 21 (1,080,995,013); part 32 (981,986,089); part 30 (758,670,157); part 54 (713,117,076)
-- **Critical graphs:** part 32 (5,641,034); part 62 (5,328,286); part 27 (5,106,751); part 44 (4,839,777); part 2 (4,707,480)
-- **Survivors:** part 5 (27,855); part 45 (27,204); part 33 (18,952); part 2 (18,804); part 44 (18,682)
-- **Cumulative Slurm wall time:** part 59 (2,067,068); part 27 (2,030,974); part 32 (2,014,737); part 23 (1,915,769); part 42 (1,911,843)
-- **Allocated compute:** part 32 (25,270.293); part 2 (16,504.340); part 17 (15,862.906); part 57 (15,313.176); part 53 (14,931.701)
-- **Retried slices:** 1, 2, 5, 6, 9, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 29, 32, 33, 37, 41, 42, 43, 44, 45, 47, 48, 49, 51, 52, 53, 55, 57, 59, 61, 63.
-- **Nonzero unclassified remainder:** part 15 (1).
+The detailed reports provide per-slice dates, counters, attempt states, wall
+times, and core-hours. The JSON snapshots are the canonical sanitized records;
+the Markdown and TSV files are deterministic renderings.
 
 ## Definitions and caveats
 
-- `processed = pruned + noncritical + critical + unclassified`; the unclassified remainder makes category-accounting gaps explicit.
-- `critical = overfull + survivors` is checked for every slice.
-- Slurm wall time is cumulative `ElapsedRaw` over top-level attempts, including failed, timed-out, and running attempts; it is not calendar duration.
-- Allocated core-hours sum `ElapsedRaw × AllocCPUS / 3600` per attempt, so retries and mixed CPU allocations are represented.
-- JSON `runtime_seconds` is retained in the machine-readable snapshot but is not substituted for cumulative Slurm effort.
-- A running slice has no end date. Partial counters are censored and must not be interpreted as the slice's final size.
-- The snapshot contains curated per-slice provenance only: no source paths, user/account names, hosts/nodes, commands, or log streams.
+- **Cumulative Slurm wall time** is the sum of `ElapsedRaw` over top-level
+  attempts. It is not the elapsed calendar duration of a parallel campaign.
+- **Allocated compute** is the sum of `ElapsedRaw × AllocCPUS / 3600`, so it
+  reflects actual allocation durations, retries, and mixed CPU allocations.
+- **Calendar span** is the interval from the earliest task start to the latest
+  task end. Parallel task execution makes it much smaller than cumulative wall
+  time.
+- Order 23 remains provisional. Its partial counters must not be interpreted as
+  a completed census result.
+- The public snapshots contain no usernames, account names, source paths,
+  nodes, commands, or raw log streams.
 
 ## Acknowledgment
 

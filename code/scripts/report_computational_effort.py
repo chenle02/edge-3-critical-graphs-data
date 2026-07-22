@@ -169,6 +169,7 @@ def discover_job_parts(logs_dir: Path, order: int, parts: int) -> dict[str, int]
             re.search(rf"\bORDER\s*=\s*{order}\b", text, re.I),
             re.search(rf"--orders?\s+{order}\b", text),
             re.search(rf"\border[ =_-]+{order}\b", text, re.I),
+            re.search(rf"\bn\s*=\s*{order}\b", text, re.I),
         ]
         if not any(order_matches):
             continue

@@ -11,6 +11,10 @@ adheres to [Semantic Versioning](https://semver.org/).
   checks for deterministic re-rendering.
 - Canonical sanitized JSON/TSV telemetry and a detailed documentation page for
   the provisional, incomplete 64-slice Order-23 snapshot dated 2026-07-22.
+- Canonical sanitized JSON/TSV telemetry and detailed reports for the completed
+  Order-21 and Order-22 campaigns, plus a three-order computational-cost summary.
+- Legacy `n=...` log-header support in the effort reporter, needed to recover
+  the original Order-21 Slurm campaign metadata.
 - README and website navigation links to the ongoing campaign telemetry.
 
 This addition changes no completed census result, release, or DOI metadata.
