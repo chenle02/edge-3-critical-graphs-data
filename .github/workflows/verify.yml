@@ -19,7 +19,19 @@ jobs:
           python-version: "3.11"
 
       - name: Install verifier dependencies
-        run: python -m pip install --upgrade pip networkx numpy
+        run: python -m pip install --upgrade pip networkx numpy pytest
+
+      - name: Test computational-effort reporter
+        run: python -m pytest code/tests/test_report_computational_effort.py
+
+      - name: Re-render computational-effort snapshot
+        run: |
+          python code/scripts/report_computational_effort.py render \
+            --snapshot reports/order23_computational_effort_20260722.json \
+            --output-prefix /tmp/order23_computational_effort_20260722
+          cmp reports/order23_computational_effort_20260722.json /tmp/order23_computational_effort_20260722.json
+          cmp reports/order23_computational_effort_20260722.tsv /tmp/order23_computational_effort_20260722.tsv
+          cmp docs/computational-effort.md /tmp/order23_computational_effort_20260722.md
 
       - name: Check README census hashes
         run: python code/scripts/check_hashes.py --readme README.md --results-dir results

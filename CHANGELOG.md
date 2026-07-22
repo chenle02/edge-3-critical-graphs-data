@@ -4,6 +4,17 @@ All notable changes to this repository are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/), and this project
 adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- A verified computational-effort reporter with focused public tests and CI
+  checks for deterministic re-rendering.
+- Canonical sanitized JSON/TSV telemetry and a detailed documentation page for
+  the provisional, incomplete 64-slice Order-23 snapshot dated 2026-07-22.
+- README and website navigation links to the ongoing campaign telemetry.
+
+This addition changes no completed census result, release, or DOI metadata.
+
 ## [v1.1.1] - 2026-06-24
 
 Housekeeping release: redacted local absolute paths and an internal review note

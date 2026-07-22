@@ -48,6 +48,7 @@ Even orders below 22 have no nontrivial survivors. The nontrivial-survivor count
 - [Methodology](methodology.md) — five-stage census pipeline.
 - [Data dictionary](data.md) — JSON schema notes and loading snippet.
 - [Results gallery](results.md) — per-order links and figure placeholders.
+- [Computational effort](computational-effort.md) — provisional telemetry for the ongoing Order-23 extension.
 - [Interactive explorer](explorer.md) — standalone explorer entry point.
 - [Verification](verify.md) — minimal reproduction instructions.
 - [Cite](cite.md) — paper and dataset citation text.

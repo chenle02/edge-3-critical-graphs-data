@@ -25,6 +25,7 @@ nav:
   - Methodology: methodology.md
   - Data: data.md
   - Results: results.md
+  - Computational effort: computational-effort.md
   - Explorer: explorer.md
   - Verify: verify.md
   - Cite: cite.md

@@ -75,6 +75,25 @@ headline counts:
 The hashes for `order_20`, `order_21`, and `order_22` are of the compressed files, as
 archived here and as recorded during the original runs.
 
+## Computational effort: ongoing Order-23 extension
+
+The sanitized snapshot generated **2026-07-22T14:19:51Z** records the ongoing
+64-slice Order-23 extension. The campaign began **2026-05-29T22:16:47**
+(America/Chicago); its end is still running at the snapshot time, with **63/64
+slices complete**. Its provisional counters are 24,084,134,378 processed,
+39,229,986 pruned, 23,804,446,419 class-1/noncritical, 240,457,972 critical,
+239,680,815 overfull, 777,157 survivors, and 1 unclassified. The 106 Slurm
+attempts represent a cumulative **938d 08:15:58** of wall time and
+**722,192.439 core-hours** of allocated compute.
+
+See the [detailed computational-effort report](docs/computational-effort.md),
+the canonical [JSON snapshot](reports/order23_computational_effort_20260722.json),
+and the [TSV telemetry](reports/order23_computational_effort_20260722.tsv).
+These provisional statistics are beyond the archived v1.1.1 release and are
+**not a completed census result**; Order 23 remains pending.
+
+This work was completed in part with resources provided by the Auburn University Easley Cluster.
+
 ## Audit reports (`reports/`)
 
 Reports are archived as produced by the audit runs (provenance copies, with
