@@ -26,8 +26,10 @@ jobs:
 
       - name: Re-render computational-effort snapshots
         run: |
-          for order in 21 22 23; do
-            prefix="order${order}_computational_effort_20260722"
+          for prefix in \
+              order21_computational_effort_20260722 \
+              order22_computational_effort_20260722 \
+              order23_computational_effort_20260723; do
             python code/scripts/report_computational_effort.py render \
               --snapshot "reports/${prefix}.json" \
               --output-prefix "/tmp/${prefix}"
