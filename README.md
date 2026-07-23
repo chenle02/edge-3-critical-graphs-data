@@ -49,7 +49,7 @@ Browse every order interactively (live graph rendering) on the
 ## Layout
 
 ```
-results/   complete census output files, orders 4 through 22
+results/   complete census output files, orders 4 through 23
 reports/   machine-readable audit reports cited in the paper
 code/      search pipeline and audit scripts
 ```
@@ -84,23 +84,21 @@ Order-22 censuses. Order 21 used **8,964.720 core-hours** to process
 with no retries recorded. Their calendar spans were 23:52:47 and 5:20:59,
 respectively.
 
-### Ongoing Order-23 extension
+### Order-23 extension (complete)
 
-The sanitized snapshot generated **2026-07-22T14:19:51Z** records the ongoing
-64-slice Order-23 extension. The campaign began **2026-05-29T22:16:47**
-(America/Chicago); its end is still running at the snapshot time, with **63/64
-slices complete**. Its provisional counters are 24,084,134,378 processed,
-39,229,986 pruned, 23,804,446,419 class-1/noncritical, 240,457,972 critical,
-239,680,815 overfull, 777,157 survivors, and 1 unclassified. The 106 Slurm
-attempts represent a cumulative **938d 08:15:58** of wall time and
-**722,192.439 core-hours** of allocated compute.
+The 64-slice Order-23 census completed on **2026-07-23**. The campaign ran from
+**2026-05-29T22:16:47** to **2026-07-23T09:54:02** (America/Chicago), a calendar
+span of 54d 11:37:15, with all **64/64 slices** reaching a final result. Its
+final counters are 24,086,917,749 processed, 39,229,986 pruned, critical
+240,892,267, overfull 240,110,081, and **782,186 nontrivial survivors** (the
+merged census file `order_23_delta_3.json.gz` above). The 106 Slurm attempts
+represent a cumulative **939d 08:50:09** of wall time and **723,371.786
+core-hours** of allocated compute.
 
 See the [computational-effort overview](docs/computational-effort.md), including
 links to the detailed per-slice reports and machine-readable telemetry. For
-Order 23, see the canonical [JSON snapshot](reports/order23_computational_effort_20260722.json)
-and the [TSV telemetry](reports/order23_computational_effort_20260722.tsv).
-These provisional statistics are beyond the archived v1.1.1 release and are
-**not a completed census result**; Order 23 remains pending.
+Order 23, see the canonical [JSON snapshot](reports/order23_computational_effort_20260723.json)
+and the [TSV telemetry](reports/order23_computational_effort_20260723.tsv).
 
 This work was completed in part with resources provided by the Auburn University Easley Cluster.
 

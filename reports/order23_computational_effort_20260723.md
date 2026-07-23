@@ -1,13 +1,13 @@
 # Order 23 computational effort
 
-**Status: PROVISIONAL / INCOMPLETE.** Snapshot generated 2026-07-22T14:19:51Z.
+**Status: COMPLETE.** Snapshot generated 2026-07-23T19:37:37Z.
 
 ## Run interval
 
 - Campaign start: 2026-05-29T22:16:47 (America/Chicago)
-- Campaign end: running at snapshot 2026-07-22T14:19:51Z
+- Campaign end: 2026-07-23T09:54:02 (America/Chicago)
 - Slurm timestamp timezone: `America/Chicago`
-- Completed slices: 63/64
+- Completed slices: 64/64
 
 ## Per-slice statistics
 
@@ -75,27 +75,27 @@
 | 59 | final | 364,838,246 | 444,028 | 360,557,075 | 3,837,143 | 3,825,052 | 12,091 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:45 | 2026-07-19T01:13:26 | 23d 22:11:08 | 14,120.704 |
 | 60 | final | 287,686,767 | 209,805 | 283,145,288 | 4,331,674 | 4,322,478 | 9,196 | 0 | 1 / COMPLETED:1 | 2026-05-30T07:36:15 | 2026-06-08T04:56:57 | 8d 21:20:42 | 10,240.560 |
 | 61 | final | 294,124,392 | 385,700 | 289,822,890 | 3,915,802 | 3,909,409 | 6,393 | 0 | 2 / COMPLETED:1, FAILED:1 | 2026-05-29T22:16:47 | 2026-07-17T01:36:42 | 17d 03:27:41 | 13,343.832 |
-| 62 | partial (running) | 493,600,000 | 615,874 | 487,655,840 | 5,328,286 | 5,313,411 | 14,875 | 0 | 1 / RUNNING:1 | 2026-07-11T04:15:50 | running / unknown | 11d 05:04:01 | 12,915.213 |
+| 62 | final | 496,383,371 | 615,874 | 490,004,916 | 5,762,581 | 5,742,677 | 19,904 | 0 | 1 / COMPLETED:1 | 2026-07-11T04:15:50 | 2026-07-23T09:54:02 | 12d 05:38:12 | 14,094.560 |
 | 63 | final | 248,306,815 | 182,390 | 243,678,624 | 4,445,801 | 4,436,522 | 9,279 | 0 | 2 / COMPLETED:1, TIMEOUT:1 | 2026-06-08T14:46:45 | 2026-07-17T06:40:07 | 21d 21:30:28 | 11,784.171 |
 
 ## Totals
 
-- Processed graphs: 24,084,134,378
+- Processed graphs: 24,086,917,749
 - Pruned: 39,229,986
-- Class-1/noncritical: 23,804,446,419
-- Critical: 240,457,972
-- Overfull: 239,680,815
-- Survivors: 777,157
+- Class-1/noncritical: 23,806,795,495
+- Critical: 240,892,267
+- Overfull: 240,110,081
+- Survivors: 782,186
 - Unclassified remainder: 1
 - Slurm attempts: 106
-- Cumulative Slurm wall time: 938d 08:15:58
-- Allocated compute: 722,192.439 core-hours
+- Cumulative Slurm wall time: 939d 08:50:09
+- Allocated compute: 723,371.786 core-hours
 
 ## Rankings and outliers
 
 - **Processed graphs:** part 25 (1,250,036,540); part 21 (1,080,995,013); part 32 (981,986,089); part 30 (758,670,157); part 54 (713,117,076)
-- **Critical graphs:** part 32 (5,641,034); part 62 (5,328,286); part 27 (5,106,751); part 44 (4,839,777); part 2 (4,707,480)
-- **Survivors:** part 5 (27,855); part 45 (27,204); part 33 (18,952); part 2 (18,804); part 44 (18,682)
+- **Critical graphs:** part 62 (5,762,581); part 32 (5,641,034); part 27 (5,106,751); part 44 (4,839,777); part 2 (4,707,480)
+- **Survivors:** part 5 (27,855); part 45 (27,204); part 62 (19,904); part 33 (18,952); part 2 (18,804)
 - **Cumulative Slurm wall time:** part 59 (2,067,068); part 27 (2,030,974); part 32 (2,014,737); part 23 (1,915,769); part 42 (1,911,843)
 - **Allocated compute:** part 32 (25,270.293); part 2 (16,504.340); part 17 (15,862.906); part 57 (15,313.176); part 53 (14,931.701)
 - **Retried slices:** 1, 2, 5, 6, 9, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 29, 32, 33, 37, 41, 42, 43, 44, 45, 47, 48, 49, 51, 52, 53, 55, 57, 59, 61, 63.

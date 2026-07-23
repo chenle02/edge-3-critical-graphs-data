@@ -1,12 +1,13 @@
 {
   "acknowledgment": "This work was completed in part with resources provided by the Auburn University Easley Cluster.",
-  "campaign_end": null,
+  "campaign_end": "2026-07-23T09:54:02",
   "campaign_start": "2026-05-29T22:16:47",
-  "complete_parts": 63,
-  "generated_at": "2026-07-22T14:19:51Z",
+  "campaign_state": "complete",
+  "complete_parts": 64,
+  "generated_at": "2026-07-23T19:37:37Z",
   "order": 23,
   "parts": 64,
-  "provisional": true,
+  "provisional": false,
   "schema_version": 1,
   "slices": [
     {
@@ -1414,25 +1415,25 @@
       "unclassified": 0
     },
     {
-      "allocated_core_hours": 12915.213333333333,
+      "allocated_core_hours": 14094.56,
       "attempt_states": {
-        "RUNNING": 1
+        "COMPLETED": 1
       },
       "attempts": 1,
-      "critical": 5328286,
+      "critical": 5762581,
       "earliest_start": "2026-07-11T04:15:50",
-      "json_runtime_seconds": 955891.383,
-      "latest_end": null,
-      "noncritical": 487655840,
-      "overfull": 5313411,
+      "json_runtime_seconds": 1057076.904,
+      "latest_end": "2026-07-23T09:54:02",
+      "noncritical": 490004916,
+      "overfull": 5742677,
       "part": 62,
-      "processed": 493600000,
+      "processed": 496383371,
       "pruned": 615874,
-      "result_kind": "partial",
-      "result_timestamp": "2026-07-22T10:47:27Z",
-      "running": true,
-      "slurm_wall_seconds": 968641,
-      "survivors": 14875,
+      "result_kind": "final",
+      "result_timestamp": "2026-07-23T14:53:54Z",
+      "running": false,
+      "slurm_wall_seconds": 1057092,
+      "survivors": 19904,
       "unclassified": 0
     },
     {
