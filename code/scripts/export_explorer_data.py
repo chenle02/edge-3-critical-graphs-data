@@ -18,7 +18,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent
 SOURCE = Path("/tmp/opencode/e3c/shared/data")
 OUT = ROOT / "assets" / "data"
-ORDERS = (9, 11, 13, 15, 17, 19, 21, 22)
+ORDERS = (9, 11, 13, 15, 17, 19, 21, 22, 23)
 SAMPLE_SIZE = 200
 FULL_EXPORT_ORDERS = {9, 11, 13, 15, 17, 22}
 
