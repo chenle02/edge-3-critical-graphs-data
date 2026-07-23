@@ -4,20 +4,28 @@ All notable changes to this repository are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/), and this project
 adheres to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [v1.2.0] - 2026-07-23
 
 ### Added
+- **Completed Order-23 census** (`results/order_23_delta_3.json.gz`): 782,186
+  nontrivial (non-overfull) edge-3-critical graphs, from 24,086,917,749
+  processed graphs (total_critical 240,892,267, overfull 240,110,081). Its
+  SHA-256 is recorded in the README census-file hash table.
+- Final Order-23 computational-effort report
+  (`reports/order23_computational_effort_20260723.{json,tsv,md}`,
+  `campaign_state=complete`, 64/64 slices, 723,371.786 allocated core-hours over
+  106 Slurm attempts, calendar span 2026-05-29 → 2026-07-23), superseding the
+  provisional 63/64 snapshot dated 2026-07-22.
 - A verified computational-effort reporter with focused public tests and CI
   checks for deterministic re-rendering.
-- Canonical sanitized JSON/TSV telemetry and a detailed documentation page for
-  the provisional, incomplete 64-slice Order-23 snapshot dated 2026-07-22.
 - Canonical sanitized JSON/TSV telemetry and detailed reports for the completed
   Order-21 and Order-22 campaigns, plus a three-order computational-cost summary.
 - Legacy `n=...` log-header support in the effort reporter, needed to recover
   the original Order-21 Slurm campaign metadata.
-- README and website navigation links to the ongoing campaign telemetry.
+- README and website navigation links to the campaign telemetry.
 
-This addition changes no completed census result, release, or DOI metadata.
+The Order-23 census is a new completed result; all previously published census
+files, counts, and their SHA-256 hashes are unchanged.
 
 ## [v1.1.1] - 2026-06-24
 
