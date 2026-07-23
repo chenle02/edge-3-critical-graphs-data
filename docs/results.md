@@ -63,7 +63,14 @@ The [Interactive explorer](explorer.md) provides a browser-based entry point for
 ## Order 22
 
 - Nontrivial survivors: **1**
-- Census file: [`order_22_delta_3.json`](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/results/order_22_delta_3.json)
+- Census file: [`order_22_delta_3.json.gz`](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/results/order_22_delta_3.json.gz)
 - Explorer: [Interactive explorer](explorer.md)
 
 ![gallery](assets/figures/order_22_survivor.png)
+
+## Order 23
+
+- Nontrivial survivors: **782,186**
+- Census file: [`order_23_delta_3.json.gz`](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/results/order_23_delta_3.json.gz)
+- Explorer: [Interactive explorer](explorer.md) (200-survivor sample)
+- Characterization clause counts: (a) vertex-blowup 672,397 · (b) Hajós-join 71,812 · (c) Meredith-type 11,260 · (d) snark-completion 26,717 · (e) 0 — sum-check passes.

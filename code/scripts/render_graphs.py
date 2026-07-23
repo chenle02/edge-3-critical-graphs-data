@@ -295,7 +295,7 @@ def print_size_table(rows: list[tuple[str, tuple[int, int], float]]) -> None:
 
 
 def render_all(data_dir: Path, output_dir: Path, manifest_path: Path) -> list[Path]:
-  orders_needed = [9, 11, 13, 15, 17, 19, 21, 22]
+  orders_needed = [9, 11, 13, 15, 17, 19, 21, 22, 23]
   data_by_order = {order: load_census(order, data_dir) for order in orders_needed}
   paths: list[Path] = []
   paths.append(render_hero(data_by_order, output_dir))

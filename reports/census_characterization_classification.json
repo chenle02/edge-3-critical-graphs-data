@@ -772,6 +772,73 @@
       "sum_check": true,
       "survivor_count": 1,
       "total_classified": 1
+    },
+    "23": {
+      "a_vertex_blowup": 672397,
+      "b_hajos": 71812,
+      "c_meredith": 11260,
+      "d_snark": 26717,
+      "e_snark": 0,
+      "input_path": "results/order_23_delta_3.json.gz",
+      "samples": {
+        "a_vertex_blowup": [
+          {
+            "graph6": "V?????????W?g?E?GoAK??X?DO?D_?a_?oG?AI?@OC??",
+            "index": 1,
+            "witness": {
+              "independent_triangle_count": 1,
+              "triangle_count": 1,
+              "witness_triangle": [
+                2,
+                12,
+                22
+              ]
+            }
+          }
+        ],
+        "b_hajos": [
+          {
+            "graph6": "V??????_A?C?C?a?H_BO??w?B_?e??GQ?CI??D_@@_??",
+            "index": 119,
+            "witness": {
+              "independent_triangle_count": 0,
+              "reason": "cyclic_2_edge_cut",
+              "triangle_count": 0
+            }
+          }
+        ],
+        "c_meredith": [
+          {
+            "graph6": "V???????C?G?G?e?R?B_?P_?F??J??B_?AW?A@_?@c??",
+            "index": 5,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 2,
+              "triangle_count": 0,
+              "witness_side": [
+                0,
+                3,
+                4,
+                13,
+                14
+              ]
+            }
+          }
+        ],
+        "d_snark": [
+          {
+            "graph6": "V??????_A?C?C?a?H_BO?@_OF??F??BO?oO??D_?@S??",
+            "index": 127,
+            "witness": {
+              "minimal_cyclic_3_cut_side_count": 1,
+              "triangle_count": 0
+            }
+          }
+        ],
+        "e_snark": []
+      },
+      "sum_check": true,
+      "survivor_count": 782186,
+      "total_classified": 782186
     }
   }
 }

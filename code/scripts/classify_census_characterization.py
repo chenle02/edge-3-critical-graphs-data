@@ -35,7 +35,7 @@ REPO_ROOT = ROOT.parent        # repository root (public data repo)
 RESULTS = REPO_ROOT / "results"
 REPORTS = REPO_ROOT / "reports"
 
-DEFAULT_ORDERS = [13, 15, 17, 19, 21, 22]
+DEFAULT_ORDERS = [13, 15, 17, 19, 21, 22, 23]
 DEFAULT_JSON_OUTPUT = REPORTS / "census_characterization_classification.json"
 DEFAULT_MD_OUTPUT = REPORTS / "census_characterization_classification.md"
 

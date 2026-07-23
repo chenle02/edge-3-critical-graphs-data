@@ -11,7 +11,7 @@ pip install -r code/requirements.txt
 # verify the census files against the recorded SHA-256 hashes:
 python code/scripts/check_hashes.py --readme README.md --results-dir results
 # reproduce the paper's census categorization by characterization clauses:
-python code/scripts/classify_census_characterization.py --orders 13 15 17 19 21 22
+python code/scripts/classify_census_characterization.py --orders 13 15 17 19 21 22 23
 ```
 
 The classification script asserts that the clauses (a)-(e) of the

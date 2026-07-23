@@ -29,6 +29,10 @@ Haj\u00f3s-join, Meredith-type extension, and snark-completion), and this
 repository's classification script reproduces the resulting categorization
 of every survivor.
 
+Beyond the paper's scope, this repository also archives the **completed
+Order-23 census** (782,186 nontrivial survivors) and its characterization-clause
+counts, as a computational extension.
+
 ## Quickstart
 
 ```python
@@ -132,7 +136,7 @@ supporting the paper:
   and asserts that the five categories partition each order exactly. It
   reproduces the categorization table in the paper:
   ```bash
-  python3 code/scripts/classify_census_characterization.py --orders 13 15 17 19 21 22
+  python3 code/scripts/classify_census_characterization.py --orders 13 15 17 19 21 22 23
   ```
 - `code/scripts/audit_songling_snark_critical_subgraphs.py`,
   `code/scripts/audit_songling_even_snark_residue_below18.py`,

@@ -9,7 +9,7 @@ A **nontrivial edge-chromatic 3-critical graph** here means a graph that is conn
 
 ## Census results
 
-The table records the number of nontrivial survivors for each order in the public census range. Orders 20 and 23 are intentionally marked pending.
+The table records the number of nontrivial survivors for each order in the public census range.
 
 | Order | Nontrivial survivors | Status |
 |---:|---:|---|
@@ -32,9 +32,9 @@ The table records the number of nontrivial survivors for each order in the publi
 | 20 | 0 | determined |
 | 21 | 70,530 | determined here |
 | 22 | 1 | Brinkmann--Steffen survivor reproduced |
-| 23 | pending | computation pending |
+| 23 | 782,186 | determined here |
 
-Even orders below 22 have no nontrivial survivors. The nontrivial-survivor counts for all odd orders through 21 are recorded in the census reported here. The order-22 survivor reproduces the Brinkmann--Steffen example.
+Even orders below 22 have no nontrivial survivors. The nontrivial-survivor counts for all odd orders through 21 are recorded in the census reported in the paper; the order-23 census (782,186 survivors) is a completed extension archived in this repository. The order-22 survivor reproduces the Brinkmann--Steffen example.
 
 ## Repository contents
 
@@ -48,7 +48,7 @@ Even orders below 22 have no nontrivial survivors. The nontrivial-survivor count
 - [Methodology](methodology.md) — five-stage census pipeline.
 - [Data dictionary](data.md) — JSON schema notes and loading snippet.
 - [Results gallery](results.md) — per-order links and figure placeholders.
-- [Computational effort](computational-effort.md) — provisional telemetry for the ongoing Order-23 extension.
+- [Computational effort](computational-effort.md) — Slurm telemetry for the completed Order-21, Order-22, and Order-23 campaigns.
 - [Interactive explorer](explorer.md) — standalone explorer entry point.
 - [Verification](verify.md) — minimal reproduction instructions.
 - [Cite](cite.md) — paper and dataset citation text.
