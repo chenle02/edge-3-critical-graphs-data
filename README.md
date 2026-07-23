@@ -71,6 +71,7 @@ headline counts:
 | `order_20_delta_3.json.gz` | 0 | `08e25a09ecdedd06b8904342203307ad71728aa609f5469d160ac9ce32ac8ed0` |
 | `order_21_delta_3.json.gz` | 70,530 | `2f9c3e46d744dc0b62a95631e050af657806ec76ae03a286f7e845c69cff24db` |
 | `order_22_delta_3.json.gz` | 1 | `57dbfccd9cb352564f5422530c9a0b7e269148c9789bf040f0dfd7ab96ed553e` |
+| `order_23_delta_3.json.gz` | 782,186 | `d5c9cf97ab8c2b693a24ecd4970e328a51210b302774b5506a200f7371a28896` |
 
 The hashes for `order_20`, `order_21`, and `order_22` are of the compressed files, as
 archived here and as recorded during the original runs.
