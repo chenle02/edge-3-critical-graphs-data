@@ -4,6 +4,25 @@ All notable changes to this repository are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/), and this project
 adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- Exact finite boundary-state certificates for the all-order snark-completion
+  proof: `analyze_pattern_i_boundary_states.py` exhausts the two-shore
+  Pattern-I family table, and `analyze_pattern_ii_boundary_states.py`
+  exhausts the necessary Kempe-component-partition closure for the
+  three-corner Pattern-II connector.
+- Fixed regression tests for all boundary-type counts, admissible-family
+  counts, the six Pattern-I family pairs, the 81 Pattern-II triples, and the
+  deficit-parity conclusions used in the manuscript.
+- Continuous-integration coverage for both proof certificates.
+
+### Changed
+- Clarified that `classify_census_characterization.py` produces a deterministic
+  five-label software partition. Its Meredith rule inspects only smaller
+  cyclic-cut shores, so a residual `(d/e)` label does not certify failure of
+  theorem clause (c) through the opposite shore.
+
 ## [v1.2.0] - 2026-07-23
 
 ### Added

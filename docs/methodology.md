@@ -40,4 +40,11 @@ The final filter checks for 3-overfull subgraphs. Any candidate containing such 
 
 ## Theoretical context
 
-The computational census is paired with the paper's characterization theorem, which classifies every nontrivial 3-critical graph by three operations (vertex-blowup, Hajos-join, Meredith-type extension, and snark-completion). The repository includes the census pipeline, the classification script, and audit reports for the computational side, while the paper supplies the theoretical reduction and proof context connecting the census to the final classification statements.
+The computational census is paired with the paper's characterization theorem,
+which classifies every nontrivial 3-critical graph by four construction
+mechanisms: vertex-blowup, Hajos-join, Meredith-type extension, and
+snark-completion. The repository includes the census pipeline, the
+classification script, audit reports, and the two finite boundary-state
+certificates used in the snark-completion proof. The manuscript supplies the
+graph-theoretic reductions and the splitting-off argument connecting these
+artifacts to the all-order theorem.

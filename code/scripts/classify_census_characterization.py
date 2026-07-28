@@ -1,20 +1,27 @@
 #!/usr/bin/python3
 """Classify nontrivial Delta=3 critical survivors by characterization clauses.
 
-This is a deterministic census post-processor for the characterization table in
-the combinatorics paper.  It assumes the input JSON files already contain only
-the nontrivial 3-critical survivors in the intended scope.  Every survivor is
-classified by the first applicable clause:
+This is a deterministic census post-processor for the five-label software
+table accompanying the characterization theorem.  It assumes the input JSON
+files already contain only the nontrivial 3-critical survivors in the intended
+scope.  Every survivor is classified by the first applicable software rule:
 
 1. an independent triangle gives clause (a);
 2. otherwise any triangle or any cyclic 2-edge-cut gives clause (b);
 3. otherwise a subset-minimal smaller side of a cyclic 3-edge-cut with no
    degree-2 vertex gives clause (c);
-4. the remaining cyclically 4-edge-connected / snark-completion cases give
-   clause (d) for odd order and clause (e) for even order.
+4. the remaining records receive label (d) for odd order and label (e) for
+   even order.
+
+The third rule deliberately examines only subset-minimal *smaller* shores.
+The theorem's Meredith clause is existential over either shore, so a record
+given software label (d)/(e) may still satisfy theorem clause (c) through a
+larger degree-2-free shore.  The output is therefore deterministic census
+bookkeeping, not a computational proof or an exact disjoint partition by
+theorem clauses.
 
 The script writes both machine-readable JSON and a Markdown table, and asserts
-that the five categories partition each order's survivor set exactly.
+that the five software labels partition each order's survivor set exactly.
 """
 
 from __future__ import annotations
@@ -285,6 +292,12 @@ def write_markdown(report: dict[str, Any], path: Path) -> None:
   lines = [
     "# Census characterization classification",
     "",
+    "> **Scope.** These are deterministic first-applicable software labels.",
+    "> The Meredith test examines subset-minimal smaller cyclic-3-cut shores;",
+    "> theorem clause (c) allows either shore. Thus a `(d/e)` label is not a",
+    "> certificate that clause (c) fails, and this table is census bookkeeping",
+    "> rather than an exact disjoint theorem-clause partition.",
+    "",
     "| Order n | survivors | (a) vertex-blowup | (b) Hajos-join | (c) Meredith-type | (d/e) snark-completion | sum-check |",
     "|---:|---:|---:|---:|---:|---:|:---:|",
   ]
@@ -322,6 +335,12 @@ def main(argv: list[str] | None = None) -> None:
   report: dict[str, Any] = {
     "orders": {},
     "categories": CATEGORIES,
+    "scope_note": (
+      "Deterministic software labels. The Meredith test examines only "
+      "subset-minimal smaller cyclic-3-cut shores, while theorem clause "
+      "(c) permits either shore; d/e labels therefore need not exclude "
+      "theorem clause (c)."
+    ),
   }
   for order in sorted(args.orders):
     row = classify_order(order, sample_limit=args.sample_limit)

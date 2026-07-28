@@ -24,10 +24,13 @@ index to 3.  A 3-critical graph is **nontrivial** if it contains no
 15 through 21 — records complete computer censuses at orders 19 and 21, and
 reproduces the known order-22 count of Brinkmann and Steffen.  Beyond
 enumeration, the paper proves a **characterization theorem** for all
-nontrivial 3-critical graphs in terms of three operations (vertex-blowup,
-Haj\u00f3s-join, Meredith-type extension, and snark-completion), and this
-repository's classification script reproduces the resulting categorization
-of every survivor.
+nontrivial 3-critical graphs in terms of four construction mechanisms
+(vertex-blowup, Haj\u00f3s-join, Meredith-type extension, and
+snark-completion), and this
+repository's classification script gives a deterministic five-label software
+partition of every survivor. Because its Meredith test uses only smaller
+cyclic-cut shores, that partition is census bookkeeping rather than an exact
+disjoint partition by theorem clauses.
 
 Beyond the paper's scope, this repository also archives the **completed
 Order-23 census** (782,186 nontrivial survivors) and its characterization-clause
@@ -130,11 +133,12 @@ supporting the paper:
   (graph generation via `geng` from the nauty suite, pruning filters,
   bitmask backtracking edge-coloring, criticality and overfull tests).
 - `code/scripts/classify_census_characterization.py`: the deterministic
-  census post-processor that classifies every nontrivial survivor by the
-  first applicable clause (a) vertex-blowup, (b) Haj\u00f3s-join, (c)
-  Meredith-type, (d)/(e) snark-completion of the characterization theorem,
-  and asserts that the five categories partition each order exactly. It
-  reproduces the categorization table in the paper:
+  census post-processor that assigns every nontrivial survivor the first
+  applicable software label: (a) vertex-blowup, (b) Haj\u00f3s-join, (c)
+  smaller-shore Meredith-type, or residual (d)/(e). It asserts that these
+  five labels partition each order exactly. The Meredith test deliberately
+  checks only smaller cyclic-cut shores, so residual labels do not certify
+  failure of theorem clause (c). It reproduces the software table:
   ```bash
   python3 code/scripts/classify_census_characterization.py --orders 13 15 17 19 21 22 23
   ```
@@ -142,6 +146,15 @@ supporting the paper:
   `code/scripts/audit_songling_even_snark_residue_below18.py`,
   `code/scripts/audit_songling_cyclic3_kempe_chain_request.py`: snark- and
   cyclic-3-cut audits supporting the snark-completion clauses.
+- `code/scripts/analyze_pattern_i_boundary_states.py` and
+  `code/scripts/analyze_pattern_ii_boundary_states.py`: exact finite
+  boundary-state certificates used in the all-order snark-completion proof.
+  Their tests verify the complete family counts and parity conclusions:
+  ```bash
+  python3 -m pytest \
+    code/tests/test_analyze_pattern_i_boundary_states.py \
+    code/tests/test_analyze_pattern_ii_boundary_states.py
+  ```
 - `code/scripts/check_hashes.py`: recompute and verify the census SHA-256
   hashes recorded above.
 - `code/scripts/export_explorer_data.py`, `code/scripts/render_graphs.py`:

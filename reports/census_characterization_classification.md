@@ -1,5 +1,11 @@
 # Census characterization classification
 
+> **Scope.** These are deterministic first-applicable software labels.
+> The Meredith test examines subset-minimal smaller cyclic-3-cut shores;
+> theorem clause (c) allows either shore. Thus a `(d/e)` label is not a
+> certificate that clause (c) fails, and this table is census bookkeeping
+> rather than an exact disjoint theorem-clause partition.
+
 | Order n | survivors | (a) vertex-blowup | (b) Hajos-join | (c) Meredith-type | (d/e) snark-completion | sum-check |
 |---:|---:|---:|---:|---:|---:|:---:|
 | 13 | 14 | 10 | 3 | 1 | 0 | PASS |
