@@ -30,6 +30,12 @@ jobs:
             code/tests/test_analyze_pattern_i_boundary_states.py \
             code/tests/test_analyze_pattern_ii_boundary_states.py
 
+      - name: Verify checkpoint integrity and Order-19 replay receipt
+        run: |
+          PYTHONPATH=code python -m pytest \
+            code/tests/test_phase2_pipeline.py \
+            code/tests/test_order19_replay_receipt.py
+
       - name: Re-render computational-effort snapshots
         run: |
           for prefix in \

@@ -1,0 +1,54 @@
+{
+  "audit": "order19_native_replay",
+  "date": "2026-07-28",
+  "purpose": "Resolve the two-unit residual in the historical Order-19 scalar pipeline ledger and verify that the interrupted/resumed run retained the exact survivor set.",
+  "platform": {
+    "host": "Greenwood",
+    "geng_path": "/usr/bin/geng",
+    "geng_binary_sha256": "1b760fca10c525f983a8e576d5e4bbdc8c740dca38ca163f48ebe421032adf3e",
+    "cfilter_source": "code/native/cfilter.c",
+    "cfilter_source_sha256": "7f47697ffb6b7fb65e693342e1563a1553dafe3d5023444f7f23902c08d955de",
+    "cfilter_binary_sha256": "4ad6875d803c52bae7ee2331ea37a414ae9700d7f444cba68cb9156f30f7541b"
+  },
+  "command_template": "geng -Cq -d2 -D3 19 m/8 | ./cfilter",
+  "parts": [
+    {"m": 0, "read": 5631022, "maxdeg3": 5631022, "val_pass": 685965, "filt_pass": 685759, "critical": 92834, "survivors": 933},
+    {"m": 1, "read": 4506221, "maxdeg3": 4506221, "val_pass": 539960, "filt_pass": 539824, "critical": 132186, "survivors": 638},
+    {"m": 2, "read": 6202529, "maxdeg3": 6202529, "val_pass": 655291, "filt_pass": 654853, "critical": 122521, "survivors": 909},
+    {"m": 3, "read": 5556932, "maxdeg3": 5556932, "val_pass": 604832, "filt_pass": 604733, "critical": 145326, "survivors": 698},
+    {"m": 4, "read": 8940165, "maxdeg3": 8940165, "val_pass": 711888, "filt_pass": 711745, "critical": 124371, "survivors": 1010},
+    {"m": 5, "read": 6033579, "maxdeg3": 6033578, "val_pass": 508796, "filt_pass": 508427, "critical": 87982, "survivors": 826},
+    {"m": 6, "read": 9346124, "maxdeg3": 9346124, "val_pass": 771593, "filt_pass": 771124, "critical": 155431, "survivors": 701},
+    {"m": 7, "read": 5426674, "maxdeg3": 5426674, "val_pass": 859686, "filt_pass": 858611, "critical": 146776, "survivors": 1269}
+  ],
+  "aggregate": {
+    "read": 51643246,
+    "maxdeg3": 51643245,
+    "val_pass": 5338011,
+    "filt_pass": 5335076,
+    "critical": 1007427,
+    "survivors": 6984
+  },
+  "archived_census": {
+    "file": "results/order_19_delta_3.json",
+    "file_sha256": "9f4eff7e13636fce3bcd3fc69cd2a3dfb36f1ad80e01656509fc6b9927f92b1e",
+    "critical": 1007427,
+    "survivors": 6984,
+    "canonical_survivor_sha256": "79d4bf66bf9458da1060d0659eeaef25a28c0704ad49e96c622fe1f54fbde9b1"
+  },
+  "fresh_replay": {
+    "file": "results/order_19_delta_3_native_replay.canonical.g6.gz",
+    "file_sha256": "61a682f6b4d7f9ca4ea5feedc0fa9a71c71e98f23618555175a6ec8c70409716",
+    "canonical_uncompressed_sha256": "79d4bf66bf9458da1060d0659eeaef25a28c0704ad49e96c622fe1f54fbde9b1"
+  },
+  "checks": {
+    "all_parts_exit_zero": true,
+    "raw_input_count_matches_archive": true,
+    "unique_maxdegree_below_three_count": 1,
+    "critical_count_matches_archive": true,
+    "survivor_count_matches_archive": true,
+    "canonical_survivor_set_difference": 0,
+    "canonical_survivor_hash_matches": true
+  },
+  "conclusion": "The systematic one-unit residual is the unique cycle C_19 admitted by geng -D3 but rejected by the exact Delta=3 gate. The additional historical Order-19 unit is an interrupted-checkpoint scalar-accounting artifact. The fresh exhaustive replay proves that it did not change the critical count or the survivor set."
+}

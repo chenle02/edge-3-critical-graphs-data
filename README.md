@@ -86,6 +86,20 @@ headline counts:
 The hashes for `order_20`, `order_21`, and `order_22` are of the compressed files, as
 archived here and as recorded during the original runs.
 
+### Order-19 replay audit
+
+A fresh eight-way native replay on 2026-07-28 read all **51,643,246**
+Order-19 inputs and reproduced **1,007,427** critical graphs and **6,984**
+non-overfull survivors. After `labelg` canonicalization, the fresh and archived
+survivor sets have set difference zero and the same SHA-256:
+`79d4bf66bf9458da1060d0659eeaef25a28c0704ad49e96c622fe1f54fbde9b1`.
+The replay also explains the small historical ledger residual: one unit is the
+unique cycle \(C_{19}\), admitted by the upper-bound option `geng -D3` but
+rejected by the exact `Delta=3` gate, and one unit is an interrupted-checkpoint
+scalar-accounting artifact. Neither changes the survivor set. See
+[`reports/order19_native_replay_20260728.md`](reports/order19_native_replay_20260728.md)
+and its machine-readable JSON companion.
+
 ## Computational effort
 
 Exact Easley Slurm accounting is archived for the completed Order-21 and

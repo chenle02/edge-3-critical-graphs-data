@@ -7,6 +7,7 @@ import multiprocessing as mp
 import signal
 import sys
 import time
+from contextlib import contextmanager
 from itertools import combinations
 from pathlib import Path
 from typing import Dict, Iterator, List, Optional, Tuple
@@ -19,6 +20,9 @@ from critical_graph_search.edge_coloring import is_class2
 from critical_graph_search.pruning import passes_all_filters
 
 
+CFILTER_PATH: Optional[str] = None
+
+
 class SearchInterrupted(KeyboardInterrupt):
   """Raised when a long search is interrupted but should checkpoint first."""
 
@@ -28,6 +32,21 @@ def _install_interrupt_handler() -> None:
     raise SearchInterrupted(f"Received signal {signum}")
 
   signal.signal(signal.SIGTERM, _handle_signal)
+
+
+@contextmanager
+def _defer_interrupts():
+  """Keep one graph's counters and resume fingerprint transactionally aligned."""
+  if not hasattr(signal, "pthread_sigmask"):
+    yield
+    return
+
+  blocked = {signal.SIGINT, signal.SIGTERM}
+  previous = signal.pthread_sigmask(signal.SIG_BLOCK, blocked)
+  try:
+    yield
+  finally:
+    signal.pthread_sigmask(signal.SIG_SETMASK, previous)
 
 
 def independence_number(G: nx.Graph) -> int:
@@ -168,40 +187,91 @@ def _geng_stream(
   return lines
 
 
+def _parse_cfilter_stats(stderr_text: str) -> Dict[str, int]:
+  """Parse the ``CFILTER_STATS key=value ...`` line the C filter prints to stderr.
+
+  Recovers the raw census scale counts (read / maxdeg3 / val_pass / filt_pass /
+  critical / survivors) that were previously discarded when the streaming C
+  filter's stderr went to DEVNULL, forcing a re-run of geng to recount.
+  """
+  stats: Dict[str, int] = {}
+  for chunk in stderr_text.split():
+    if "=" not in chunk:
+      continue
+    key, _, val = chunk.partition("=")
+    try:
+      stats[key] = int(val)
+    except ValueError:
+      continue
+  return stats
+
+
 def _iter_geng_stream(
   n: int,
   delta: int,
   geng_path: Optional[str],
   min_degree: int = 2,
   mod_split: Optional[Tuple[int, int]] = None,
+  stats: Optional[Dict[str, int]] = None,
 ) -> Iterator[str]:
-  """Yield geng graph6 lines without materializing the full output."""
+  """Yield geng graph6 lines without materializing the full output.
+
+  When the module global CFILTER_PATH is set, the geng output is piped through
+  the native C survivor filter first, so only survivor graph6 lines are yielded
+  (docs/DECISIONS.md D-0002). Python then rebuilds the exact survivor records
+  from that tiny stream, so the final output is unchanged. If ``stats`` is
+  provided, the C filter's raw scale counts are stored into it at end of stream.
+  """
   import subprocess
 
   cmd = _geng_command(n, delta, geng_path, min_degree=min_degree, mod_split=mod_split)
-  proc = subprocess.Popen(
+  geng_proc = subprocess.Popen(
     cmd,
     stdout=subprocess.PIPE,
     stderr=subprocess.DEVNULL,
     text=True,
   )
-  assert proc.stdout is not None
+  cfilter_proc = None
+  if CFILTER_PATH:
+    cfilter_proc = subprocess.Popen(
+      [CFILTER_PATH],
+      stdin=geng_proc.stdout,
+      stdout=subprocess.PIPE,
+      stderr=subprocess.PIPE,
+      text=True,
+    )
+    assert geng_proc.stdout is not None
+    geng_proc.stdout.close()  # let cfilter own the geng pipe (SIGPIPE propagation)
+    reader = cfilter_proc
+  else:
+    reader = geng_proc
+  assert reader.stdout is not None
   try:
-    for raw_line in proc.stdout:
+    for raw_line in reader.stdout:
       line = raw_line.strip()
       if line and not line.startswith(">"):
         yield line
-    returncode = proc.wait()
-    if returncode != 0:
-      raise RuntimeError(f"geng failed with return code {returncode}")
+    if cfilter_proc is not None:
+      rc = cfilter_proc.wait()
+      cfilter_stderr = cfilter_proc.stderr.read() if cfilter_proc.stderr is not None else ""
+      geng_proc.wait()
+      if rc != 0:
+        raise RuntimeError(f"cfilter failed with return code {rc}: {cfilter_stderr.strip()}")
+      if stats is not None:
+        stats.update(_parse_cfilter_stats(cfilter_stderr))
+    else:
+      rc = geng_proc.wait()
+      if rc != 0:
+        raise RuntimeError(f"geng failed with return code {rc}")
   except BaseException:
-    if proc.poll() is None:
-      proc.terminate()
-      try:
-        proc.wait(timeout=5)
-      except subprocess.TimeoutExpired:
-        proc.kill()
-        proc.wait(timeout=5)
+    for proc in (cfilter_proc, geng_proc):
+      if proc is not None and proc.poll() is None:
+        proc.terminate()
+        try:
+          proc.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+          proc.kill()
+          proc.wait(timeout=5)
     raise
 
 
@@ -308,6 +378,7 @@ def _analyze_order_streaming(
     "overfull_count": 0,
   }
   survivors: List[Dict] = []
+  cfilter_stats: Dict[str, int] = {}
 
   if resume_from_checkpoint:
     if checkpoint_path is None or not checkpoint_path.exists():
@@ -333,7 +404,11 @@ def _analyze_order_streaming(
     f"  Streaming graphs from geng (n={n}, Δ={delta}, δ≥{min_degree}, 2-connected{mod_label})...",
     file=sys.stderr,
   )
-  graph_iter = iter(_iter_geng_stream(n, delta, geng_path, min_degree=min_degree, mod_split=mod_split))
+  graph_iter = iter(
+    _iter_geng_stream(
+      n, delta, geng_path, min_degree=min_degree, mod_split=mod_split, stats=cfilter_stats
+    )
+  )
 
   if resume_from_checkpoint:
     assert checkpoint_payload is not None
@@ -354,11 +429,16 @@ def _analyze_order_streaming(
     workers = max(1, mp.cpu_count() - 2)
 
   def checkpoint(reason: str | None = None, generation_complete: bool = False) -> Dict:
+    # With the C filter, `done` counts only the survivors it emits, so the raw
+    # geng candidate count lives in cfilter_stats["read"] (populated once the
+    # stream is fully drained). Use it for generated_biconnected when available;
+    # otherwise fall back to `done` (no-C-filter path yields every geng graph).
+    generated = cfilter_stats.get("read", done)
     record = _build_record(
       n=n,
       delta=delta,
       min_degree=min_degree,
-      generated_biconnected=done,
+      generated_biconnected=generated,
       processed_graphs=done,
       pruned_count=counts["pruned_count"],
       class1_count=counts["class1_count"],
@@ -373,6 +453,8 @@ def _analyze_order_streaming(
     record["resume_prefix_fingerprint"] = prefix_fingerprint
     record["streaming_geng"] = True
     record["generation_complete"] = generation_complete
+    if cfilter_stats:
+      record["cfilter_stats"] = dict(cfilter_stats)
     if mod_split is not None:
       record["mod_split"] = {"m": mod_split[0], "N": mod_split[1]}
     if checkpoint_path is not None:
@@ -381,9 +463,10 @@ def _analyze_order_streaming(
 
   def record_processed(g6: str, result: Optional[Dict]) -> None:
     nonlocal done, prefix_fingerprint
-    done += 1
-    prefix_fingerprint = _update_prefix_fingerprint(prefix_fingerprint, g6)
-    _apply_process_result(result, counts, survivors)
+    with _defer_interrupts():
+      done += 1
+      prefix_fingerprint = _update_prefix_fingerprint(prefix_fingerprint, g6)
+      _apply_process_result(result, counts, survivors)
     if done % 100000 == 0:
       elapsed = time.time() - t0
       print(
@@ -555,8 +638,21 @@ def analyze_order(
     pool = mp.Pool(workers)
     try:
       for g6, result in zip(remaining_g6, pool.imap(_process_graph, task_args, chunksize=chunksize)):
-        done += 1
-        prefix_fingerprint = _update_prefix_fingerprint(prefix_fingerprint, g6)
+        with _defer_interrupts():
+          done += 1
+          prefix_fingerprint = _update_prefix_fingerprint(prefix_fingerprint, g6)
+          if result is not None:
+            status = result.get("status")
+            if status == "pruned":
+              pruned_count += 1
+            elif status == "class1":
+              class1_count += 1
+            elif status == "overfull":
+              total_critical += 1
+              overfull_count += 1
+            elif status == "survivor":
+              total_critical += 1
+              survivors.append(result)
         if done % 100000 == 0:
           elapsed = time.time() - t0
           print(
@@ -565,19 +661,6 @@ def analyze_order(
             file=sys.stderr,
           )
           checkpoint()
-        if result is None:
-          continue
-        status = result.get("status")
-        if status == "pruned":
-          pruned_count += 1
-        elif status == "class1":
-          class1_count += 1
-        elif status == "overfull":
-          total_critical += 1
-          overfull_count += 1
-        elif status == "survivor":
-          total_critical += 1
-          survivors.append(result)
       pool.close()
       pool.join()
     except (KeyboardInterrupt, SearchInterrupted) as exc:
@@ -589,21 +672,21 @@ def analyze_order(
     try:
       for g6, delta_arg, density_impl in task_args:
         result = _process_graph((g6, delta_arg, density_impl))
-        done += 1
-        prefix_fingerprint = _update_prefix_fingerprint(prefix_fingerprint, g6)
-        if result is None:
-          continue
-        status = result.get("status")
-        if status == "pruned":
-          pruned_count += 1
-        elif status == "class1":
-          class1_count += 1
-        elif status == "overfull":
-          total_critical += 1
-          overfull_count += 1
-        elif status == "survivor":
-          total_critical += 1
-          survivors.append(result)
+        with _defer_interrupts():
+          done += 1
+          prefix_fingerprint = _update_prefix_fingerprint(prefix_fingerprint, g6)
+          if result is not None:
+            status = result.get("status")
+            if status == "pruned":
+              pruned_count += 1
+            elif status == "class1":
+              class1_count += 1
+            elif status == "overfull":
+              total_critical += 1
+              overfull_count += 1
+            elif status == "survivor":
+              total_critical += 1
+              survivors.append(result)
     except (KeyboardInterrupt, SearchInterrupted) as exc:
       checkpoint(str(exc) or exc.__class__.__name__)
       raise
@@ -657,7 +740,17 @@ def main() -> None:
     default=None,
     help="absolute path to write results JSON + per-order checkpoints (default: ./results, relative to cwd). Set this when running under sbatch on Easley to avoid the cwd-vs-watch-script path mismatch documented in scripts/easley/PLAN-orders-22-24.md.",
   )
+  parser.add_argument(
+    "--cfilter",
+    default=None,
+    help="path to the native C survivor filter (native/cfilter). When set, the geng stream is piped through it so only survivor graph6 lines reach Python; Python then rebuilds the exact survivor records. ~137x faster; bit-equal (see docs/DECISIONS.md D-0002). Requires --stream-geng.",
+  )
   args = parser.parse_args()
+
+  global CFILTER_PATH
+  CFILTER_PATH = args.cfilter
+  if CFILTER_PATH is not None and not args.stream_geng:
+    parser.error("--cfilter requires --stream-geng")
 
   mod_split: Optional[Tuple[int, int]] = None
   mod_filename_suffix = ""
