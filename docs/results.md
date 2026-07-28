@@ -74,3 +74,21 @@ The [Interactive explorer](explorer.md) provides a browser-based entry point for
 - Census file: [`order_23_delta_3.json.gz`](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/results/order_23_delta_3.json.gz)
 - Explorer: [Interactive explorer](explorer.md) (200-survivor sample)
 - Characterization clause counts: (a) vertex-blowup 672,397 · (b) Hajós-join 71,812 · (c) Meredith-type 11,260 · (d) snark-completion 26,717 · (e) 0 — sum-check passes.
+
+## Order 24
+
+- Nontrivial survivors: **9**
+- Census file: [`order_24_delta_3.json.gz`](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/results/order_24_delta_3.json.gz)
+- Explorer: [Interactive explorer](explorer.md)
+- Structure: eight contractible-triangle blowups of the unique order-22
+  survivor; one triangle-free primitive graph.
+
+![All nine order-24 survivors](assets/figures/gallery_order_24.png)
+
+## Even-order milestones
+
+The gallery below places the unique order-22 survivor beside all nine
+order-24 survivors. Orange vertices have degree 2; the highlighted fifth
+order-24 graph is the triangle-free primitive case.
+
+![Order-22 and order-24 milestones](assets/figures/even_order_22_24_gallery.png)

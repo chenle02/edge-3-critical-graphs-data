@@ -33,8 +33,13 @@ The table records the number of nontrivial survivors for each order in the publi
 | 21 | 70,530 | determined here |
 | 22 | 1 | Brinkmann--Steffen survivor reproduced |
 | 23 | 782,186 | determined here |
+| 24 | 9 | Brinkmann--Steffen count reproduced |
 
-Even orders below 22 have no nontrivial survivors. The nontrivial-survivor counts for all odd orders through 21 are recorded in the census reported in the paper; the order-23 census (782,186 survivors) is a completed extension archived in this repository. The order-22 survivor reproduces the Brinkmann--Steffen example.
+Even orders below 22 have no nontrivial survivors. The nontrivial-survivor
+counts for all odd orders through 23 are recorded here. The order-22 and
+order-24 computations reproduce the Brinkmann--Steffen counts; eight of the
+nine order-24 survivors are triangle blowups of the unique order-22 survivor,
+and the remaining order-24 graph is triangle-free.
 
 ## Repository contents
 

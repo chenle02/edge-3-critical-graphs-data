@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Export compact explorer data for the edge-3-critical graph census.
 
-Reads read-only census files from /tmp/opencode/e3c/shared/data and writes
-relative JSON assets under ./assets/data for the standalone explorer.
+Reads the repository census files and writes compact JSON assets under
+``docs/assets/data`` for the standalone explorer.
 Only the Python standard library is used.
 """
 
@@ -16,11 +16,12 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parent
-SOURCE = Path("/tmp/opencode/e3c/shared/data")
-OUT = ROOT / "assets" / "data"
-ORDERS = (9, 11, 13, 15, 17, 19, 21, 22, 23)
+REPO_ROOT = ROOT.parents[1]
+SOURCE = REPO_ROOT / "results"
+OUT = REPO_ROOT / "docs" / "assets" / "data"
+ORDERS = (9, 11, 13, 15, 17, 19, 21, 22, 23, 24)
 SAMPLE_SIZE = 200
-FULL_EXPORT_ORDERS = {9, 11, 13, 15, 17, 22}
+FULL_EXPORT_ORDERS = {9, 11, 13, 15, 17, 22, 24}
 
 
 def load_source(order: int) -> dict[str, Any]:

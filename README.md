@@ -20,9 +20,10 @@ A graph with maximum degree 3 is (edge-chromatic) **3-critical** if it is
 connected, has chromatic index 4, and deleting any edge lowers the chromatic
 index to 3.  A 3-critical graph is **nontrivial** if it contains no
 3-overfull subgraph.  The paper determines the numbers of nontrivial
-3-critical graphs for all orders through 22 — in particular the odd orders
-15 through 21 — records complete computer censuses at orders 19 and 21, and
-reproduces the known order-22 count of Brinkmann and Steffen.  Beyond
+3-critical graphs for all orders through 24 — in particular the odd orders
+15 through 23 — records complete computer censuses at orders 19, 21, and 23,
+and independently reproduces the known order-22 and order-24 counts of
+Brinkmann and Steffen.  Beyond
 enumeration, the paper proves a **characterization theorem** for all
 nontrivial 3-critical graphs in terms of four construction mechanisms
 (vertex-blowup, Haj\u00f3s-join, Meredith-type extension, and
@@ -32,9 +33,10 @@ partition of every survivor. Because its Meredith test uses only smaller
 cyclic-cut shores, that partition is census bookkeeping rather than an exact
 disjoint partition by theorem clauses.
 
-Beyond the paper's scope, this repository also archives the **completed
-Order-23 census** (782,186 nontrivial survivors) and its characterization-clause
-counts, as a computational extension.
+The completed **Order-23 census** has 782,186 nontrivial survivors.  The
+completed **Order-24 census** has exactly nine; eight are
+contractible-triangle blowups of the unique order-22 survivor, while the
+triangle-free fifth graph is primitive under this operation.
 
 ## Quickstart
 
@@ -56,7 +58,7 @@ Browse every order interactively (live graph rendering) on the
 ## Layout
 
 ```
-results/   complete census output files, orders 4 through 23
+results/   complete census output files, orders 4 through 24
 reports/   machine-readable audit reports cited in the paper
 code/      search pipeline and audit scripts
 ```
@@ -79,6 +81,7 @@ headline counts:
 | `order_21_delta_3.json.gz` | 70,530 | `2f9c3e46d744dc0b62a95631e050af657806ec76ae03a286f7e845c69cff24db` |
 | `order_22_delta_3.json.gz` | 1 | `57dbfccd9cb352564f5422530c9a0b7e269148c9789bf040f0dfd7ab96ed553e` |
 | `order_23_delta_3.json.gz` | 782,186 | `d5c9cf97ab8c2b693a24ecd4970e328a51210b302774b5506a200f7371a28896` |
+| `order_24_delta_3.json.gz` | 9 | `81dc57cef8680b4908e7159b186543209ce276b8fb3d6dff57e744ee68725523` |
 
 The hashes for `order_20`, `order_21`, and `order_22` are of the compressed files, as
 archived here and as recorded during the original runs.
@@ -107,6 +110,16 @@ See the [computational-effort overview](docs/computational-effort.md), including
 links to the detailed per-slice reports and machine-readable telemetry. For
 Order 23, see the canonical [JSON snapshot](reports/order23_computational_effort_20260723.json)
 and the [TSV telemetry](reports/order23_computational_effort_20260723.tsv).
+
+### Order-24 extension (complete)
+
+The 1024-slice Order-24 census completed with no failed final slices and found
+exactly **9** nontrivial survivors. All nine were independently rechecked for
+edge-criticality and non-overfullness. The native streaming filter retained
+only survivor records, so the archived merged JSON deliberately does not claim
+an exact raw candidate count; the pre-flight population estimate was about
+3.4×10¹¹ graphs. The campaign used approximately 1,230 allocated core-hours
+over a 13.3-hour wall-clock span on Auburn's Easley cluster.
 
 This work was completed in part with resources provided by the Auburn University Easley Cluster.
 
@@ -154,6 +167,12 @@ supporting the paper:
   python3 -m pytest \
     code/tests/test_analyze_pattern_i_boundary_states.py \
     code/tests/test_analyze_pattern_ii_boundary_states.py
+  ```
+- `code/scripts/classify_order24_survivors.py`: independently reproduces the
+  split of the nine order-24 survivors into eight triangle blowups of the
+  order-22 survivor and one triangle-free primitive graph:
+  ```bash
+  python3 code/scripts/classify_order24_survivors.py
   ```
 - `code/scripts/check_hashes.py`: recompute and verify the census SHA-256
   hashes recorded above.
