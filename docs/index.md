@@ -1,6 +1,9 @@
 # Edge-chromatic 3-critical graphs — census data
 
-This site documents the public research data repository for Le Chen and Songling Shan, *Exploring the world of edge-chromatic 3-critical graphs* (2026). The repository contains census outputs, verification code, and audit reports supporting the paper's computational classification statements.
+This site documents the public research data repository for Le Chen and
+Songling Shan, *Structure and census of edge-chromatic 3-critical graphs*
+(2026). The repository contains census outputs, verification code, and audit
+reports supporting the paper's computational classification statements.
 
 A **nontrivial edge-chromatic 3-critical graph** here means a graph that is connected, has maximum degree 3, has chromatic index 4, becomes 3-edge-colorable after deleting any edge, and has no 3-overfull subgraph.
 

@@ -1,4 +1,4 @@
-# Data and code for "Exploring the world of edge-chromatic 3-critical graphs"
+# Data and code for "Structure and census of edge-chromatic 3-critical graphs"
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub release](https://img.shields.io/github/v/release/chenle02/edge-3-critical-graphs-data)](https://github.com/chenle02/edge-3-critical-graphs-data/releases)
@@ -14,7 +14,7 @@ This repository archives the census data, machine-readable audit reports, and
 search/audit code referenced in the paper
 
 > Le Chen and Songling Shan,
-> *Exploring the world of edge-chromatic 3-critical graphs*, 2026.
+> *Structure and census of edge-chromatic 3-critical graphs*, 2026.
 
 A graph with maximum degree 3 is (edge-chromatic) **3-critical** if it is
 connected, has chromatic index 4, and deleting any edge lowers the chromatic

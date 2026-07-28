@@ -5,7 +5,7 @@
 ```bibtex
 @article{chen.shan:26:exploring,
   author = {Chen, Le and Shan, Songling},
-  title = {Exploring the world of edge-chromatic 3-critical graphs},
+  title = {Structure and census of edge-chromatic 3-critical graphs},
   year = {2026},
   note = {Manuscript}
 }
@@ -13,12 +13,12 @@
 
 ## Dataset
 
-Zenodo DOI: to be minted at submission
+Zenodo concept DOI: [10.5281/zenodo.20821990](https://doi.org/10.5281/zenodo.20821990)
 
 ```text
 Le Chen and Songling Shan, Edge-chromatic 3-critical graphs census data, 2026.
 GitHub repository: https://github.com/chenle02/edge-3-critical-graphs-data
-Zenodo DOI: to be minted at submission.
+Zenodo concept DOI: https://doi.org/10.5281/zenodo.20821990
 ```
 
 ```bibtex
@@ -28,6 +28,6 @@ Zenodo DOI: to be minted at submission.
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/chenle02/edge-3-critical-graphs-data},
-  note = {Zenodo DOI: to be minted at submission}
+  doi = {10.5281/zenodo.20821990}
 }
 ```

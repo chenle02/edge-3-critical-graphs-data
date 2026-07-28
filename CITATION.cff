@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this dataset or code, please cite the associated paper."
-title: "Data and code for: Exploring the world of edge-chromatic 3-critical graphs"
+title: "Data and code for: Structure and census of edge-chromatic 3-critical graphs"
 type: dataset
 authors:
   - family-names: Chen
@@ -32,7 +32,7 @@ keywords:
   - nauty
 preferred-citation:
   type: article
-  title: "Exploring the world of edge-chromatic 3-critical graphs"
+  title: "Structure and census of edge-chromatic 3-critical graphs"
   authors:
     - family-names: Chen
       given-names: Le
