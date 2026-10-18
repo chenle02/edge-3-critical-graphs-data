@@ -81,7 +81,47 @@ def _json_scalar(text: str, key: str) -> Any:
     return float(value) if "." in value else int(value)
 
 
-def parse_result(path: Path, order: int, parts: int) -> dict[str, Any]:
+CFILTER_KEYS = ("read", "maxdeg3", "val_pass", "filt_pass", "critical", "survivors")
+COUNTER_KEYS = ("processed", "pruned", "noncritical", "critical", "overfull", "survivors", "unclassified")
+
+
+def _cfilter_counters(text: str, values: dict[str, Any], name: str) -> dict[str, int]:
+    """Map native C-filter counters onto the census accounting categories.
+
+    In C-filter mode the Python record sees only the graphs the native filter
+    emits, so ``processed_graphs``/``total_critical`` count survivors alone.  The
+    exact scale counters live in ``cfilter_stats``: ``read`` raw geng graphs,
+    ``filt_pass`` graphs passing the structural filters, ``critical`` critical
+    graphs before the overfull test, and ``survivors`` non-overfull critical
+    graphs (the emitted records).
+    """
+    match = re.search(r'"cfilter_stats"\s*:\s*\{(?P<body>[^{}]*)\}', text)
+    if not match:
+        raise ValueError(f"C-filter final result is missing cfilter_stats in bounded windows: {name}")
+    stats = {key: _json_scalar(match.group("body"), key) for key in CFILTER_KEYS}
+    if any(isinstance(v, bool) or not isinstance(v, int) or v < 0 for v in stats.values()):
+        raise ValueError(f"cfilter_stats counters must be nonnegative integers: {name}")
+    if not (stats["read"] >= stats["maxdeg3"] >= stats["val_pass"] >= stats["filt_pass"]
+            >= stats["critical"] >= stats["survivors"]):
+        raise ValueError(f"cfilter_stats counters are not monotone: {name}")
+    if stats["read"] != values["generated_biconnected"]:
+        raise ValueError(f"cfilter_stats.read does not match generated_biconnected: {name}")
+    if not (stats["survivors"] == values["survivor_count"] == values["processed_graphs"]):
+        raise ValueError(
+            f"cfilter_stats.survivors must match survivor_count and processed_graphs: {name}"
+        )
+    return {
+        "processed": stats["read"],
+        "pruned": stats["read"] - stats["filt_pass"],
+        "noncritical": stats["filt_pass"] - stats["critical"],
+        "critical": stats["critical"],
+        "overfull": stats["critical"] - stats["survivors"],
+        "survivors": stats["survivors"],
+        "unclassified": 0,
+    }
+
+
+def parse_result(path: Path, order: int, parts: int, cfilter: bool = False) -> dict[str, Any]:
     match = RESULT_RE.match(path.name)
     if not match:
         raise ValueError(f"unsupported result filename: {path.name}")
@@ -109,6 +149,25 @@ def parse_result(path: Path, order: int, parts: int) -> dict[str, Any]:
         raise ValueError(f"final result has incomplete/interrupted flags: {path.name}")
     if result_kind == "partial" and values["generation_complete"] is not False:
         raise ValueError(f"partial result is marked generation-complete: {path.name}")
+    if cfilter:
+        if result_kind == "final":
+            counters = _cfilter_counters(text, values, path.name)
+            withheld = False
+        else:
+            # Partial checkpoints carry no cfilter_stats, so their Python-side
+            # counters see only emitted survivors; withhold rather than mislabel.
+            counters = {key: 0 for key in COUNTER_KEYS}
+            withheld = True
+        row = {
+            "part": identity["part"],
+            "result_kind": result_kind,
+            "result_timestamp": _iso_mtime(path),
+            **counters,
+            "json_runtime_seconds": float(values["runtime_seconds"]),
+        }
+        if withheld:
+            row["counters_withheld"] = True
+        return row
     processed = int(values["processed_graphs"])
     pruned = int(values["pruned_by_filters"])
     noncritical = int(values["class1_or_noncritical"])
@@ -128,13 +187,15 @@ def parse_result(path: Path, order: int, parts: int) -> dict[str, Any]:
     }
 
 
-def discover_results(results_dir: Path, order: int, parts: int) -> dict[int, dict[str, Any]]:
+def discover_results(
+    results_dir: Path, order: int, parts: int, cfilter: bool = False
+) -> dict[int, dict[str, Any]]:
     candidates: dict[int, dict[str, list[dict[str, Any]]]] = {}
     for path in sorted(results_dir.iterdir()):
         match = RESULT_RE.match(path.name)
         if not match or int(match.group("order")) != order or int(match.group("parts")) != parts:
             continue
-        row = parse_result(path, order, parts)
+        row = parse_result(path, order, parts, cfilter)
         bucket = candidates.setdefault(row["part"], {"final": [], "partial": []})
         bucket[row["result_kind"]].append(row)
     found: dict[int, dict[str, Any]] = {}
@@ -296,6 +357,14 @@ def aggregate_attempts(
     return output
 
 
+def _campaign_state(rows: list[dict[str, Any]]) -> str:
+    if any(row["running"] for row in rows):
+        return "running"
+    if any(row["result_kind"] != "final" for row in rows):
+        return "terminal_incomplete"
+    return "complete"
+
+
 def validate_snapshot(snapshot: dict[str, Any]) -> None:
     if snapshot.get("schema_version") != SCHEMA_VERSION:
         raise ValueError("unsupported snapshot schema version")
@@ -321,19 +390,35 @@ def validate_snapshot(snapshot: dict[str, Any]) -> None:
             raise ValueError(f"part {row['part']}: a live row must have null latest_end")
         if row["result_kind"] == "final" and row["running"]:
             raise ValueError(f"part {row['part']}: final result cannot have a live attempt")
+    counter_mode = snapshot.get("counter_mode")
+    if counter_mode not in (None, "cfilter"):
+        raise ValueError("unsupported counter_mode")
+    for row in rows:
+        withheld = row.get("counters_withheld", False)
+        if withheld and (counter_mode != "cfilter" or row["result_kind"] != "partial"):
+            raise ValueError(f"part {row['part']}: counters may be withheld only for C-filter partials")
+        if counter_mode == "cfilter" and row["result_kind"] == "partial" and not withheld:
+            raise ValueError(f"part {row['part']}: C-filter partial counters must be withheld")
+        if withheld and any(row[key] for key in COUNTER_KEYS):
+            raise ValueError(f"part {row['part']}: withheld counters must be zero")
+        if counter_mode == "cfilter" and row["unclassified"]:
+            raise ValueError(f"part {row['part']}: C-filter accounting must have no unclassified remainder")
     expected_complete = sum(row["result_kind"] == "final" for row in rows)
     if snapshot["complete_parts"] != expected_complete:
         raise ValueError("complete_parts does not match result kinds")
-    expected_provisional = any(
-        row["result_kind"] != "final" or row["running"] for row in rows
-    )
+    expected_state = _campaign_state(rows)
+    if snapshot.get("campaign_state", expected_state) != expected_state:
+        raise ValueError("campaign_state does not match slice states")
+    expected_provisional = expected_state != "complete"
     if snapshot["provisional"] != expected_provisional:
         raise ValueError("provisional does not match slice states")
     starts = [row["earliest_start"] for row in rows if row["earliest_start"]]
-    ends = [row["latest_end"] for row in rows if row["latest_end"]]
     if snapshot["campaign_start"] != (min(starts) if starts else None):
         raise ValueError("campaign_start does not match slice attempts")
-    expected_end = None if expected_provisional else (max(ends) if ends else None)
+    if expected_state != "running" and any(row["latest_end"] is None for row in rows):
+        raise ValueError("all-terminal campaign has a slice without a terminal end")
+    ends = [row["latest_end"] for row in rows if row["latest_end"]]
+    expected_end = None if expected_state == "running" else max(ends)
     if snapshot["campaign_end"] != expected_end:
         raise ValueError("campaign_end does not match slice states")
 
@@ -341,22 +426,26 @@ def validate_snapshot(snapshot: dict[str, Any]) -> None:
 def build_snapshot(
     order: int, parts: int, results: dict[int, dict[str, Any]],
     attempts: dict[int, dict[str, Any]], generated_at: str,
-    slurm_timezone: str = "America/Chicago",
+    slurm_timezone: str = "America/Chicago", cfilter: bool = False,
 ) -> dict[str, Any]:
     rows = []
     for part in range(parts):
         row = dict(results[part])
         row.update(attempts[part])
         rows.append(row)
-    provisional = any(row["result_kind"] != "final" or row["running"] for row in rows)
+    campaign_state = _campaign_state(rows)
+    provisional = campaign_state != "complete"
     starts = [row["earliest_start"] for row in rows if row["earliest_start"]]
+    if campaign_state != "running" and any(row["latest_end"] is None for row in rows):
+        raise ValueError("all-terminal campaign has a slice without a terminal end")
     ends = [row["latest_end"] for row in rows if row["latest_end"]]
     snapshot = {
         "schema_version": SCHEMA_VERSION,
         "generated_at": generated_at,
         "slurm_timezone": slurm_timezone,
         "campaign_start": min(starts) if starts else None,
-        "campaign_end": None if provisional else (max(ends) if ends else None),
+        "campaign_end": None if campaign_state == "running" else max(ends),
+        "campaign_state": campaign_state,
         "order": order,
         "parts": parts,
         "complete_parts": sum(row["result_kind"] == "final" for row in rows),
@@ -364,6 +453,8 @@ def build_snapshot(
         "acknowledgment": ACKNOWLEDGMENT,
         "slices": rows,
     }
+    if cfilter:
+        snapshot["counter_mode"] = "cfilter"
     validate_snapshot(snapshot)
     return snapshot
 
@@ -390,8 +481,17 @@ def render_markdown(snapshot: dict[str, Any]) -> str:
     validate_snapshot(snapshot)
     rows = snapshot["slices"]
     totals = _totals(rows)
-    status = "PROVISIONAL / INCOMPLETE" if snapshot["provisional"] else "COMPLETE"
-    campaign_end = snapshot["campaign_end"] or f"running at snapshot {snapshot['generated_at']}"
+    campaign_state = _campaign_state(rows)
+    status = {
+        "running": "PROVISIONAL / INCOMPLETE",
+        "terminal_incomplete": "PROVISIONAL / TERMINAL INCOMPLETE",
+        "complete": "COMPLETE",
+    }[campaign_state]
+    campaign_end = (
+        f"running at snapshot {snapshot['generated_at']}"
+        if campaign_state == "running"
+        else snapshot["campaign_end"]
+    )
     timezone = snapshot["slurm_timezone"]
     lines = [
         f"# Order {snapshot['order']} computational effort",
@@ -408,6 +508,8 @@ def render_markdown(snapshot: dict[str, Any]) -> str:
     for row in rows:
         states = ", ".join(f"{key}:{value}" for key, value in row["attempt_states"].items())
         result = row["result_kind"] + (" (running)" if row["running"] else "")
+        if row.get("counters_withheld"):
+            result += " (counters withheld)"
         lines.append(
             f"| {row['part']} | {result} | {_fmt_int(row['processed'])} | {_fmt_int(row['pruned'])} | "
             f"{_fmt_int(row['noncritical'])} | {_fmt_int(row['critical'])} | {_fmt_int(row['overfull'])} | "
@@ -447,8 +549,13 @@ def render_markdown(snapshot: dict[str, Any]) -> str:
         "- JSON `runtime_seconds` is retained in the machine-readable snapshot but is not substituted for cumulative Slurm effort.",
         "- A running slice has no end date. Partial counters are censored and must not be interpreted as the slice's final size.",
         "- The snapshot contains curated per-slice provenance only: no source paths, user/account names, hosts/nodes, commands, or log streams.",
-        "", "## Acknowledgment", "", ACKNOWLEDGMENT, "",
     ]
+    if snapshot.get("counter_mode") == "cfilter":
+        lines += [
+            "- C-filter counter mode: graph counters come from the native filter's `cfilter_stats`. `processed` is the number of raw geng graphs read; `pruned` = read − graphs passing the structural filters; `noncritical` = filter-passing graphs that are not critical; `critical` counts critical graphs before the overfull test; `survivors` are the non-overfull (nontrivial) critical graphs.",
+            "- In C-filter mode a partial checkpoint has no native counters, so its graph counters are withheld (recorded as 0) and the totals above cover completed slices only.",
+        ]
+    lines += ["", "## Acknowledgment", "", ACKNOWLEDGMENT, ""]
     return "\n".join(lines)
 
 
@@ -483,12 +590,12 @@ def write_outputs(snapshot: dict[str, Any], output_prefix: Path, write_snapshot:
 
 
 def _collect(args: argparse.Namespace) -> None:
-    results = discover_results(args.results_dir, args.order, args.parts)
+    results = discover_results(args.results_dir, args.order, args.parts, args.cfilter_counters)
     jobs = discover_job_parts(args.logs_dir, args.order, args.parts)
     attempts = aggregate_attempts(collect_sacct(jobs, args.sacct_file), jobs, args.parts)
     snapshot = build_snapshot(
         args.order, args.parts, results, attempts, args.generated_at or _utc_now(),
-        args.slurm_timezone,
+        args.slurm_timezone, args.cfilter_counters,
     )
     write_outputs(snapshot, args.output_prefix)
 
@@ -511,6 +618,11 @@ def build_parser() -> argparse.ArgumentParser:
     collect.add_argument(
         "--slurm-timezone", default="America/Chicago",
         help="IANA timezone for sacct Start/End timestamps (default: America/Chicago)",
+    )
+    collect.add_argument(
+        "--cfilter-counters", action="store_true",
+        help="read exact graph counters from cfilter_stats (native C-filter runs); "
+        "partial checkpoints then have their counters withheld",
     )
     collect.add_argument("--output-prefix", type=Path, required=True)
     collect.set_defaults(func=_collect)

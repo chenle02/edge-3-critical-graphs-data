@@ -56,7 +56,7 @@ and the remaining order-24 graph is triangle-free.
 - [Methodology](methodology.md) — five-stage census pipeline.
 - [Data dictionary](data.md) — JSON schema notes and loading snippet.
 - [Results gallery](results.md) — per-order links and figure placeholders.
-- [Computational effort](computational-effort.md) — Slurm telemetry for the completed Order-21, Order-22, and Order-23 campaigns.
+- [Computational effort](computational-effort.md) — Slurm telemetry for the completed Order-21, Order-22, and Order-23 campaigns, plus a provisional snapshot of the ongoing Order-25 census.
 - [Interactive explorer](explorer.md) — standalone explorer entry point.
 - [Verification](verify.md) — minimal reproduction instructions.
 - [Cite](cite.md) — paper and dataset citation text.

@@ -16,8 +16,19 @@ adheres to [Semantic Versioning](https://semver.org/).
   counts, the six Pattern-I family pairs, the 81 Pattern-II triples, and the
   deficit-parity conclusions used in the manuscript.
 - Continuous-integration coverage for both proof certificates.
+- Canonical sanitized JSON/TSV telemetry and a detailed report for the
+  provisional, incomplete 4096-slice Order-25 snapshot dated 2026-10-18
+  (`reports/order25_computational_effort_20261018.{json,tsv,md}`,
+  `campaign_state=running`, 2,977/4,096 slices complete), with README and
+  overview-page links and a CI re-render check. This snapshot is not a
+  completed census result and changes no release or DOI metadata.
 
 ### Changed
+- The computational-effort reporter gained `--cfilter-counters`: for native
+  C-filter runs it reads exact counters from `cfilter_stats` (the Python record
+  sees only emitted survivors) and withholds partial-checkpoint counters. It also
+  records an explicit `campaign_state`. Existing snapshots re-render
+  byte-for-byte.
 - Clarified that `classify_census_characterization.py` produces a deterministic
   five-label software partition. Its Meredith rule inspects only smaller
   cyclic-cut shores, so a residual `(d/e)` label does not certify failure of

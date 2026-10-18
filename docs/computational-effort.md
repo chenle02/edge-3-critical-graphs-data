@@ -1,7 +1,7 @@
 # Computational effort
 
 This page records the computational cost of the completed Order 21 through
-Order 24 censuses. The figures come from sanitized result metadata and
+Order 24 censuses and a provisional snapshot of the ongoing Order-25 census. The figures come from sanitized result metadata and
 top-level Slurm accounting retained on the Auburn University Easley Cluster.
 
 ## Campaign summary
@@ -12,6 +12,7 @@ top-level Slurm accounting retained on the Auburn University Easley Cluster.
 | 22 | Complete | 16/16 | 5,022,269,988 | 1 | 16 | 1d 17:18:49 | **1,983.053 core-hours** | 5:20:59 |
 | 23 | Complete | 64/64 | 24,086,917,749 | 782,186 | 106 | 939d 08:50:09 | **723,371.786 core-hours** | 54d 11:37:15 |
 | 24 | Complete | 1024/1024 | not retained by streaming filter | 9 | — | — | **≈1,230 core-hours** | 13.3 h |
+| 25 | **Running (provisional)** | 2977/4096 | 407,775,354,662 (completed slices) | 3,561,800 (completed slices) | 6,882 | 95264d 16:53:42 | **2,286,352.895 core-hours** (to date) | running since 2026-07-25 |
 
 Order 21 ran from 2026-05-07 20:37:06 to 2026-05-08 20:29:53, and
 Order 22 ran from 2026-05-08 21:43:03 to 2026-05-09 03:04:02. These Slurm
@@ -36,6 +37,7 @@ sums the actual allocation durations and gives 8,964.720 core-hours.
 | 21 | [Markdown](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order21_computational_effort_20260722.md) | [JSON](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order21_computational_effort_20260722.json) | [TSV](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order21_computational_effort_20260722.tsv) |
 | 22 | [Markdown](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order22_computational_effort_20260722.md) | [JSON](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order22_computational_effort_20260722.json) | [TSV](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order22_computational_effort_20260722.tsv) |
 | 23 | [Markdown](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order23_computational_effort_20260723.md) | [JSON](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order23_computational_effort_20260723.json) | [TSV](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order23_computational_effort_20260723.tsv) |
+| 25 (provisional, 2026-10-18) | [Markdown](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order25_computational_effort_20261018.md) | [JSON](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order25_computational_effort_20261018.json) | [TSV](https://github.com/chenle02/edge-3-critical-graphs-data/blob/master/reports/order25_computational_effort_20261018.tsv) |
 
 The detailed reports provide per-slice dates, counters, attempt states, wall
 times, and core-hours. The JSON snapshots are the canonical sanitized records;
@@ -56,6 +58,13 @@ the Markdown and TSV files are deterministic renderings.
 - Order 24 completed with 1024 final slices and nine nontrivial survivors.
   Because raw-stream counters were not retained, the page does not promote the
   candidate-population estimate to an exact count.
+- Order 25 is still running. Its snapshot dated 2026-10-18 is provisional and
+  not a census result: graph counters come from the native C-filter's
+  `cfilter_stats` and cover the 2,977 completed slices only (partial
+  checkpoints carry no native counters, so they are withheld), while the Slurm
+  figures cover every attempt to date, including the 1,119 live slices. 343
+  slices that had timed out without a final result were resubmitted on
+  2026-10-18. No completion date is estimated.
 - The public snapshots contain no usernames, account names, source paths,
   nodes, commands, or raw log streams.
 

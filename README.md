@@ -135,6 +135,28 @@ an exact raw candidate count; the pre-flight population estimate was about
 3.4×10¹¹ graphs. The campaign used approximately 1,230 allocated core-hours
 over a 13.3-hour wall-clock span on Auburn's Easley cluster.
 
+### Order-25 extension (ongoing)
+
+The sanitized snapshot generated **2026-10-18T15:06:27Z** records the ongoing
+4096-slice Order-25 census (Δ = 3, native C-filter). The campaign began
+**2026-07-25T08:40:36** (America/Chicago) and is still running: at the snapshot
+time **2,977/4,096 slices** had a validated final result and the remaining
+1,119 had a live Slurm attempt. Earlier in the day, 343 slices whose attempts
+had timed out without a final result were resubmitted with a longer time limit;
+they are among the live slices. Counted over the completed slices only, the
+native filter read 407,775,354,662 raw `geng` graphs and found 3,048,882,705
+critical graphs, of which 3,045,320,905 are overfull, leaving **3,561,800
+nontrivial critical graphs** so far. The 6,882 Slurm attempts to date represent
+a cumulative 95264d 16:53:42 of wall time and **2,286,352.895 core-hours** of
+allocated compute. The C-filter reports no per-slice progress, so no completion
+date is estimated.
+
+See the [detailed report](reports/order25_computational_effort_20261018.md), the
+canonical [JSON snapshot](reports/order25_computational_effort_20261018.json),
+and the [TSV telemetry](reports/order25_computational_effort_20261018.tsv).
+These provisional statistics go beyond the archived v1.2.0 release and are
+**not a completed census result**; Order 25 remains pending.
+
 This work was completed in part with resources provided by the Auburn University Easley Cluster.
 
 ## Audit reports (`reports/`)

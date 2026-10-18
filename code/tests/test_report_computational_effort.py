@@ -124,6 +124,7 @@ def test_collect_retries_states_mixed_cpus_and_privacy(tmp_path: Path) -> None:
     snapshot = json.loads(prefix.with_suffix(".json").read_text(encoding="utf-8"))
     rows = snapshot["slices"]
     assert snapshot["provisional"] is True
+    assert snapshot["campaign_state"] == "running"
     assert snapshot["complete_parts"] == 2
     assert snapshot["slurm_timezone"] == "America/Chicago"
     assert snapshot["campaign_start"] == "2026-01-01T00:00:00"
@@ -176,8 +177,36 @@ def test_completed_campaign_uses_latest_terminal_end(tmp_path: Path) -> None:
         23, 3, result_rows, attempts, "2026-01-08T00:00:00Z", "UTC"
     )
     assert snapshot["provisional"] is False
+    assert snapshot["campaign_state"] == "complete"
     assert snapshot["campaign_end"] == "2026-01-07T12:00:00"
     markdown = report.render_markdown(snapshot)
+    assert "Campaign end: 2026-01-07T12:00:00 (UTC)" in markdown
+    assert "running at snapshot" not in markdown
+
+
+def test_terminal_incomplete_campaign_has_terminal_end(tmp_path: Path) -> None:
+    results, logs, sacct = _fixture(tmp_path)
+    result_rows = report.discover_results(results, 23, 3)
+    job_parts = report.discover_job_parts(logs, 23, 3)
+    attempts = report.aggregate_attempts(report.collect_sacct(job_parts, sacct), job_parts, 3)
+    attempts[2]["running"] = False
+    attempts[2]["latest_end"] = None
+    attempts[2]["attempt_states"] = {"TIMEOUT": 1}
+
+    with pytest.raises(ValueError, match="slice without a terminal end"):
+        report.build_snapshot(
+            23, 3, result_rows, attempts, "2026-01-08T00:00:00Z", "UTC"
+        )
+
+    attempts[2]["latest_end"] = "2026-01-07T12:00:00"
+    snapshot = report.build_snapshot(
+        23, 3, result_rows, attempts, "2026-01-08T00:00:00Z", "UTC"
+    )
+    assert snapshot["provisional"] is True
+    assert snapshot["campaign_state"] == "terminal_incomplete"
+    assert snapshot["campaign_end"] == "2026-01-07T12:00:00"
+    markdown = report.render_markdown(snapshot)
+    assert "Status: PROVISIONAL / TERMINAL INCOMPLETE" in markdown
     assert "Campaign end: 2026-01-07T12:00:00 (UTC)" in markdown
     assert "running at snapshot" not in markdown
 
@@ -198,6 +227,39 @@ def test_snapshot_rerender_is_byte_deterministic(tmp_path: Path) -> None:
     ]) == 0
     for suffix in (".json", ".tsv", ".md"):
         assert first.with_suffix(suffix).read_bytes() == second.with_suffix(suffix).read_bytes()
+
+
+def test_legacy_running_snapshot_without_campaign_state_rerenders(tmp_path: Path) -> None:
+    results, logs, sacct = _fixture(tmp_path)
+    modern = tmp_path / "modern"
+    legacy = tmp_path / "legacy.json"
+    rerendered = tmp_path / "legacy-rerendered"
+    assert report.main([
+        "collect", "--order", "23", "--parts", "3",
+        "--results-dir", str(results), "--logs-dir", str(logs),
+        "--sacct-file", str(sacct), "--generated-at", "2026-01-06T00:00:00Z",
+        "--output-prefix", str(modern),
+    ]) == 0
+    snapshot = json.loads(modern.with_suffix(".json").read_text(encoding="utf-8"))
+    assert snapshot["campaign_state"] == "running"
+    snapshot["campaign_state"] = "complete"
+    with pytest.raises(ValueError, match="campaign_state does not match"):
+        report.validate_snapshot(snapshot)
+    del snapshot["campaign_state"]
+    report.validate_snapshot(snapshot)
+    markdown = report.render_markdown(snapshot)
+    assert "campaign_state" not in snapshot
+    assert "Campaign end: running at snapshot 2026-01-06T00:00:00Z" in markdown
+    legacy.write_text(
+        json.dumps(snapshot, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+
+    assert report.main([
+        "render", "--snapshot", str(legacy), "--output-prefix", str(rerendered),
+    ]) == 0
+    assert legacy.read_bytes() == rerendered.with_suffix(".json").read_bytes()
+    assert modern.with_suffix(".tsv").read_bytes() == rerendered.with_suffix(".tsv").read_bytes()
+    assert modern.with_suffix(".md").read_bytes() == rerendered.with_suffix(".md").read_bytes()
 
 
 def test_log_filename_job_id_overrides_misleading_slice_header(tmp_path: Path) -> None:
@@ -354,3 +416,76 @@ def test_validation_rejects_live_end_and_bad_accounting(tmp_path: Path) -> None:
     snapshot["slices"][1]["processed"] += 1
     with pytest.raises(ValueError, match="does not balance"):
         report.validate_snapshot(snapshot)
+
+
+def _cfilter_result(path: Path, *, part: int, parts: int, stats: dict | None, partial: bool = False) -> None:
+    survivors = 0 if stats is None else stats["survivors"]
+    emitted = 7 if stats is None else survivors
+    data = {
+        "order": 25,
+        "delta_max": 3,
+        "generated_biconnected": emitted if stats is None else stats["read"],
+        "processed_graphs": emitted,
+        "pruned_by_filters": 0,
+        "class1_or_noncritical": 0,
+        "total_critical": emitted,
+        "overfull_count": 0,
+        "survivor_count": emitted,
+        "survivors": [],
+        "runtime_seconds": 10.0,
+        "interrupted": partial,
+        "generation_complete": not partial,
+    }
+    if stats is not None:
+        data["cfilter_stats"] = stats
+    data["mod_split"] = {"m": part, "N": parts}
+    path.write_text(json.dumps(data), encoding="utf-8")
+
+
+def test_cfilter_counters_use_native_stats_and_withhold_partials(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    logs = tmp_path / "logs"
+    results.mkdir()
+    logs.mkdir()
+    stats = {"read": 1000, "maxdeg3": 1000, "val_pass": 90, "filt_pass": 80, "critical": 30, "survivors": 2}
+    _cfilter_result(results / "order_25_delta_3_part0of2.json", part=0, parts=2, stats=stats)
+    _cfilter_result(results / "order_25_delta_3_part1of2.partial.json", part=1, parts=2, stats=None, partial=True)
+    for job, part in (("200001_0", 0), ("200001_1", 1)):
+        (logs / f"run-{job}.out").write_text(
+            f"ORDER=25 M_SLICE={part} N_PARTS=2\n", encoding="utf-8"
+        )
+    sacct = tmp_path / "sacct.psv"
+    sacct.write_text(
+        "200001_0|200001_0|COMPLETED|2026-01-01T00:00:00|2026-01-02T00:00:00|100|1|\n"
+        "200001_1|200001_1|RUNNING|2026-01-01T00:00:00|Unknown|50|1|\n",
+        encoding="utf-8",
+    )
+    prefix = tmp_path / "effort"
+    assert report.main([
+        "collect", "--order", "25", "--parts", "2", "--cfilter-counters",
+        "--results-dir", str(results), "--logs-dir", str(logs),
+        "--sacct-file", str(sacct), "--generated-at", "2026-01-03T00:00:00Z",
+        "--output-prefix", str(prefix),
+    ]) == 0
+    snapshot = json.loads(prefix.with_suffix(".json").read_text(encoding="utf-8"))
+    assert snapshot["counter_mode"] == "cfilter"
+    final, partial = snapshot["slices"]
+    assert (final["processed"], final["pruned"], final["noncritical"], final["critical"],
+            final["overfull"], final["survivors"], final["unclassified"]) == (1000, 920, 50, 30, 28, 2, 0)
+    assert partial["counters_withheld"] is True
+    assert all(partial[key] == 0 for key in report.COUNTER_KEYS)
+    markdown = prefix.with_suffix(".md").read_text(encoding="utf-8")
+    assert "partial (running) (counters withheld)" in markdown
+    assert "C-filter counter mode" in markdown
+    # A raw-counter mismatch between the record and cfilter_stats fails closed.
+    final_path = results / "order_25_delta_3_part0of2.json"
+    tampered = json.loads(final_path.read_text(encoding="utf-8"))
+    tampered["generated_biconnected"] = 999
+    final_path.write_text(json.dumps(tampered), encoding="utf-8")
+    with pytest.raises(ValueError, match="cfilter_stats.read"):
+        report.discover_results(results, 25, 2, cfilter=True)
+    # Re-render is byte deterministic.
+    out = tmp_path / "rerender"
+    assert report.main(["render", "--snapshot", str(prefix.with_suffix(".json")), "--output-prefix", str(out)]) == 0
+    for suffix in (".json", ".tsv", ".md"):
+        assert out.with_suffix(suffix).read_bytes() == prefix.with_suffix(suffix).read_bytes()

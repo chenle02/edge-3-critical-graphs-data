@@ -41,7 +41,8 @@ jobs:
           for prefix in \
               order21_computational_effort_20260722 \
               order22_computational_effort_20260722 \
-              order23_computational_effort_20260723; do
+              order23_computational_effort_20260723 \
+              order25_computational_effort_20261018; do
             python code/scripts/report_computational_effort.py render \
               --snapshot "reports/${prefix}.json" \
               --output-prefix "/tmp/${prefix}"
