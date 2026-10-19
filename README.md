@@ -137,25 +137,29 @@ over a 13.3-hour wall-clock span on Auburn's Easley cluster.
 
 ### Order-25 extension (ongoing)
 
-The sanitized snapshot generated **2026-10-18T15:06:27Z** records the ongoing
-4096-slice Order-25 census (Δ = 3, native C-filter). The campaign began
+The latest sanitized snapshot, generated **2026-10-19T03:21:37Z**, records the
+ongoing 4096-slice Order-25 census (Δ = 3, native C-filter). The campaign began
 **2026-07-25T08:40:36** (America/Chicago) and is still running: at the snapshot
-time **2,977/4,096 slices** had a validated final result and the remaining
-1,119 had a live Slurm attempt. Earlier in the day, 343 slices whose attempts
-had timed out without a final result were resubmitted with a longer time limit;
-they are among the live slices. Counted over the completed slices only, the
-native filter read 407,775,354,662 raw `geng` graphs and found 3,048,882,705
-critical graphs, of which 3,045,320,905 are overfull, leaving **3,561,800
-nontrivial critical graphs** so far. The 6,882 Slurm attempts to date represent
-a cumulative 95264d 16:53:42 of wall time and **2,286,352.895 core-hours** of
-allocated compute. The C-filter reports no per-slice progress, so no completion
-date is estimated.
+time **2,994/4,096 slices** had a validated final result and 1,101 had a live
+Slurm attempt. One further slice finished while the snapshot was being
+collected; its final result landed after the results scan, so it is recorded as
+partial. The 343 slices that had timed out without a final result were
+resubmitted on 2026-10-18 with a longer time limit and are among the live
+slices. Counted over the completed slices only, the native filter read
+410,816,980,184 raw `geng` graphs and found 3,071,147,504 critical graphs, of
+which 3,067,557,318 are overfull, leaving **3,590,186 nontrivial critical
+graphs** so far. The 6,882 Slurm attempts to date represent a cumulative
+95832d 22:58:50 of wall time and **2,299,990.981 core-hours** of allocated
+compute. The C-filter reports no per-slice progress, so no completion date is
+estimated.
 
-See the [detailed report](reports/order25_computational_effort_20261018.md), the
-canonical [JSON snapshot](reports/order25_computational_effort_20261018.json),
-and the [TSV telemetry](reports/order25_computational_effort_20261018.tsv).
-These provisional statistics go beyond the archived v1.2.0 release and are
-**not a completed census result**; Order 25 remains pending.
+See the [detailed report](reports/order25_computational_effort_20261019.md), the
+canonical [JSON snapshot](reports/order25_computational_effort_20261019.json),
+and the [TSV telemetry](reports/order25_computational_effort_20261019.tsv). The
+earlier snapshot of 2026-10-18T15:06:27Z
+([JSON](reports/order25_computational_effort_20261018.json)) is kept as a
+record. These provisional statistics go beyond the archived v1.2.0 release and
+are **not a completed census result**; Order 25 remains pending.
 
 This work was completed in part with resources provided by the Auburn University Easley Cluster.
 

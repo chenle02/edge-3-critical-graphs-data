@@ -22,6 +22,10 @@ adheres to [Semantic Versioning](https://semver.org/).
   `campaign_state=running`, 2,977/4,096 slices complete), with README and
   overview-page links and a CI re-render check. This snapshot is not a
   completed census result and changes no release or DOI metadata.
+- A second provisional Order-25 snapshot generated 2026-10-19T03:21:37Z
+  (`reports/order25_computational_effort_20261019.{json,tsv,md}`, 2,994/4,096
+  slices complete); the README and overview page now quote it, the 2026-10-18
+  snapshot is kept unchanged, and CI re-renders both.
 
 ### Changed
 - The computational-effort reporter gained `--cfilter-counters`: for native
