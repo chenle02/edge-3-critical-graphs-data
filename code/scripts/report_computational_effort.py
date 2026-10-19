@@ -67,10 +67,15 @@ def _read_windows(path: Path, window: int = WINDOW_BYTES) -> tuple[str, str]:
     return head.decode("utf-8", "replace"), tail.decode("utf-8", "replace")
 
 
+class UnreadableResult(ValueError):
+    """A result file exists but its bounded windows lack required fields
+    (for example, a truncated or mid-write file)."""
+
+
 def _json_scalar(text: str, key: str) -> Any:
     match = re.search(rf'"{re.escape(key)}"\s*:\s*(null|true|false|-?\d+(?:\.\d+)?)', text)
     if not match:
-        raise ValueError(f"result is missing scalar field {key!r} in bounded windows")
+        raise UnreadableResult(f"result is missing scalar field {key!r} in bounded windows")
     value = match.group(1)
     if value == "null":
         return None
@@ -97,7 +102,7 @@ def _cfilter_counters(text: str, values: dict[str, Any], name: str) -> dict[str,
     """
     match = re.search(r'"cfilter_stats"\s*:\s*\{(?P<body>[^{}]*)\}', text)
     if not match:
-        raise ValueError(f"C-filter final result is missing cfilter_stats in bounded windows: {name}")
+        raise UnreadableResult(f"C-filter final result is missing cfilter_stats in bounded windows: {name}")
     stats = {key: _json_scalar(match.group("body"), key) for key in CFILTER_KEYS}
     if any(isinstance(v, bool) or not isinstance(v, int) or v < 0 for v in stats.values()):
         raise ValueError(f"cfilter_stats counters must be nonnegative integers: {name}")
@@ -130,12 +135,15 @@ def parse_result(path: Path, order: int, parts: int, cfilter: bool = False) -> d
         raise ValueError(f"result identity conflicts with requested census: {path.name}")
     head, tail = _read_windows(path)
     text = head + "\n" + tail
-    values = {key: _json_scalar(text, key) for key in SCALAR_KEYS}
+    try:
+        values = {key: _json_scalar(text, key) for key in SCALAR_KEYS}
+    except UnreadableResult as exc:
+        raise UnreadableResult(f"{exc}: {path.name}") from None
     if values["order"] != order:
         raise ValueError(f"JSON order conflicts with filename: {path.name}")
     mod_match = re.search(r'"mod_split"\s*:\s*\{(?P<body>[^{}]*)\}', text)
     if not mod_match:
-        raise ValueError(f"result is missing mod_split identity in bounded windows: {path.name}")
+        raise UnreadableResult(f"result is missing mod_split identity in bounded windows: {path.name}")
     mod_identity = (
         _json_scalar(mod_match.group("body"), "m"),
         _json_scalar(mod_match.group("body"), "N"),
@@ -187,28 +195,110 @@ def parse_result(path: Path, order: int, parts: int, cfilter: bool = False) -> d
     }
 
 
-def discover_results(
-    results_dir: Path, order: int, parts: int, cfilter: bool = False
-) -> dict[int, dict[str, Any]]:
-    candidates: dict[int, dict[str, list[dict[str, Any]]]] = {}
+SCAN_RESCANS = 1  # bounded rescans per slice when a listed file changes under us
+WITHHELD_KINDS = ("missing_at_scan", "partial_unreadable")
+RESULT_KINDS = ("final", "partial") + WITHHELD_KINDS
+
+
+def _list_result_paths(
+    results_dir: Path, order: int, parts: int, part: int | None = None
+) -> dict[int, dict[str, list[Path]]]:
+    """List census result files by slice and kind (optionally for one slice)."""
+    listing: dict[int, dict[str, list[Path]]] = {}
     for path in sorted(results_dir.iterdir()):
         match = RESULT_RE.match(path.name)
         if not match or int(match.group("order")) != order or int(match.group("parts")) != parts:
             continue
-        row = parse_result(path, order, parts, cfilter)
-        bucket = candidates.setdefault(row["part"], {"final": [], "partial": []})
-        bucket[row["result_kind"]].append(row)
+        found_part = int(match.group("part"))
+        if part is not None and found_part != part:
+            continue
+        kind = "partial" if match.group("partial") else "final"
+        listing.setdefault(found_part, {"final": [], "partial": []})[kind].append(path)
+    return listing
+
+
+def _select_unique(rows: list[dict[str, Any]], kind: str, part: int) -> dict[str, Any]:
+    identities = {
+        tuple((key, json.dumps(value, sort_keys=True)) for key, value in sorted(row.items()) if key != "result_timestamp")
+        for row in rows
+    }
+    if len(identities) > 1:
+        raise ValueError(f"duplicate conflicting {kind} results for part {part}")
+    return max(rows, key=lambda row: row["result_timestamp"])
+
+
+def _withheld_row(part: int, kind: str) -> dict[str, Any]:
+    row: dict[str, Any] = {"part": part, "result_kind": kind, "result_timestamp": None}
+    row.update({key: 0 for key in COUNTER_KEYS})
+    row["json_runtime_seconds"] = 0.0
+    row["counters_withheld"] = True
+    return row
+
+
+def _resolve_part(
+    results_dir: Path, order: int, parts: int, part: int,
+    paths: dict[str, list[Path]], cfilter: bool, warnings: list[str],
+) -> dict[str, Any]:
+    """Parse one slice, rescanning (bounded) if a listed file vanishes or is mid-write.
+
+    A final that vanishes is rescanned once and then fails loudly: the pipeline
+    writes finals atomically and never deletes them.  A partial that vanishes
+    (usually because its final just landed) or is unreadable is rescanned once;
+    if it is still gone or unreadable the slice is recorded with withheld
+    counters and a warning instead of being dropped.
+    """
+    final_vanished = False
+    for attempt in range(SCAN_RESCANS + 1):
+        can_rescan = attempt < SCAN_RESCANS
+        if paths.get("final"):
+            try:
+                rows = [parse_result(path, order, parts, cfilter) for path in paths["final"]]
+            except FileNotFoundError:
+                if not can_rescan:
+                    raise ValueError(f"final result for part {part} vanished during collection and did not reappear")
+                final_vanished = True
+                paths = _list_result_paths(results_dir, order, parts, part).get(part, {})
+                continue
+            return _select_unique(rows, "final", part)
+        if final_vanished:
+            raise ValueError(
+                f"final result for part {part} vanished during collection and is still missing after a rescan"
+            )
+        if paths.get("partial"):
+            try:
+                rows = [parse_result(path, order, parts, cfilter) for path in paths["partial"]]
+            except FileNotFoundError:
+                if can_rescan:
+                    paths = _list_result_paths(results_dir, order, parts, part).get(part, {})
+                    continue
+                break
+            except UnreadableResult as exc:
+                if can_rescan:
+                    paths = _list_result_paths(results_dir, order, parts, part).get(part, {})
+                    continue
+                warnings.append(
+                    f"part {part}: partial checkpoint unreadable after a rescan ({exc}); counters withheld"
+                )
+                return _withheld_row(part, "partial_unreadable")
+            return _select_unique(rows, "partial", part)
+        break
+    warnings.append(
+        f"part {part}: result file vanished during collection and no final or partial "
+        "result was found on rescan; recorded as missing at scan"
+    )
+    return _withheld_row(part, "missing_at_scan")
+
+
+def discover_results(
+    results_dir: Path, order: int, parts: int, cfilter: bool = False,
+    warnings: list[str] | None = None,
+) -> dict[int, dict[str, Any]]:
+    if warnings is None:
+        warnings = []
+    listing = _list_result_paths(results_dir, order, parts)
     found: dict[int, dict[str, Any]] = {}
-    for part, kinds in candidates.items():
-        selected_kind = "final" if kinds["final"] else "partial"
-        rows = kinds[selected_kind]
-        identities = {
-            tuple((key, json.dumps(value, sort_keys=True)) for key, value in sorted(row.items()) if key != "result_timestamp")
-            for row in rows
-        }
-        if len(identities) > 1:
-            raise ValueError(f"duplicate conflicting {selected_kind} results for part {part}")
-        found[part] = max(rows, key=lambda row: row["result_timestamp"])
+    for part in sorted(listing):
+        found[part] = _resolve_part(results_dir, order, parts, part, listing[part], cfilter, warnings)
     missing = sorted(set(range(parts)) - set(found))
     extra = sorted(set(found) - set(range(parts)))
     if missing or extra:
@@ -393,9 +483,22 @@ def validate_snapshot(snapshot: dict[str, Any]) -> None:
     counter_mode = snapshot.get("counter_mode")
     if counter_mode not in (None, "cfilter"):
         raise ValueError("unsupported counter_mode")
+    scan_warnings = snapshot.get("scan_warnings", [])
+    if not isinstance(scan_warnings, list) or not all(isinstance(w, str) for w in scan_warnings):
+        raise ValueError("scan_warnings must be a list of strings")
+    if "scan_warnings" in snapshot and not scan_warnings:
+        raise ValueError("scan_warnings must be omitted when empty")
+    withheld_kind_rows = [row for row in rows if row["result_kind"] in WITHHELD_KINDS]
+    if len(scan_warnings) != len(withheld_kind_rows):
+        raise ValueError("scan_warnings must record exactly one warning per missing/unreadable slice")
     for row in rows:
+        if row["result_kind"] not in RESULT_KINDS:
+            raise ValueError(f"part {row['part']}: unsupported result_kind {row['result_kind']!r}")
         withheld = row.get("counters_withheld", False)
-        if withheld and (counter_mode != "cfilter" or row["result_kind"] != "partial"):
+        if row["result_kind"] in WITHHELD_KINDS:
+            if not withheld:
+                raise ValueError(f"part {row['part']}: {row['result_kind']} slices must withhold counters")
+        elif withheld and (counter_mode != "cfilter" or row["result_kind"] != "partial"):
             raise ValueError(f"part {row['part']}: counters may be withheld only for C-filter partials")
         if counter_mode == "cfilter" and row["result_kind"] == "partial" and not withheld:
             raise ValueError(f"part {row['part']}: C-filter partial counters must be withheld")
@@ -427,6 +530,7 @@ def build_snapshot(
     order: int, parts: int, results: dict[int, dict[str, Any]],
     attempts: dict[int, dict[str, Any]], generated_at: str,
     slurm_timezone: str = "America/Chicago", cfilter: bool = False,
+    scan_warnings: list[str] | None = None,
 ) -> dict[str, Any]:
     rows = []
     for part in range(parts):
@@ -455,6 +559,8 @@ def build_snapshot(
     }
     if cfilter:
         snapshot["counter_mode"] = "cfilter"
+    if scan_warnings:
+        snapshot["scan_warnings"] = list(scan_warnings)
     validate_snapshot(snapshot)
     return snapshot
 
@@ -500,7 +606,14 @@ def render_markdown(snapshot: dict[str, Any]) -> str:
         f"- Campaign start: {snapshot['campaign_start'] or 'unknown'} ({timezone})",
         f"- Campaign end: {campaign_end}" + (f" ({timezone})" if snapshot["campaign_end"] else ""),
         f"- Slurm timestamp timezone: `{timezone}`",
-        f"- Completed slices: {snapshot['complete_parts']}/{snapshot['parts']}", "",
+        f"- Completed slices: {snapshot['complete_parts']}/{snapshot['parts']}",
+    ]
+    for kind, label in (("missing_at_scan", "Slices missing at scan"), ("partial_unreadable", "Slices with an unreadable partial checkpoint")):
+        count = sum(row["result_kind"] == kind for row in rows)
+        if count:
+            lines.append(f"- {label}: {count}")
+    lines += [
+        "",
         "## Per-slice statistics", "",
         f"| Part | Result | Processed | Pruned | Noncritical | Critical | Overfull | Survivors | Unclassified | Attempts / states | Start ({timezone}) | End ({timezone}) | Slurm wall | Core-hours |",
         "|---:|:---|---:|---:|---:|---:|---:|---:|---:|:---|:---|:---|---:|---:|",
@@ -555,6 +668,12 @@ def render_markdown(snapshot: dict[str, Any]) -> str:
             "- C-filter counter mode: graph counters come from the native filter's `cfilter_stats`. `processed` is the number of raw geng graphs read; `pruned` = read − graphs passing the structural filters; `noncritical` = filter-passing graphs that are not critical; `critical` counts critical graphs before the overfull test; `survivors` are the non-overfull (nontrivial) critical graphs.",
             "- In C-filter mode a partial checkpoint has no native counters, so its graph counters are withheld (recorded as 0) and the totals above cover completed slices only.",
         ]
+    if snapshot.get("scan_warnings"):
+        lines += [
+            "- A slice whose result file vanished or was unreadable during collection is recorded as `missing_at_scan` or `partial_unreadable` with withheld (zero) counters; see the scan warnings below.",
+            "", "## Scan warnings", "",
+        ]
+        lines += [f"- {warning}" for warning in snapshot["scan_warnings"]]
     lines += ["", "## Acknowledgment", "", ACKNOWLEDGMENT, ""]
     return "\n".join(lines)
 
@@ -590,12 +709,17 @@ def write_outputs(snapshot: dict[str, Any], output_prefix: Path, write_snapshot:
 
 
 def _collect(args: argparse.Namespace) -> None:
-    results = discover_results(args.results_dir, args.order, args.parts, args.cfilter_counters)
+    scan_warnings: list[str] = []
+    results = discover_results(
+        args.results_dir, args.order, args.parts, args.cfilter_counters, scan_warnings
+    )
+    for warning in scan_warnings:
+        print(f"warning: {warning}", file=sys.stderr)
     jobs = discover_job_parts(args.logs_dir, args.order, args.parts)
     attempts = aggregate_attempts(collect_sacct(jobs, args.sacct_file), jobs, args.parts)
     snapshot = build_snapshot(
         args.order, args.parts, results, attempts, args.generated_at or _utc_now(),
-        args.slurm_timezone, args.cfilter_counters,
+        args.slurm_timezone, args.cfilter_counters, scan_warnings,
     )
     write_outputs(snapshot, args.output_prefix)
 

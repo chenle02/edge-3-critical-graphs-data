@@ -489,3 +489,147 @@ def test_cfilter_counters_use_native_stats_and_withhold_partials(tmp_path: Path)
     assert report.main(["render", "--snapshot", str(prefix.with_suffix(".json")), "--output-prefix", str(out)]) == 0
     for suffix in (".json", ".tsv", ".md"):
         assert out.with_suffix(suffix).read_bytes() == prefix.with_suffix(suffix).read_bytes()
+
+
+_CFILTER_STATS = {"read": 1000, "maxdeg3": 1000, "val_pass": 90, "filt_pass": 80, "critical": 30, "survivors": 2}
+
+
+def _race_fixture(tmp_path: Path) -> tuple[Path, Path, Path]:
+    """Two-slice C-filter campaign: part 0 final, part 1 partial only."""
+    results = tmp_path / "results"
+    logs = tmp_path / "logs"
+    results.mkdir()
+    logs.mkdir()
+    _cfilter_result(results / "order_25_delta_3_part0of2.json", part=0, parts=2, stats=_CFILTER_STATS)
+    _cfilter_result(results / "order_25_delta_3_part1of2.partial.json", part=1, parts=2, stats=None, partial=True)
+    for job, part in (("300001_0", 0), ("300001_1", 1)):
+        (logs / f"run-{job}.out").write_text(f"ORDER=25 M_SLICE={part} N_PARTS=2\n", encoding="utf-8")
+    sacct = tmp_path / "sacct.psv"
+    sacct.write_text(
+        "300001_0|300001_0|COMPLETED|2026-01-01T00:00:00|2026-01-02T00:00:00|100|1|\n"
+        "300001_1|300001_1|RUNNING|2026-01-01T00:00:00|Unknown|50|1|\n",
+        encoding="utf-8",
+    )
+    return results, logs, sacct
+
+
+def _hook_parse(monkeypatch: pytest.MonkeyPatch, target: str, action) -> list[str]:
+    """Run ``action`` just before the first parse of ``target`` (a listed file),
+    deterministically simulating a change between directory listing and read."""
+    real = report.parse_result
+    calls: list[str] = []
+
+    def hooked(path: Path, *args, **kwargs):
+        calls.append(path.name)
+        if path.name == target and calls.count(target) == 1:
+            action(path)
+        return real(path, *args, **kwargs)
+
+    monkeypatch.setattr(report, "parse_result", hooked)
+    return calls
+
+
+def test_vanished_partial_uses_final_that_just_landed(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    results, _, _ = _race_fixture(tmp_path)
+
+    def finish(path: Path) -> None:
+        _cfilter_result(results / "order_25_delta_3_part1of2.json", part=1, parts=2, stats=_CFILTER_STATS)
+        path.unlink()
+
+    _hook_parse(monkeypatch, "order_25_delta_3_part1of2.partial.json", finish)
+    warnings: list[str] = []
+    found = report.discover_results(results, 25, 2, cfilter=True, warnings=warnings)
+    assert found[1]["result_kind"] == "final"
+    assert found[1]["processed"] == 1000 and found[1]["survivors"] == 2
+    assert warnings == []
+
+
+def test_vanished_partial_without_final_is_missing_at_scan(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    results, logs, sacct = _race_fixture(tmp_path)
+    _hook_parse(monkeypatch, "order_25_delta_3_part1of2.partial.json", lambda path: path.unlink())
+    prefix = tmp_path / "effort"
+    assert report.main([
+        "collect", "--order", "25", "--parts", "2", "--cfilter-counters",
+        "--results-dir", str(results), "--logs-dir", str(logs),
+        "--sacct-file", str(sacct), "--generated-at", "2026-01-03T00:00:00Z",
+        "--output-prefix", str(prefix),
+    ]) == 0
+    snapshot = json.loads(prefix.with_suffix(".json").read_text(encoding="utf-8"))
+    row = snapshot["slices"][1]
+    assert row["result_kind"] == "missing_at_scan" and row["counters_withheld"] is True
+    assert all(row[key] == 0 for key in report.COUNTER_KEYS)
+    assert len(snapshot["scan_warnings"]) == 1 and "part 1" in snapshot["scan_warnings"][0]
+    assert snapshot["complete_parts"] == 1 and snapshot["provisional"] is True
+    markdown = prefix.with_suffix(".md").read_text(encoding="utf-8")
+    assert "- Slices missing at scan: 1" in markdown
+    assert "## Scan warnings" in markdown
+    out = tmp_path / "rerender"
+    assert report.main(["render", "--snapshot", str(prefix.with_suffix(".json")), "--output-prefix", str(out)]) == 0
+    for suffix in (".json", ".tsv", ".md"):
+        assert out.with_suffix(suffix).read_bytes() == prefix.with_suffix(suffix).read_bytes()
+    # A snapshot whose warnings do not match its withheld slices is rejected.
+    del snapshot["scan_warnings"]
+    with pytest.raises(ValueError, match="scan_warnings"):
+        report.validate_snapshot(snapshot)
+
+
+def test_mid_write_partial_is_rescanned_then_flagged(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    results, _, _ = _race_fixture(tmp_path)
+    partial = results / "order_25_delta_3_part1of2.partial.json"
+    partial.write_text('{"order": 25, "delta_max": 3, "generated_bi', encoding="utf-8")
+    calls = _hook_parse(monkeypatch, "unused", lambda path: None)
+    warnings: list[str] = []
+    found = report.discover_results(results, 25, 2, cfilter=True, warnings=warnings)
+    assert calls.count(partial.name) == 2  # one read plus exactly one bounded rescan
+    assert found[1]["result_kind"] == "partial_unreadable"
+    assert found[1]["counters_withheld"] is True
+    assert len(warnings) == 1 and "unreadable" in warnings[0]
+
+
+def test_mid_write_partial_completed_on_rescan_is_used(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    results, _, _ = _race_fixture(tmp_path)
+    partial = results / "order_25_delta_3_part1of2.partial.json"
+    complete = partial.read_text(encoding="utf-8")
+    partial.write_text(complete[: len(complete) // 3], encoding="utf-8")
+
+    real = report.parse_result
+    seen: list[str] = []
+
+    def hooked(path: Path, *args, **kwargs):
+        seen.append(path.name)
+        if path.name == partial.name and seen.count(partial.name) == 2:
+            partial.write_text(complete, encoding="utf-8")
+        return real(path, *args, **kwargs)
+
+    monkeypatch.setattr(report, "parse_result", hooked)
+    warnings: list[str] = []
+    found = report.discover_results(results, 25, 2, cfilter=True, warnings=warnings)
+    assert found[1]["result_kind"] == "partial" and warnings == []
+
+
+def test_vanished_final_rescans_then_fails_loudly(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    results, _, _ = _race_fixture(tmp_path)
+    calls = _hook_parse(monkeypatch, "order_25_delta_3_part0of2.json", lambda path: path.unlink())
+    with pytest.raises(ValueError, match="final result for part 0 vanished"):
+        report.discover_results(results, 25, 2, cfilter=True)
+    assert calls.count("order_25_delta_3_part0of2.json") == 1
+
+
+def test_truncated_final_fails_loudly(tmp_path: Path) -> None:
+    results, _, _ = _race_fixture(tmp_path)
+    (results / "order_25_delta_3_part0of2.json").write_text('{"order": 25, "delta_', encoding="utf-8")
+    with pytest.raises(ValueError, match="missing scalar field"):
+        report.discover_results(results, 25, 2, cfilter=True)
+
+
+def test_archived_snapshots_rerender_byte_for_byte(tmp_path: Path) -> None:
+    """Every archived snapshot shipped beside the reporter re-renders unchanged."""
+    reports_dir = Path(__file__).resolve().parents[2] / "reports"
+    snapshots = sorted(reports_dir.glob("order*_computational_effort_*.json")) if reports_dir.is_dir() else []
+    if not snapshots:
+        pytest.skip("no archived computational-effort snapshots in this checkout")
+    for snapshot in snapshots:
+        out = tmp_path / snapshot.stem
+        assert report.main(["render", "--snapshot", str(snapshot), "--output-prefix", str(out)]) == 0
+        for suffix in (".json", ".tsv", ".md"):
+            assert out.with_suffix(suffix).read_bytes() == snapshot.with_suffix(suffix).read_bytes(), snapshot.name
