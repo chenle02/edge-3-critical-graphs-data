@@ -1,7 +1,7 @@
 # Edge-chromatic 3-critical graphs — census data
 
 This site documents the public research data repository for Le Chen and
-Songling Shan, *Structure and census of edge-chromatic 3-critical graphs*
+Songling Shan, *A characterization of edge-chromatic 3-critical graphs*
 (2026). The repository contains census outputs, verification code, and audit
 reports supporting the paper's computational classification statements.
 

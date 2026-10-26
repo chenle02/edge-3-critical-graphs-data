@@ -1,4 +1,4 @@
-# Data and code for "Structure and census of edge-chromatic 3-critical graphs"
+# Data and code for "A characterization of edge-chromatic 3-critical graphs"
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub release](https://img.shields.io/github/v/release/chenle02/edge-3-critical-graphs-data)](https://github.com/chenle02/edge-3-critical-graphs-data/releases)
@@ -14,7 +14,7 @@ This repository archives the census data, machine-readable audit reports, and
 search/audit code referenced in the paper
 
 > Le Chen and Songling Shan,
-> *Structure and census of edge-chromatic 3-critical graphs*, 2026.
+> *A characterization of edge-chromatic 3-critical graphs*, 2026.
 
 A graph with maximum degree 3 is (edge-chromatic) **3-critical** if it is
 connected, has chromatic index 4, and deleting any edge lowers the chromatic
@@ -158,8 +158,8 @@ canonical [JSON snapshot](reports/order25_computational_effort_20261019.json),
 and the [TSV telemetry](reports/order25_computational_effort_20261019.tsv). The
 earlier snapshot of 2026-10-18T15:06:27Z
 ([JSON](reports/order25_computational_effort_20261018.json)) is kept as a
-record. These provisional statistics go beyond the archived v1.2.0 release and
-are **not a completed census result**; Order 25 remains pending.
+record. These provisional statistics are **not a completed census result**;
+Order 25 remains pending.
 
 This work was completed in part with resources provided by the Auburn University Easley Cluster.
 
@@ -172,7 +172,9 @@ supporting the paper:
 
 | Paper reference | File(s) |
 |---|---|
-| Census categorization by characterization clauses (Table in the paper) | `census_characterization_classification.json`, `census_characterization_classification.md` |
+| Census categorization by the first applicable clause of the characterization theorem, with clause (c) tested over every cyclic 3-edge-cut and both shores (Table 4 in the paper) | `census_characterization_classification_exact.json`, `census_characterization_classification_exact.md` |
+| P\*-minor verification for all survivors of order at most 24 (Conjecture 1.3 in the paper) | `pstar_minor_verification.json` |
+| Census categorization by the five software labels (smaller-shore Meredith test) | `census_characterization_classification.json`, `census_characterization_classification.md` |
 | Order-13 construction classification | `order13_triangle_blowup_classification.json`, `delta3_blowup_chain_9_11_13.json` |
 | Order-15/17 construction passes | `songling_order15_order17_generation_verification.json`, `..._second_pass.json`, `..._third_pass_hajos.json` |
 | Residual records | `songling_remaining_residue_dossier.json` |
@@ -194,6 +196,24 @@ supporting the paper:
   failure of theorem clause (c). It reproduces the software table:
   ```bash
   python3 code/scripts/classify_census_characterization.py --orders 13 15 17 19 21 22 23
+  ```
+- `code/scripts/classify_census_characterization_exact.py`: assigns every
+  survivor the first applicable clause of the characterization theorem,
+  testing clause (c) over every cyclic 3-edge-cut and both of its shores; it
+  also records the number of degree-2 vertices and checks the snark
+  completion for clauses (d)/(e). It writes
+  `reports/census_characterization_classification_exact.{json,md}`
+  (Table 4 in the paper):
+  ```bash
+  python3 code/scripts/classify_census_characterization_exact.py --orders 13 15 17 19 21 22 23 24
+  ```
+- `code/scripts/verify_pstar_minor.py`: verifies that every survivor of order
+  at most 24 contains P\* (the Petersen graph minus a vertex) as a minor, by a
+  direct subdivision search for orders up to 17 and for the clause-(d)/(e)
+  survivors of larger orders, and by induction for the others. It writes
+  `reports/pstar_minor_verification.json`:
+  ```bash
+  python3 code/scripts/verify_pstar_minor.py --orders 9 11 13 15 17 19 21 22 23 24
   ```
 - `code/scripts/audit_songling_snark_critical_subgraphs.py`,
   `code/scripts/audit_songling_even_snark_residue_below18.py`,

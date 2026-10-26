@@ -1,0 +1,96 @@
+{
+  "9": {
+    "survivors": 1,
+    "searched_directly": true,
+    "verdicts": {
+      "contains P*": 1
+    },
+    "problems": [],
+    "seconds": 0.0
+  },
+  "11": {
+    "survivors": 2,
+    "searched_directly": true,
+    "verdicts": {
+      "contains P*": 2
+    },
+    "problems": [],
+    "seconds": 0.0
+  },
+  "13": {
+    "survivors": 14,
+    "searched_directly": true,
+    "verdicts": {
+      "contains P*": 14
+    },
+    "problems": [],
+    "seconds": 0.1
+  },
+  "15": {
+    "survivors": 94,
+    "searched_directly": true,
+    "verdicts": {
+      "contains P*": 94
+    },
+    "problems": [],
+    "seconds": 4.8
+  },
+  "17": {
+    "survivors": 774,
+    "searched_directly": true,
+    "verdicts": {
+      "contains P*": 774
+    },
+    "problems": [],
+    "seconds": 155.8
+  },
+  "19": {
+    "survivors": 6984,
+    "searched_directly": "clauses (d)/(e) only",
+    "verdicts": {
+      "contains P*": 48,
+      "by induction": 6936
+    },
+    "problems": [],
+    "seconds": 4.8
+  },
+  "21": {
+    "survivors": 70530,
+    "searched_directly": "clauses (d)/(e) only",
+    "verdicts": {
+      "by induction": 70233,
+      "contains P*": 297
+    },
+    "problems": [],
+    "seconds": 61.4
+  },
+  "22": {
+    "survivors": 1,
+    "searched_directly": "clauses (d)/(e) only",
+    "verdicts": {
+      "contains P*": 1
+    },
+    "problems": [],
+    "seconds": 0.1
+  },
+  "23": {
+    "survivors": 782186,
+    "searched_directly": "clauses (d)/(e) only",
+    "verdicts": {
+      "contains P*": 1908,
+      "by induction": 780278
+    },
+    "problems": [],
+    "seconds": 73.4
+  },
+  "24": {
+    "survivors": 9,
+    "searched_directly": "clauses (d)/(e) only",
+    "verdicts": {
+      "by induction": 8,
+      "contains P*": 1
+    },
+    "problems": [],
+    "seconds": 0.1
+  }
+}

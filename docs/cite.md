@@ -5,7 +5,7 @@
 ```bibtex
 @article{chen.shan:26:exploring,
   author = {Chen, Le and Shan, Songling},
-  title = {Structure and census of edge-chromatic 3-critical graphs},
+  title = {A characterization of edge-chromatic 3-critical graphs},
   year = {2026},
   note = {Manuscript}
 }
