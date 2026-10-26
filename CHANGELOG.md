@@ -6,7 +6,36 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [v1.3.0] - 2026-10-26
+
+Release accompanying the manuscript *A characterization of edge-chromatic
+3-critical graphs*. It archives every file the manuscript cites. All
+previously published census files, counts, and their SHA-256 hashes are
+unchanged.
+
 ### Added
+- `code/scripts/classify_census_characterization_exact.py`: classifies every
+  census survivor by the first applicable clause of the characterization
+  theorem, testing clause (c) over every cyclic 3-edge-cut and both of its
+  shores, and records degree-2 counts and the snark completion for clauses
+  (d)/(e). Its output
+  `reports/census_characterization_classification_exact.{json,md}` gives the
+  counts in the manuscript's census-categorization table (orders 13-24).
+- `code/scripts/verify_pstar_minor.py` and its output
+  `reports/pstar_minor_verification.json`: every survivor of order at most 24
+  contains P* (the Petersen graph minus a vertex) as a minor. Orders up to 17
+  and all clause-(d)/(e) survivors of orders 19-24 were searched directly;
+  the remaining survivors follow by induction. The order-23 entry records the
+  direct search of the 1,908 clause-(d) survivors.
+- Completed **Order-24 census** (`results/order_24_delta_3.json.gz`): nine
+  nontrivial survivors (eight triangle blowups of the order-22 survivor and
+  one triangle-free graph), with `code/scripts/classify_order24_survivors.py`,
+  the order-24 gallery, and explorer data.
+- Native C census filter (`code/native/`) used for the Order-24 census, and the
+  Order-19 native replay receipt
+  (`reports/order19_native_replay_20260728.{json,md}`,
+  `results/order_19_delta_3_native_replay.canonical.g6.gz`).
+- Order-23 added to the interactive graph explorer.
 - Exact finite boundary-state certificates for the all-order snark-completion
   proof: `analyze_pattern_i_boundary_states.py` exhausts the two-shore
   Pattern-I family table, and `analyze_pattern_ii_boundary_states.py`
@@ -37,6 +66,9 @@ adheres to [Semantic Versioning](https://semver.org/).
   five-label software partition. Its Meredith rule inspects only smaller
   cyclic-cut shores, so a residual `(d/e)` label does not certify failure of
   theorem clause (c) through the opposite shore.
+- Repository, citation metadata, and website now use the manuscript's
+  current title, *A characterization of edge-chromatic 3-critical graphs*.
+- Figures embed TrueType fonts.
 
 ## [v1.2.0] - 2026-07-23
 

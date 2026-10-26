@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this dataset or code, please cite the associated paper."
-title: "Data and code for: Structure and census of edge-chromatic 3-critical graphs"
+title: "Data and code for: A characterization of edge-chromatic 3-critical graphs"
 type: dataset
 authors:
   - family-names: Chen
@@ -16,12 +16,12 @@ identifiers:
     value: 10.5281/zenodo.20821990
     description: "Concept DOI (always resolves to the latest version)"
   - type: doi
-    value: 10.5281/zenodo.20822559
-    description: "Version DOI for v1.1.1"
+    value: 10.5281/zenodo.21516264
+    description: "Version DOI for v1.2.0"
 repository-code: "https://github.com/chenle02/edge-3-critical-graphs-data"
 url: "https://chenle02.github.io/edge-3-critical-graphs-data/"
-version: "v1.2.0"
-date-released: "2026-07-23"
+version: "v1.3.0"
+date-released: "2026-10-26"
 keywords:
   - edge coloring
   - chromatic index
@@ -32,7 +32,7 @@ keywords:
   - nauty
 preferred-citation:
   type: article
-  title: "Structure and census of edge-chromatic 3-critical graphs"
+  title: "A characterization of edge-chromatic 3-critical graphs"
   authors:
     - family-names: Chen
       given-names: Le
